@@ -1,0 +1,25 @@
+{
+  "histories": [
+    {
+      "id": "unreviewed",
+      "facts": {
+        "identified": true,
+        "checked": false
+      }
+    },
+    {
+      "id": "reviewed",
+      "facts": {
+        "identified": true,
+        "checked": true
+      }
+    },
+    {
+      "id": "unidentified",
+      "facts": {
+        "identified": false,
+        "checked": true
+      }
+    }
+  ]
+}

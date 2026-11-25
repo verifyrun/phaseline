@@ -1,0 +1,23 @@
+{
+  "bridge": {
+    "status": "approved",
+    "owner": "library_records",
+    "reference": "synthetic revision 2 / scope 7",
+    "from": "1561ec4434f62f7edb4fc6b11324ce3e7e037d13b05227e85b3d52319f5eacc0",
+    "to": "868db34424f7c363f08bf77aa7a6102326fc5af3f0cfd38ed360a0d51991642b",
+    "receipt": "4b183c801b6c00811fb2031c0ffd46f0b1326f6132c648478dde21f097efdcb8",
+    "effectiveFrom": 11,
+    "validThrough": 12,
+    "successors": {
+      "booked": [
+        "booked_closed",
+        "booked_open"
+      ],
+      "unbooked": [
+        "unbooked_closed",
+        "unbooked_open"
+      ]
+    }
+  },
+  "signature": "5fb7f79935e9c76fbbf04108cacc3c8b3d4414f08b0b3844814f86f2cc4ed61f62bcd161f660c28587593e8001525a8d4009188d9729c412256b1fc0a0b3a701"
+}

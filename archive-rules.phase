@@ -1,0 +1,7 @@
+fact open from archive.open owner curator
+fact checked from scanner.signed owner conservator
+fact batch in crate range 0..3 from scanner.batch owner curator
+guarantee publish when open and checked
+guarantee intake when not open
+guarantee room when batch < 3 crate
+guarantee new_batch when batch = 0 crate and not open

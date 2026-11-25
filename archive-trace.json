@@ -1,0 +1,6 @@
+{"steps":[
+  {"observe":{"open":false,"batch":0},"answers":{"publish":false}},
+  {"action":"sign","observe":{"open":false},"answers":{}},
+  {"action":"open_display","observe":{"open":true},"answers":{"publish":true}},
+  {"action":"sign","accepted":false,"observe":{},"answers":{"publish":true}}
+]}

@@ -1,0 +1,53 @@
+import assert from "node:assert/strict";
+import {DatabaseSync} from "node:sqlite";
+import {acceptBehavior,comparePorts,disputeBehavior,rememberRuntime,validateProbe,validateReading} from "./behavior-port.mjs";
+const db=new DatabaseSync(":memory:");
+db.exec("CREATE TABLE operations(id TEXT PRIMARY KEY,actor TEXT); CREATE TABLE grants(key TEXT PRIMARY KEY,active INTEGER); CREATE TABLE receiver_observations(pulse TEXT PRIMARY KEY,disputed INTEGER); CREATE TABLE jobs(id TEXT PRIMARY KEY); INSERT INTO jobs VALUES('before'),('after'); INSERT INTO grants VALUES('reader',1)");
+const runid="a".repeat(64);
+const inputs=[["Door A",false],["Door A",true],["Door B",false]];
+const port={id:"door",basis:"three approved access queries",inputs,price:2};
+const account={terms:{behaviorPort:port}},request={body:{data:{before:"before",after:"after"}}};
+for(const j of ["before","after"])rememberRuntime(db,j,runid);
+const compare=()=>comparePorts(db,account,request,()=>{});
+assert.equal(compare().status,"port_unknown");
+assert.throws(()=>validateProbe(port,[inputs[0],inputs[0]]));
+assert.throws(()=>validateProbe(port,[["ungranted",true]]));
+function sample(job,name,answers) {
+  const format=port.output?{output:port.output}:{};
+  const ticket={pulse:name,job,behavior:{expected:runid,port:port.id,inputs,...format}};
+  const behavior={port:port.id,snapshot:"snapshot-"+job,release:job,contentHash:"f".repeat(64),implementation:runid,fixed:true,answers,...format};
+  const reading={snapshot:behavior.snapshot,current:{release:job,contentHash:behavior.contentHash},behavior};
+  const effect={status:"delivery_confirmed",matchesCurrentBytes:true};
+  db.prepare("INSERT INTO operations VALUES(?,'reader')").run(name);
+  db.prepare("INSERT INTO receiver_observations VALUES(?,0)").run(name);
+  assert.equal(acceptBehavior(db,ticket,reading,effect).observed,answers.filter(x=>x!==null).length);
+  return {ticket,reading};
+}
+sample("before","a",[true,false,false]);const b=sample("after","b",[true,true,null]);
+assert.equal(compare().status,"observed_change");
+assert.deepEqual(compare().firstMissing.input,inputs[2]);
+db.exec("UPDATE receiver_observations SET disputed=1 WHERE pulse='b'");
+disputeBehavior(db,b.ticket,{...b.reading,behavior:{...b.reading.behavior,answers:[false,true,null]}});
+assert.equal(compare().compared,1);assert.deepEqual(compare().changes,[{input:inputs[1],before:false,after:true}]);
+assert.deepEqual(compare().disputedInputs,[inputs[0]]);
+disputeBehavior(db,b.ticket,{...b.reading,snapshot:"other"});
+assert.equal(compare().status,"port_unknown");assert.equal(compare().disputedInputs.length,3);
+db.exec("UPDATE grants SET active=0 WHERE key='reader'");
+assert.equal(compare().compared,0);
+db.exec("DELETE FROM port_samples; DELETE FROM port_disputes; UPDATE grants SET active=1");
+port.output="exact-json/1";
+const val=value=>({value});
+const old=sample("before","typed-a",[val(null),val({draft:[1,"1"],live:false}),null]);
+const fresh=sample("after","typed-b",[val("null"),val({live:false,draft:[1,"1"]}),val(null)]);
+assert.equal(compare().compared,2);
+assert.deepEqual(compare().changes,[{input:inputs[0],before:null,after:"null"}]);
+assert.deepEqual(compare().firstMissing,{input:inputs[2],missingBefore:true,missingAfter:false});
+db.exec("UPDATE receiver_observations SET disputed=1 WHERE pulse='typed-a'");
+disputeBehavior(db,old.ticket,{...old.reading,behavior:{...old.reading.behavior,answers:[val(null),val({live:false,draft:[1,"1"]}),val(null)]}});
+assert.deepEqual(compare().disputedInputs,[inputs[2]]);
+for (const bad of [[true,null,null],[val(1.25),null,null],[{other:2},null,null],[val(2**53),null,null]]) {
+  assert.throws(()=>validateReading(fresh.ticket.behavior,{...fresh.reading.behavior,answers:bad}));
+}
+assert.throws(()=>validateReading(fresh.ticket.behavior,{...fresh.reading.behavior,output:"other"}));
+assert.throws(()=>validateReading(b.ticket.behavior,{...b.reading.behavior,answers:[val(true),true,null]}));
+console.log("Approved tuples, partial reads, independent edition discrepancies, scoped conflicts and role withdrawal passed.");

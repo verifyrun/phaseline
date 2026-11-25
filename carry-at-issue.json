@@ -1,0 +1,15 @@
+{
+  "subject": "scope_7",
+  "at": 10,
+  "asOf": 10,
+  "records": [
+    {
+      "subject": "scope_7",
+      "at": 10,
+      "recorded": 10,
+      "source": "desk.reservation",
+      "by": "librarian",
+      "value": true
+    }
+  ]
+}

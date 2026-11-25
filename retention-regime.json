@@ -1,0 +1,14 @@
+{
+  "questions": ["rely"],
+  "actions": ["publish", "recall"],
+  "observe": ["released"],
+  "offers": {"checked": 3},
+  "budget": 3,
+  "states": [
+    {"id":"draft_a", "facts":{"released":false,"checked":false}, "next":{"publish":"issued_a","recall":"draft_a"}},
+    {"id":"draft_b", "facts":{"released":false,"checked":true},  "next":{"publish":"issued_b","recall":"draft_b"}},
+    {"id":"issued_a","facts":{"released":true,"checked":false},  "next":{"publish":"issued_a","recall":"draft_a"}},
+    {"id":"issued_b","facts":{"released":true,"checked":true},   "next":{"publish":"issued_b","recall":"draft_b"}},
+    {"id":"copy_b",  "facts":{"released":true,"checked":true},   "next":{"publish":"issued_b","recall":"draft_b"}}
+  ]
+}

@@ -1,0 +1,30 @@
+import assert from "node:assert/strict";
+import {mkdtempSync,rmSync} from "node:fs";
+import {tmpdir} from "node:os";
+import {join} from "node:path";
+import {createCurrentSource,currentCatalog,eligibleRankedRecords,putCurrentRecord,raiseSourceCapacity,seedCurrentRecords,setSourceSharing} from "./current-source.mjs";
+const root=mkdtempSync(join(tmpdir(),"bulk-source-")),binding="a".repeat(64),path=join(root,"source.db");
+const q={product:"plant",field:"words"},retention={binding,policy:"project-version/1"};
+const row=i=>({record:"r"+String(i).padStart(6,"0"),version:1,title:"Guide",type:"Manual",shared:true,fields:{words:"Text "+i}});
+try {
+  createCurrentSource(path,{binding,store:"wall",product:"plant",sourceKey:"b".repeat(64),receiverKey:"c".repeat(64),fields:["words"],maxActive:4});
+  assert.throws(()=>raiseSourceCapacity(path,"d".repeat(64),4100),/binding/);
+  for(let i=0;i<4096;i+=512)assert.equal(seedCurrentRecords(path,binding,Array.from({length:512},(_,n)=>row(i+n))).inserted,512);
+  assert.equal(putCurrentRecord(path,row(4096)).status,"hold");
+  assert.equal(raiseSourceCapacity(path,binding,4098).capacity,4098);
+  const head=row(4096),other=row(4097);
+  assert.equal(seedCurrentRecords(path,binding,[head,other,row(4098)]).status,"hold");
+  assert.equal(currentCatalog(path,q,retention,1).more,4095);
+  assert.deepEqual(seedCurrentRecords(path,binding,[head,other]),{status:"seeded",inserted:2,total:4098});
+  assert.equal(seedCurrentRecords(path,binding,[head,other]).inserted,0);
+  assert.equal(seedCurrentRecords(path,binding,[{...head,shared:false}]).status,"hold");
+  assert.equal(putCurrentRecord(path,{...other,shared:false}).status,"written");
+  const candidates=[other.record,"absent",head.record];
+  assert.deepEqual(eligibleRankedRecords(path,q,retention,candidates,3),[{record:head.record,version:1,shared:true}]);
+  assert.equal(currentCatalog(path,q,retention,4096).rows.some(r=>r.record===head.record),false);
+  assert.throws(()=>eligibleRankedRecords(path,q,{...retention,binding:"d".repeat(64)},candidates,3),/sharing/);
+  assert.throws(()=>eligibleRankedRecords(path,q,retention,[head.record,head.record],3),/shortlist/);
+  assert.equal(setSourceSharing(path,false).status,"written");
+  assert.throws(()=>eligibleRankedRecords(path,q,retention,candidates,3),/sharing/);
+  console.log("PASS: atomic full-population import, source capacity, retries, audience and indexed discovery outside the first 4096");
+} finally {rmSync(root,{recursive:true,force:true});}

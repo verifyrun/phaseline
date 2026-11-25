@@ -1,0 +1,15 @@
+{
+  "subject": "scope_7",
+  "at": 10,
+  "asOf": 11,
+  "records": [
+    {
+      "subject": "scope_7",
+      "at": 10,
+      "recorded": 11,
+      "source": "rota.evening",
+      "by": "scheduler",
+      "value": true
+    }
+  ]
+}

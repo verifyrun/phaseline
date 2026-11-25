@@ -1,0 +1,16 @@
+{
+  "histories": [
+    {
+      "id": "open",
+      "facts": {
+        "embargoed": false
+      }
+    },
+    {
+      "id": "restricted",
+      "facts": {
+        "embargoed": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{"steps":[
+  {"observe":{"released":false},"answers":{"rely":false}},
+  {"action":"publish","observe":{"released":true},"answers":{"rely":false}}
+]}

@@ -1,0 +1,4 @@
+fact embargoed from rights_register.embargo owner rights_officer missing hold_dependents
+guarantee lesson_notes when true
+guarantee worked_examples when true
+guarantee list_examples when worked_examples

@@ -1,0 +1,2 @@
+guarantee save_draft when false
+guarantee offer_resume when save_draft

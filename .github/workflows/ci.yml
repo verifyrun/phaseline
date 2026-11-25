@@ -1,0 +1,30 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run test:property
+      - name: Packaged types compile without @types/node
+        run: |
+          npm pack --pack-destination "$RUNNER_TEMP"
+          mkdir -p "$RUNNER_TEMP/consumer/node_modules/@verifyrun/phaseline"
+          tar -xzf "$RUNNER_TEMP"/verifyrun-phaseline-*.tgz --strip-components=1 -C "$RUNNER_TEMP/consumer/node_modules/@verifyrun/phaseline"
+          cp tests/types.ts tests/tsconfig.json "$RUNNER_TEMP/consumer/"
+          "$GITHUB_WORKSPACE/node_modules/.bin/tsc" -p "$RUNNER_TEMP/consumer/tsconfig.json"

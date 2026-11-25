@@ -1,0 +1,3 @@
+fact mean_reading in units from sensor.mean owner recorder missing hold_dependents
+fact peak_reading in units from trace.peak owner instrument_team missing hold_dependents
+guarantee excursion when peak_reading >= 25 units

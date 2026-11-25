@@ -1,0 +1,6 @@
+fact paid from billing.active owner billing_ops missing hold_dependents
+fact grandfathered from terms.legacy owner contracts missing hold_dependents
+fact seat_count in seats from billing.seats owner billing_ops missing hold_dependents
+guarantee exports when paid and (grandfathered or seat_count >= 10 seats)
+guarantee scheduled_export when exports
+guarantee view_records when true

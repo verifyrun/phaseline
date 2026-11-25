@@ -1,0 +1,230 @@
+{
+  "regime": {
+    "questions": [
+      "ready"
+    ],
+    "actions": [
+      "step",
+      "set_true",
+      "set_false"
+    ],
+    "observe": [],
+    "offers": {},
+    "budget": 0,
+    "states": [
+      {
+        "id": "s0_0",
+        "facts": {
+          "stage": 0,
+          "field": false,
+          "survey": false,
+          "shared": false
+        },
+        "next": {
+          "step": "s1_0",
+          "set_true": "s0_0",
+          "set_false": "s0_0"
+        }
+      },
+      {
+        "id": "s0_1",
+        "facts": {
+          "stage": 0,
+          "field": true,
+          "survey": false,
+          "shared": false
+        },
+        "next": {
+          "step": "s1_1",
+          "set_true": "s0_1",
+          "set_false": "s0_1"
+        }
+      },
+      {
+        "id": "s1_0",
+        "facts": {
+          "stage": 1,
+          "field": false,
+          "survey": false,
+          "shared": false
+        },
+        "next": {
+          "step": "s2_0",
+          "set_true": "s1_0",
+          "set_false": "s1_0"
+        }
+      },
+      {
+        "id": "s1_1",
+        "facts": {
+          "stage": 1,
+          "field": true,
+          "survey": true,
+          "shared": false
+        },
+        "next": {
+          "step": "s2_1",
+          "set_true": "s1_1",
+          "set_false": "s1_1"
+        }
+      },
+      {
+        "id": "s2_0",
+        "facts": {
+          "stage": 2,
+          "field": false,
+          "survey": false,
+          "shared": false
+        },
+        "next": {
+          "step": "s2_0",
+          "set_true": "s3_2",
+          "set_false": "s3_0"
+        }
+      },
+      {
+        "id": "s2_1",
+        "facts": {
+          "stage": 2,
+          "field": true,
+          "survey": true,
+          "shared": true
+        },
+        "next": {
+          "step": "s2_1",
+          "set_true": "s3_3",
+          "set_false": "s3_1"
+        }
+      },
+      {
+        "id": "s3_0",
+        "facts": {
+          "stage": 3,
+          "field": false,
+          "survey": false,
+          "shared": false
+        },
+        "next": {
+          "step": "s3_0",
+          "set_true": "s3_0",
+          "set_false": "s3_0"
+        }
+      },
+      {
+        "id": "s3_1",
+        "facts": {
+          "stage": 3,
+          "field": false,
+          "survey": true,
+          "shared": true
+        },
+        "next": {
+          "step": "s3_1",
+          "set_true": "s3_1",
+          "set_false": "s3_1"
+        }
+      },
+      {
+        "id": "s3_2",
+        "facts": {
+          "stage": 3,
+          "field": true,
+          "survey": false,
+          "shared": false
+        },
+        "next": {
+          "step": "s3_2",
+          "set_true": "s3_2",
+          "set_false": "s3_2"
+        }
+      },
+      {
+        "id": "s3_3",
+        "facts": {
+          "stage": 3,
+          "field": true,
+          "survey": true,
+          "shared": true
+        },
+        "next": {
+          "step": "s3_3",
+          "set_true": "s3_3",
+          "set_false": "s3_3"
+        }
+      }
+    ]
+  },
+  "initial": [
+    "s0_0",
+    "s0_1"
+  ],
+  "enabled": {
+    "s0_0": [
+      "step"
+    ],
+    "s0_1": [
+      "step"
+    ],
+    "s1_0": [
+      "step"
+    ],
+    "s1_1": [
+      "step"
+    ],
+    "s2_0": [
+      "set_true",
+      "set_false"
+    ],
+    "s2_1": [
+      "set_true",
+      "set_false"
+    ],
+    "s3_0": [
+      "step"
+    ],
+    "s3_1": [
+      "step"
+    ],
+    "s3_2": [
+      "step"
+    ],
+    "s3_3": [
+      "step"
+    ]
+  },
+  "roles": {
+    "Owner": {
+      "question": "ready",
+      "observe": [
+        "stage",
+        "shared",
+        "survey"
+      ],
+      "offers": {
+        "field": 2
+      },
+      "budget": 4,
+      "signals": {
+        "step": "advance",
+        "set_true": "update",
+        "set_false": "update"
+      }
+    },
+    "Guest": {
+      "question": "ready",
+      "observe": [
+        "stage",
+        "shared"
+      ],
+      "offers": {
+        "field": 2
+      },
+      "budget": 4,
+      "signals": {
+        "step": "advance",
+        "set_true": "update",
+        "set_false": "update"
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "questions": [
+    "pickup"
+  ],
+  "actions": [
+    "close"
+  ],
+  "observe": [],
+  "offers": {
+    "evening": 2
+  },
+  "budget": 3,
+  "states": [
+    {
+      "id": "unbooked_closed",
+      "facts": {
+        "reserved": false,
+        "evening": false
+      },
+      "next": {
+        "close": "unbooked_closed"
+      }
+    },
+    {
+      "id": "unbooked_open",
+      "facts": {
+        "reserved": false,
+        "evening": true
+      },
+      "next": {
+        "close": "unbooked_closed"
+      }
+    },
+    {
+      "id": "booked_closed",
+      "facts": {
+        "reserved": true,
+        "evening": false
+      },
+      "next": {
+        "close": "booked_closed"
+      }
+    },
+    {
+      "id": "booked_open",
+      "facts": {
+        "reserved": true,
+        "evening": true
+      },
+      "next": {
+        "close": "booked_closed"
+      }
+    }
+  ]
+}

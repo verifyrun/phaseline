@@ -1,0 +1,5 @@
+fact stage in tick from sensor.stage owner operator
+fact field from sensor.field owner operator
+fact survey from sensor.survey owner operator
+fact shared from sensor.shared owner operator
+guarantee ready when field

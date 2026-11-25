@@ -1,0 +1,23 @@
+import assert from "node:assert/strict";
+import {certifyPolicy} from "./policy-certificate.mjs";
+import {constructPhysical} from "./physical-planner.mjs";
+const command=(name,cost,requires,assign,observe=[])=>({name,cost,requires,outcomes:assign.map(items=>items.map(write=>({when:true,write}))),observe});
+const base={format:"factored-control/1",variables:[2,2],initial:[1,0],goal:[1,1],safe:true,commands:[
+  command("observe",1,true,[[]],[[0,1]]),command("finish-0",2,[0,0],[[[1,1]]]),command("finish-1",3,[0,1],[[[1,1]]])]};
+const good=constructPhysical(base);
+assert.equal(good.status,"certified_policy");assert.equal(good.minimumWorstCaseCost,4);
+assert.equal(constructPhysical(base,{budget:3}).status,"over_budget");
+assert.equal(constructPhysical({...base,commands:base.commands.slice(1)}).status,"unachievable");
+assert.equal(constructPhysical({...base,commands:[command("unfair",0,true,[[],[[1,1]]])]}).status,"unachievable");
+assert.equal(constructPhysical({...base,commands:[command("free-finish",0,true,[[[1,1]]])]}).minimumWorstCaseCost,0);
+assert.equal(constructPhysical({...base,initial:false}).status,"hold");
+assert.equal(constructPhysical(base,{workLimit:1}).status,"hold");
+assert.equal(constructPhysical(base,{worldLimit:1}).status,"hold");
+assert.equal(constructPhysical({...base,safe:[0,1]}).status,"unachievable");
+const complete={...base,initial:{all:[[0,0],[1,1]]},commands:[]};
+assert.deepEqual(constructPhysical(complete).policy.nodes,[{finish:true}]);
+const oversized={...complete,variables:Array(257).fill(2)};
+assert.equal(constructPhysical(oversized).status,"hold");
+assert.equal(certifyPolicy(oversized,{initial:0,nodes:[{finish:true}]}).phase,"input_validation");
+assert.throws(()=>constructPhysical({...complete,variables:[0]}),/Invalid finite variable/);
+console.log("Source-only policy construction, unrestricted adverse exits, zero-cost paths, empty observations and strict limits passed.");

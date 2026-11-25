@@ -1,0 +1,62 @@
+{
+  "name": "@verifyrun/phaseline",
+  "version": "0.5.0-rc.52",
+  "publishConfig": {
+    "tag": "next",
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "description": "Check versioned product guarantees and evaluate evidence for a subject",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/verifyrun/phaseline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/verifyrun/phaseline/issues"
+  },
+  "homepage": "https://phaseline.dev/",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.mjs"
+    },
+    "./*": "./*"
+  },
+  "types": "index.d.ts",
+  "bin": {
+    "phaseline": "phase.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "*.mjs",
+    "*.d.ts",
+    "*.phase",
+    "*.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
+    "!package-lock.json"
+  ],
+  "scripts": {
+    "test": "node scripts/run-checks.mjs",
+    "test:types": "tsc -p tests/tsconfig.json",
+    "test:property": "node tests/property.mjs"
+  },
+  "keywords": [
+    "policy",
+    "rules",
+    "decision",
+    "evidence",
+    "authorization",
+    "compliance",
+    "audit"
+  ],
+  "devDependencies": {
+    "fast-check": "4.11.0",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,4 @@
+fact identified from register.identity owner registrar missing hold_dependents
+fact checked from review.confirmed owner reviewer missing hold_dependents
+guarantee rely when identified and checked
+guarantee retain_record when identified

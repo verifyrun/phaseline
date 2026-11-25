@@ -1,0 +1,8 @@
+fact active from register.active owner registrar
+fact working from register.working owner registrar
+fact durable from register.durable owner registrar
+guarantee writer when working
+guarantee reader when durable
+guarantee in_transaction when active
+guarantee idle when not active
+guarantee reset when not active and not working and not durable

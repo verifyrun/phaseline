@@ -1,0 +1,5 @@
+{"subject":"lot_17","at":2,"asOf":2,"records":[
+  {"subject":"lot_17","at":2,"recorded":2,"source":"archive.open","by":"curator","value":false},
+  {"subject":"lot_17","at":2,"recorded":2,"source":"scanner.batch","by":"curator","value":1},
+  {"subject":"lot_17","at":2,"recorded":2,"source":"scanner.signed","by":"conservator","value":true}
+]}

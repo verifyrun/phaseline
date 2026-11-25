@@ -1,0 +1,33 @@
+{
+  "questions": [
+    "pickup"
+  ],
+  "actions": [
+    "close"
+  ],
+  "observe": [],
+  "offers": {
+    "reserved": 1
+  },
+  "budget": 3,
+  "states": [
+    {
+      "id": "unbooked",
+      "facts": {
+        "reserved": false
+      },
+      "next": {
+        "close": "unbooked"
+      }
+    },
+    {
+      "id": "booked",
+      "facts": {
+        "reserved": true
+      },
+      "next": {
+        "close": "booked"
+      }
+    }
+  ]
+}

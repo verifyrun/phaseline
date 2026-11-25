@@ -1,0 +1,3 @@
+fact reserved from desk.reservation owner librarian missing hold_dependents
+fact evening from rota.evening owner scheduler missing hold_dependents
+guarantee pickup when reserved and evening

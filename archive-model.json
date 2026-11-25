@@ -1,0 +1,15 @@
+{
+  "form":"finite-variables/1",
+  "variables":{"open":"boolean","checked":"boolean","batch":{"range":[0,3]}},
+  "initial":"new_batch",
+  "questions":["publish"],
+  "actions":{
+    "open_display":{"set":{"open":true}},
+    "close_display":{"set":{"open":false}},
+    "sign":{"enabledWhen":"intake","set":{"checked":true}},
+    "next_crate":{"enabledWhen":"room","set":{"batch":{"from":"batch","plus":1},"checked":false,"open":false}}
+  },
+  "observe":["open","batch"],
+  "offers":{"checked":2},
+  "budget":2
+}

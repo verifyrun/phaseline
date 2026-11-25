@@ -1,0 +1,110 @@
+{
+  "steps": [
+    {
+      "packet": {
+        "subject": "desk",
+        "at": 0,
+        "asOf": 0,
+        "records": [
+          {
+            "subject": "desk",
+            "at": 0,
+            "recorded": 0,
+            "source": "sensor.stage",
+            "by": "operator",
+            "value": 0
+          },
+          {
+            "subject": "desk",
+            "at": 0,
+            "recorded": 0,
+            "source": "sensor.field",
+            "by": "operator",
+            "value": true
+          }
+        ]
+      },
+      "buy": [
+        "field"
+      ]
+    },
+    {
+      "signal": "advance",
+      "packet": {
+        "subject": "desk",
+        "at": 1,
+        "asOf": 1,
+        "records": [
+          {
+            "subject": "desk",
+            "at": 1,
+            "recorded": 1,
+            "source": "sensor.stage",
+            "by": "operator",
+            "value": 1
+          },
+          {
+            "subject": "desk",
+            "at": 1,
+            "recorded": 1,
+            "source": "sensor.shared",
+            "by": "operator",
+            "value": false
+          }
+        ]
+      }
+    },
+    {
+      "signal": "advance",
+      "packet": {
+        "subject": "desk",
+        "at": 2,
+        "asOf": 2,
+        "records": [
+          {
+            "subject": "desk",
+            "at": 2,
+            "recorded": 2,
+            "source": "sensor.stage",
+            "by": "operator",
+            "value": 2
+          },
+          {
+            "subject": "desk",
+            "at": 2,
+            "recorded": 2,
+            "source": "sensor.shared",
+            "by": "operator",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "signal": "update",
+      "packet": {
+        "subject": "desk",
+        "at": 3,
+        "asOf": 3,
+        "records": [
+          {
+            "subject": "desk",
+            "at": 3,
+            "recorded": 3,
+            "source": "sensor.stage",
+            "by": "operator",
+            "value": 3
+          },
+          {
+            "subject": "desk",
+            "at": 3,
+            "recorded": 3,
+            "source": "sensor.shared",
+            "by": "operator",
+            "value": true
+          }
+        ]
+      }
+    }
+  ]
+}

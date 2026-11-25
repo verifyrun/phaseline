@@ -1,0 +1,25 @@
+{
+  "histories": [
+    {
+      "id": "steady_20_20",
+      "facts": {
+        "mean_reading": 20,
+        "peak_reading": 20
+      }
+    },
+    {
+      "id": "swing_10_30",
+      "facts": {
+        "mean_reading": 20,
+        "peak_reading": 30
+      }
+    },
+    {
+      "id": "steady_25_25",
+      "facts": {
+        "mean_reading": 25,
+        "peak_reading": 25
+      }
+    }
+  ]
+}

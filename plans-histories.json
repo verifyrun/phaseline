@@ -1,0 +1,20 @@
+{
+  "histories": [
+    {
+      "id": "legacy_terms",
+      "facts": {
+        "paid": true,
+        "seat_count": 10,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "current_terms",
+      "facts": {
+        "paid": true,
+        "seat_count": 10,
+        "grandfathered": false
+      }
+    }
+  ]
+}
