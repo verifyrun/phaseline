@@ -5,6 +5,10 @@ each change that can alter an existing result is marked **Changed behavior**.
 
 ## 0.5.0 (release candidates; install with @next)
 
+### Licensing and releases
+- Licensed under Apache-2.0, published from github.com/verifyrun/phaseline with npm
+  provenance and a signed GitHub release. First release from the public repository: rc.53.
+
 ### Changed behavior
 - A malformed record is refused with exit 1 and names the record: a date string or
   fraction in `at` or `recorded`, a field other than subject, at, recorded, source, by
