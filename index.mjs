@@ -1,7 +1,7 @@
 // The library entry: import {decide, gate, compare, serve} from "@verifyrun/phaseline".
 import {compareContracts, decide} from "./evidence-source.mjs";
 export {decide};
-export {observeSqlite, observeSqliteViews} from "./sqlite-observation.mjs";
+export {observeSqlite, observeSqliteViews, checkSqliteRecipients} from "./sqlite-observation.mjs";
 export {serve} from "./serve.mjs";
 
 // True only when the named guarantee is released for this case. Held and withheld are both false.

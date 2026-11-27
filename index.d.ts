@@ -89,3 +89,9 @@ export type SqliteObservation =
 export function observeSqlite(database: string, before: string, after: string, terms: SqliteObservationTerms): SqliteObservation;
 /** Read both named view definitions from the same database snapshot as their recipient rows. */
 export function observeSqliteViews(database: string, before: string, after: string, terms: SqliteObservationTerms): SqliteObservation;
+
+/** Receiver-controlled configuration; obtain it independently of the proposed recipients. */
+export type SqliteRecipientPolicy = Omit<SqliteObservationTerms, "editionDigests" | "expectedAfter"> & {
+  database: string; views: [string, string]; editionDigests: [string, string];
+};
+export function checkSqliteRecipients(policy: SqliteRecipientPolicy | null, proposed: Recipient[]): SqliteObservation;

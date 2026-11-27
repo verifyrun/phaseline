@@ -12,6 +12,7 @@ import {retain, challenge} from "./retention.mjs";
 
 const help = [
   "Start with a question about your evidence or a proposed change.",
+  "phaseline check recipients POLICY.json PROPOSAL.json   compare proposed identities against receiver-pinned installed rules",
   "phaseline observe sqlite DB --views OLD_VIEW NEW_VIEW TERMS.json   check the two installed SQLite views",
   "phaseline observe sqlite DB OLD.sql NEW.sql TERMS.json   read both editions on one authorized snapshot and compare recipients",
   "phaseline init DIRECTORY [inquiry|plant|course|plans|retention|carry|knowledge|archive|receiver]   create a new working directory",
@@ -51,7 +52,7 @@ const help = [
 // The everyday commands. phaseline --help all prints every command.
 const common = [
   "Phaseline checks rule changes and decides from records. Start here:",
-  ...help.split("\n").filter(line => /^phaseline (init|observe|compare \[|check|decide|analyze|retain RULES)/.test(line)),
+  ...help.split("\n").filter(line => /^phaseline (init|observe sqlite DB OLD|compare \[|check|decide|analyze|retain RULES)/.test(line)),
   "phaseline --help all   list every command",
   "phaseline --version",
   "Exit codes: 0 done, 2 needs review or cannot release, 1 mistaken command or unreadable input."
@@ -89,6 +90,15 @@ try {
     console.log(help);
   } else if (command === "--help" || command === "-h" || !command) {
     console.log(common);
+  } else if (command === "check" && args[0] === "recipients") {
+    if (args.length !== 3) throw usage();
+    const {checkSqliteRecipients} = await import("./sqlite-observation.mjs");
+    let policy = null;
+    try { policy = readJSON(readBytes(args[1], "utf8")); }
+    catch (error) { if (error.code !== "ENOENT") throw error; }
+    const result = checkSqliteRecipients(policy, readJSON(readFileSync(args[2], "utf8")));
+    console.log(JSON.stringify(result));
+    if (result.status !== "matched") process.exitCode = 2;
   } else if (command === "observe" && args[0] === "sqlite") {
     const views = args[2] === "--views";
     if (args.length !== (views ? 6 : 5)) throw usage();

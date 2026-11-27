@@ -1,4 +1,5 @@
 // Run the optional standard-library SQLite adapter only when requested.
+import {isAbsolute} from "node:path";
 import {spawnSync} from "node:child_process";
 import {fileURLToPath} from "node:url";
 
@@ -10,6 +11,17 @@ export function observeSqlite(database, before, after, terms) {
 }
 export function observeSqliteViews(database, before, after, terms) {
   return read("views", database, before, after, terms);
+}
+// The receiver loads this policy independently. The proposer supplies only recipient identities.
+export function checkSqliteRecipients(policy, proposed) {
+  if (!object(policy)) return {status: "hold", reason: "receiver_policy_required"};
+  const {database, views, ...terms} = policy;
+  if (typeof database !== "string" || !isAbsolute(database) || !Array.isArray(views)
+      || views.length !== 2 || !Array.from(views).every(v => typeof v === "string" && v.length > 0)
+      || !Array.isArray(terms.editionDigests) || Object.hasOwn(terms, "expectedAfter"))
+    return {status: "hold", reason: "receiver_policy_required"};
+  if (!Array.isArray(proposed)) return {status: "hold", reason: "recipient_proposal_required"};
+  return observeSqliteViews(database, views[0], views[1], {...terms, expectedAfter: proposed});
 }
 function read(mode, database, before, after, terms) {
   if (![database, before, after].every(s => typeof s === "string" && s.length > 0 && Buffer.byteLength(s) <= 200_000))

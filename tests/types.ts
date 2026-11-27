@@ -11,3 +11,7 @@ const observed = observeSqlite("source.db", "select id from records", "select id
 if (observed.status === "observed") observed.after.map(id => String(id));
 const views = observeSqliteViews("source.db", "old", "new", terms);
 if (views.status === "hold") String(views.need?.column);
+
+import {checkSqliteRecipients} from "@verifyrun/phaseline";
+const preflight = checkSqliteRecipients(null, ["A"]);
+if (preflight.status === "hold") String(preflight.reason);

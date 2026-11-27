@@ -5,7 +5,7 @@ import {mkdtempSync, writeFileSync, rmSync} from "node:fs";
 import {tmpdir} from "node:os";
 import {dirname, join} from "node:path";
 import {createRequire} from "node:module";
-import {observeSqlite, observeSqliteViews} from "@verifyrun/phaseline";
+import {observeSqlite, observeSqliteViews, checkSqliteRecipients} from "@verifyrun/phaseline";
 
 const require = createRequire(import.meta.url);
 const pkg = require.resolve("@verifyrun/phaseline/package.json");
@@ -64,6 +64,24 @@ with sqlite3.connect(sys.argv[1]) as db:
   assert.equal(installed.spent, 9);
   const pinned = {...withViews, editionDigests: installed.editions};
   assert.equal(observeSqliteViews(db, "issued", "revised", pinned).status, "observed");
+  const policyFile = join(dir, "enrolled.json"), proposalFile = join(dir, "proposed.json");
+  function preflight(ids) {
+    writeFileSync(proposalFile, JSON.stringify(ids));
+    const proc = spawnSync(process.execPath, [cli, "check", "recipients", policyFile, proposalFile], {encoding: "utf8"});
+    const report = JSON.parse(proc.stdout);
+    assert.equal(proc.status, report.status === "matched" ? 0 : 2);
+    return report;
+  }
+  assert.equal(preflight(["A", "B"]).reason, "receiver_policy_required");
+  const policy = {database: db, views: ["issued", "revised"], ...pinned};
+  assert.equal(checkSqliteRecipients({...policy, editionDigests: undefined}, ["A"]).reason, "receiver_policy_required");
+  assert.equal(checkSqliteRecipients(policy, undefined).reason, "recipient_proposal_required");
+  writeFileSync(policyFile, JSON.stringify(policy));
+  assert.equal(preflight(["A", "B"]).reason, "recipient_mismatch");
+  assert.equal(preflight(["A"]).status, "matched");
+  writeFileSync(policyFile, JSON.stringify({...policy, editionDigests: undefined}));
+  assert.equal(preflight(["A"]).reason, "receiver_policy_required");
+  writeFileSync(policyFile, JSON.stringify(policy));
   const approved = {...pinned, expectedAfter: ["A"]};
   execFileSync("python3", ["-c", setup, db, "begin; insert into consent values ('B',1); rollback;"]);
   assert.equal(observeSqliteViews(db, "issued", "revised", approved).status, "matched");
@@ -75,6 +93,7 @@ with sqlite3.connect(sys.argv[1]) as db:
   assert.equal(run(before, after, {...terms, grants: {recordings: terms.grants.recordings}}).reason, "missing_grant");
   execFileSync("python3", ["-c", setup, db, "drop view revised; create view revised as " + before]);
   assert.equal(observeSqliteViews(db, "issued", "revised", pinned).reason, "edition_mismatch");
+  assert.equal(preflight(["A", "B"]).reason, "edition_mismatch");
   assert.deepEqual(observeSqliteViews(db, "issued", "revised", withViews).removed, []);
   assert.equal(observeSqliteViews(db, "issued", "other", withViews).reason, "view_unavailable");
   assert.equal(observeSqliteViews(db, "issued", "revised", terms).reason, "missing_grant");
