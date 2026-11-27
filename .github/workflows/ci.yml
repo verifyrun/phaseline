@@ -22,4 +22,5 @@ jobs:
       - name: Test the installed archive
         run: |
           archive=$(npm pack --silent)
+          sha256sum "$archive"
           bash scripts/test-package.sh "$archive"

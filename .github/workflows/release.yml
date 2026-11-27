@@ -28,6 +28,7 @@ jobs:
       - name: Pack and test the release archive
         run: |
           archive=$(npm pack --silent)
+          sha256sum "$archive"
           bash scripts/test-package.sh "$archive"
           echo "ARCHIVE=$archive" >> "$GITHUB_ENV"
       - id: attest
@@ -35,8 +36,6 @@ jobs:
         with:
           subject-path: ${{ env.ARCHIVE }}
       - name: Publish the verified archive and confirm registry integrity
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           spec="@verifyrun/phaseline@${GITHUB_REF_NAME#v}"
           integrity="sha512-$(openssl dgst -sha512 -binary "$ARCHIVE" | openssl base64 -A)"
@@ -47,7 +46,7 @@ jobs:
           fi
           if [ -z "$current" ]; then
             case "$GITHUB_REF_NAME" in *-*) TAG=next ;; *) TAG=latest ;; esac
-            npm publish "$ARCHIVE" --provenance --access public --tag "$TAG"
+            npx --yes npm@11.21.3 publish "$ARCHIVE" --provenance --access public --tag "$TAG"
           fi
           test "$(npm view "$spec" dist.integrity --prefer-online)" = "$integrity"
       - name: Attach the verified archive and attestation to the GitHub release
