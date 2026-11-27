@@ -2,7 +2,7 @@
 // from the README, and that malformed input is refused rather than read as missing.
 import fc from "fast-check";
 import assert from "node:assert/strict";
-import {decide} from "../index.mjs";
+import {decide} from "@verifyrun/phaseline";
 
 const owners = fc.constantFrom("hr", "mgr");
 const sources = fc.constantFrom("hr.ok", "hr.other");
