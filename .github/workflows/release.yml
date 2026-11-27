@@ -48,7 +48,7 @@ jobs:
             case "$GITHUB_REF_NAME" in *-*) TAG=next ;; *) TAG=latest ;; esac
             npx --yes npm@11.21.3 publish "$ARCHIVE" --provenance --access public --tag "$TAG"
           fi
-          test "$(npm view "$spec" dist.integrity --prefer-online)" = "$integrity"
+          bash .github/scripts/confirm-published-archive.sh "$spec" "$integrity"
       - name: Attach the verified archive and attestation to the GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
