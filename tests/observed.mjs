@@ -21,7 +21,7 @@ function run(first, second, grants = terms, database = db) {
   const r = spawnSync(process.execPath, [cli, "observe", "sqlite", database, ...paths], {encoding: "utf8"});
   assert.ok([0, 2].includes(r.status), r.stderr);
   const report = JSON.parse(r.stdout);
-  assert.equal(r.status, report.status === "observed" ? 0 : 2);
+  assert.equal(r.status, ["observed", "matched"].includes(report.status) ? 0 : 2);
   if (report.status === "hold") assert.equal("after" in report, false);
   return report;
 }
@@ -35,6 +35,13 @@ with sqlite3.connect(sys.argv[1]) as db:
   assert.deepEqual(changed.removed, ["B"]);
   assert.equal(changed.spent, 4);
   assert.deepEqual(changed.newReads, [["consent", "id"], ["consent", "valid"]]);
+  assert.equal(run(before, after, {...terms, expectedAfter: ["A"]}).status, "matched");
+  const wrong = run(before, after, {...terms, expectedAfter: ["B"]});
+  assert.equal(wrong.reason, "recipient_mismatch");
+  assert.deepEqual(wrong.missing, ["B"]);
+  assert.deepEqual(wrong.unexpected, ["A"]);
+  assert.equal(run(before, "SELECT NULL AS id WHERE 0", {...terms, expectedAfter: []}).status, "matched");
+  assert.throws(() => observeSqlite(db, before, after, {...terms, expectedAfter: ["A", "A"]}), /distinct/);
   const denied = run(before, after, {...terms, grants: {recordings: terms.grants.recordings}});
   assert.equal(denied.reason, "missing_grant");
   assert.equal(denied.need.table, "consent");
@@ -57,6 +64,15 @@ with sqlite3.connect(sys.argv[1]) as db:
   assert.equal(installed.spent, 9);
   const pinned = {...withViews, editionDigests: installed.editions};
   assert.equal(observeSqliteViews(db, "issued", "revised", pinned).status, "observed");
+  const approved = {...pinned, expectedAfter: ["A"]};
+  execFileSync("python3", ["-c", setup, db, "begin; insert into consent values ('B',1); rollback;"]);
+  assert.equal(observeSqliteViews(db, "issued", "revised", approved).status, "matched");
+  execFileSync("python3", ["-c", setup, db, "insert into consent values ('B',1)"]);
+  const changedData = observeSqliteViews(db, "issued", "revised", approved);
+  assert.equal(changedData.reason, "recipient_mismatch");
+  assert.deepEqual(changedData.unexpected, ["B"]);
+  assert.equal(observeSqliteViews(db, "issued", "revised", {...approved, expectedAfter: ["A", "B"]}).status, "matched");
+  assert.equal(run(before, after, {...terms, grants: {recordings: terms.grants.recordings}}).reason, "missing_grant");
   execFileSync("python3", ["-c", setup, db, "drop view revised; create view revised as " + before]);
   assert.equal(observeSqliteViews(db, "issued", "revised", pinned).reason, "edition_mismatch");
   assert.deepEqual(observeSqliteViews(db, "issued", "revised", withViews).removed, []);

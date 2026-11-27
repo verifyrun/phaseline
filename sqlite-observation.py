@@ -118,7 +118,12 @@ def observe(request):
 
     old, new = results
     report.pop("checking")
-    return {**report, "status": "observed", "before": ordered(old), "after": ordered(new),
+    if "expectedAfter" in terms:
+        expected = set(terms["expectedAfter"])
+        if new != expected:
+            return hold("recipient_mismatch", missing=ordered(expected - new), unexpected=ordered(new - expected))
+    status = "matched" if "expectedAfter" in terms else "observed"
+    return {**report, "status": status, "before": ordered(old), "after": ordered(new),
             "added": ordered(new - old), "removed": ordered(old - new),
             "reads": [sorted(fields) for fields in dependencies],
             "newReads": sorted(dependencies[1] - dependencies[0])}

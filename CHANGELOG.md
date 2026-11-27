@@ -2,7 +2,7 @@
 
 ## 0.5.0-rc.55 (candidate)
 
-Observe exact recipient sets from two native SQLite rules or installed views on one authorized, budgeted snapshot. Recorded-table lookups identify their scope explicitly.
+Observe exact recipient sets from two native SQLite rules or installed views on one authorized, budgeted snapshot. Recorded-table lookups identify their scope explicitly. Narrow compact machines can exceed 2,048 classes within a shape-dependent output budget. Cross-edition mapping skips disjoint codebook subtrees.
 
 ## 0.5.0-rc.54
 

@@ -149,11 +149,13 @@ For example, a new archive rule joins donor consent to a recording. The operator
 
 The SQLite compiler identifies the actual columns each query requests. The reader pays the stated price for each distinct granted table/column referenced across both editions. A missing grant names the first required table and column. An unrelated grant can be left out. An installed-view read also needs access to SQLite’s catalog (`sqlite_master.type`, `name`, `sql`) and the relevant view columns. SQLite reports an empty column name for a table-only read such as counting rows.
 
+To check a proposed recipient set before use, include `"expectedAfter":["A","B"]` in the terms. Only `matched` means the observed revised set is exactly that proposal. A disagreement holds with the missing and unexpected recipients. The caller owns approval of the proposed set.
+
 A successful report contains the exact before/after recipient sets, additions, removals, read dependencies, spend, SQLite version and SHA-256 hashes of the editions. The view form reads definitions and recipients in one read-only transaction. Pass those two approved hashes in `editionDigests` to hold if a named definition changes. A hash covers the named definition; the result is what the engine observed with its current dependencies and data. The file form observes the **supplied SQL**.
 
-The database path and grants come from the application. Supply a database visible to the acting principal, including any required row-level restrictions. The result is an observation of that snapshot. An application applying an effect later must recheck its current authority and destination. A sample from `retain --read` answers only for the supplied histories.
+The database path and grants come from the application. Supply a database visible to the acting principal, including any required row-level restrictions. The result is an observation of that snapshot. A newly referenced column is a dependency of the query; its presence alone does not prove it caused a particular change. If two possible sources give identical answers to every permitted read but require different decisions, any procedure using those reads sees the same evidence in both. Distinguishing them requires another authorized observation. A policy omitted from both SQL editions and all evidence remains outside this result. An application applying an effect later must recheck its current authority and destination. A sample from `retain --read` answers only for the supplied histories.
 
-This optional reader uses Python 3.11+ with the standard SQLite module. It accepts a single read query per edition, a conservative set of deterministic built-ins, and text or exact integer recipients. A denied or unsupported read, exhausted budget, missing database, work limit, or invalid recipient holds the comparison. No partial recipient set is returned on hold. For JavaScript use `observeSqlite` or `observeSqliteViews` with the same inputs. CLI exit 0 means both reads succeeded (including when the sets differ); 2 means hold.
+This optional reader uses Python 3.11+ with the standard SQLite module. It accepts a single read query per edition, a conservative set of deterministic built-ins, and text or exact integer recipients. A denied or unsupported read, exhausted budget, missing database, work limit, or invalid recipient holds the comparison. No partial recipient set is returned on hold. For JavaScript use `observeSqlite` or `observeSqliteViews` with the same inputs. With no expected set, CLI exit 0 means both reads succeeded, including when the sets differ. With an expected set, exit 0 requires an exact match. Exit 2 means hold.
 
 ## Use it as a library
 
@@ -304,8 +306,9 @@ An unavailable action returns a refusal and keeps the current state unchanged.
 An omitted variable assignment keeps its old value. A reachable update outside
 the finite domain stops the check. The quotient can be exponential. Computation
 limits produce a hold. Compact retention has its own ceiling of two million
-diagram nodes, 20 million edges and 20 million composite calls, with at most 2,048
-retained classes. Rule comparison keeps its smaller limits so a poor variable
+diagram nodes, 20 million edges and 20 million composite calls, with a codebook output budget. Each class needs space for its example, answers and successors.
+The class limit is the larger of 2,048 and floor(131,072 divided by one plus the number of axes, answers and actions).
+A twelve-bit rotating register yields all 4,096 classes. Cross-edition mapping stops after ten million tree visits. Rule comparison keeps its smaller limits so a poor variable
 order holds quickly. Encoding reads source-bound observations and charges any
 purchases. Signed variable bridges bind the old receipt and both codebooks.
 

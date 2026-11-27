@@ -76,14 +76,15 @@ export interface SqliteObservationTerms {
   grants: Record<string, Record<string, number>>;
   budget: number;
   editionDigests?: [string, string];
+  expectedAfter?: Recipient[];
 }
 export type Recipient = string | number;
 export type SqliteObservation =
-  | {status: "observed"; scope: "sqlite_read_transaction"; sqlite: string; editions: string[]; spent: number;
+  | {status: "observed" | "matched"; scope: "sqlite_read_transaction"; sqlite: string; editions: string[]; spent: number;
      before: Recipient[]; after: Recipient[]; added: Recipient[]; removed: Recipient[];
      reads: [string, string][][]; newReads: [string, string][]}
   | {status: "hold"; reason: string; spent?: number; checking?: "before" | "after";
-     need?: {table?: string; column?: string; view?: string; price?: number}; detail?: string};
+     need?: {table?: string; column?: string; view?: string; price?: number}; detail?: string; missing?: Recipient[]; unexpected?: Recipient[]};
 /** Observe both SQL rule bodies on the same SQLite snapshot. Requires Python 3.11+ on PATH. */
 export function observeSqlite(database: string, before: string, after: string, terms: SqliteObservationTerms): SqliteObservation;
 /** Read both named view definitions from the same database snapshot as their recipient rows. */

@@ -6,6 +6,8 @@ const isObject=o=>o!==null && typeof o==="object" && !Array.isArray(o);
 
 function quotient(machine,questions) {
   const {d,reachable,actions,outputs,count,witness,axes}=machine;
+  // Each emitted class carries an example on every axis, all answers and all successors.
+  const classLimit=Math.max(2048, Math.floor(131072 / (1 + axes.length + outputs.length + actions.length)));
   const candidates=outputs.map((root,i)=>({root,question:questions[i]}));
   for(const a of actions) candidates.push({root:a.enabled,availability:a.name});
   const root={region:reachable};
@@ -34,7 +36,7 @@ function quotient(machine,questions) {
         cell.no={region:no};
         refined.push(cell.no,cell.yes);
       } else refined.push(cell);
-      if(refined.length>2048) throw Error("More than 2048 retained classes. No minimum reported.");
+      if(refined.length>classLimit) throw Error("Retained codebook exceeds its output budget ("+classLimit+" classes for this shape). No minimum reported.");
     }
     if(!useful) continue;
     leaves=refined;
@@ -159,11 +161,17 @@ export function symbolicRetain(source,spec,proposed) {
   const revised=quotient(after,spec.questions);
   const {d}=before;
   const decoder=[];
-  let witness;
+  let witness, visits=0;
   for(const o of old.leaves) {
     const row=[];
-    for(const n of revised.leaves) {
-      if(d.and(o.region,n.region)) row.push(n.code);
+    // Skip whole disjoint subtrees. In matching books each old cell has one destination.
+    const pending=[revised.root];
+    while(pending.length) {
+      if(++visits>10000000) throw Error("Cross-edition mapping work limit exceeded. No decoder reported.");
+      const cell=pending.pop();
+      if(!d.and(o.region,cell.region)) continue;
+      if(cell.test===undefined) row.push(cell.code);
+      else pending.push(cell.yes,cell.no);
     }
     if(row.length>1 && !witness) {
       const examples=row.slice(0,2).map(n=>before.witness(d.and(o.region,revised.leaves[n].region)));

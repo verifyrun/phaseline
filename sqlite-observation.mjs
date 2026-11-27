@@ -14,9 +14,15 @@ export function observeSqliteViews(database, before, after, terms) {
 function read(mode, database, before, after, terms) {
   if (![database, before, after].every(s => typeof s === "string" && s.length > 0 && Buffer.byteLength(s) <= 200_000))
     throw Error("Supply a SQLite file and two SQL editions of at most 200,000 bytes each.");
-  if (!object(terms) || Object.keys(terms).some(k => !["recipient", "grants", "budget", "editionDigests"].includes(k))
+  if (!object(terms) || Object.keys(terms).some(k => !["recipient", "grants", "budget", "editionDigests", "expectedAfter"].includes(k))
       || typeof terms.recipient !== "string" || !terms.recipient.length || !price(terms.budget) || !object(terms.grants))
     throw Error("Supply a recipient column, a nonnegative integer budget and table/column grants.");
+  if (terms.expectedAfter !== undefined) {
+    const ids = terms.expectedAfter;
+    if (!Array.isArray(ids) || ids.length > 2048 || new Set(ids).size !== ids.length
+        || !Array.from(ids).every(id => Number.isSafeInteger(id) || (typeof id === "string" && id.length > 0 && Buffer.byteLength(id) <= 512)))
+      throw Error("Supply at most 2048 distinct text or exact-integer expected recipients.");
+  }
   if (terms.editionDigests !== undefined && (!Array.isArray(terms.editionDigests)
       || terms.editionDigests.length !== 2 || !Array.from(terms.editionDigests).every(d => typeof d === "string" && /^[a-f0-9]{64}$/.test(d))))
     throw Error("Supply the two expected SHA-256 edition digests.");

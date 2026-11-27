@@ -98,7 +98,7 @@ try {
     const result = views ? observeSqliteViews(args[1], before, after, terms)
       : observeSqlite(args[1], readFileSync(before, "utf8"), readFileSync(after, "utf8"), terms);
     console.log(JSON.stringify(result));
-    if (result.status !== "observed") process.exitCode = 2;
+    if (!["observed", "matched"].includes(result.status)) process.exitCode = 2;
   } else if (command === "serve" && (args.length === 0 || (args.length === 2 && args[0] === "--port"))) {
     const port = args.length ? Number(args[1]) : 8787;
     if (!Number.isInteger(port) || port < 0 || port > 65535) throw usage();
