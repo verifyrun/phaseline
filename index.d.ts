@@ -70,3 +70,28 @@ export interface PhaselineServer {
   close(callback?: (error?: Error) => void): unknown;
 }
 export function serve(port?: number): Promise<PhaselineServer>;
+
+export interface SqliteObservationTerms {
+  recipient: string;
+  grants: Record<string, Record<string, number>>;
+  budget: number;
+  editionDigests?: [string, string];
+  expectedAfter?: Recipient[];
+}
+export type Recipient = string | number;
+export type SqliteObservation =
+  | {status: "observed" | "matched"; scope: "sqlite_read_transaction"; sqlite: string; editions: string[]; spent: number;
+     before: Recipient[]; after: Recipient[]; added: Recipient[]; removed: Recipient[];
+     reads: [string, string][][]; newReads: [string, string][]}
+  | {status: "hold"; reason: string; spent?: number; checking?: "before" | "after";
+     need?: {table?: string; column?: string; view?: string; price?: number}; detail?: string; missing?: Recipient[]; unexpected?: Recipient[]};
+/** Observe both SQL rule bodies on the same SQLite snapshot. Requires Python 3.11+ on PATH. */
+export function observeSqlite(database: string, before: string, after: string, terms: SqliteObservationTerms): SqliteObservation;
+/** Read both named view definitions from the same database snapshot as their recipient rows. */
+export function observeSqliteViews(database: string, before: string, after: string, terms: SqliteObservationTerms): SqliteObservation;
+
+/** Receiver-controlled configuration; obtain it independently of the proposed recipients. */
+export type SqliteRecipientPolicy = Omit<SqliteObservationTerms, "editionDigests" | "expectedAfter"> & {
+  database: string; views: [string, string]; editionDigests: [string, string];
+};
+export function checkSqliteRecipients(policy: SqliteRecipientPolicy | null, proposed: Recipient[]): SqliteObservation;

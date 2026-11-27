@@ -124,7 +124,23 @@ assert.equal(many.issued.classes.length,4);
 assert.ok(many.issued.classes.every(c=>Number(c.count)===2**22));
 const shift={...large,variables:Object.fromEntries(Object.entries(variables).slice(0,12)),
   actions:{rotate:{set:Object.fromEntries(Array.from({length:12},(_,i)=>["flag"+i,{from:"flag"+((i+1)%12)}]))}}};
-assert.throws(()=>symbolicRetain(detailed,shift),/2048 retained classes/);
+// Unequal bit patterns must disagree on one of the next twelve rotations.
+const rotated=symbolicRetain(detailed,shift,detailed);
+assert.equal(rotated.issued.classes.length,4096);
+assert.equal(rotated.issued.fixedWidthBits,12);
+for(const c of rotated.issued.classes) {
+  assert.equal(c.count,"1");
+  assert.deepEqual(rotated.migration.decoder[c.code],[c.code]);
+  let current=c;
+  for(let i=0;i<12;i++) {
+    assert.equal(current.answers[0],c.example["flag"+i]);
+    current=rotated.issued.classes[current.next[0]];
+  }
+  assert.equal(current.code,c.code);
+}
+const wider={...shift, variables:Object.fromEntries(Object.entries(variables).slice(0,14)),
+  actions:{rotate:{set:Object.fromEntries(Array.from({length:14},(_,i)=>["flag"+i,{from:"flag"+((i+1)%14)}]))}}};
+assert.throws(()=>symbolicRetain(detailed,wider),/output budget/);
 // A 64-step counter with four switches has 1,024 reachable states and needs every one.
 // The smaller comparison ceiling refused it. Retention has its own, so this is answered.
 const counted=Array.from({length:4},(_,i)=>"fact flag"+i+" from s.flag"+i+" owner o").join("\n")+
@@ -148,4 +164,4 @@ const differentGrant=archive.replace("scanner.signed owner conservator","scanner
 assert.throws(()=>symbolicRetain(archive,schema,differentGrant),/source migration/);
 console.log(JSON.stringify({randomMachines:120,reachableStates:reachableTotal,orderedPairDecisions:comparisons,
   inaccessibleSnapshot:issues,shortestWordEndsInRefusal:disabledFirst,migrationsRequiringMoreInformation:changed,
-  wideReachableStates:many.states,wideClasses:many.issued.classes.length,shiftRegisterHeldAt:2048}));
+  wideReachableStates:many.states,wideClasses:many.issued.classes.length,shiftRegisterClasses:rotated.issued.classes.length}));

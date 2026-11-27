@@ -1,6 +1,6 @@
 {
   "name": "@verifyrun/phaseline",
-  "version": "0.5.0-rc.54",
+  "version": "0.5.0-rc.55",
   "publishConfig": {
     "tag": "next",
     "access": "public",
@@ -33,6 +33,7 @@
   },
   "files": [
     "*.mjs",
+    "sqlite-observation.py",
     "*.d.ts",
     "*.phase",
     "*.json",
