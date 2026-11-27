@@ -2,6 +2,8 @@
 
 Phaseline checks what a product promises as its rules, observers and delivery systems change. Declare the questions, the evidence a person or agent can read, the future actions and who can authorize a change. The CLI can produce a differing case, identify a missing observation or compare signed receiver records to the declared model.
 
+Phaseline runs independently of VERIFY. An application supplies its own evidence and uses the public CLI or library. For example, an archive can compare today’s access rule with a proposed donor-consent rule and find which recordings would need new evidence before they could be shared. The archive still controls access to the recordings and observes what it actually shared.
+
 ## Install on Node.js 22 or later
 
 The released package is on npm. From the project that will use it, run:
