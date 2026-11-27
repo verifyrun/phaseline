@@ -12,6 +12,8 @@ test "$(node_modules/.bin/phaseline --version)" = "$(node -p "require('$root/pac
 (cd "$pkg" && node "$root/scripts/run-checks.mjs")
 cp "$root/tests/standalone.mjs" .
 node standalone.mjs
+cp "$root/tests/observed.mjs" .
+node observed.mjs
 cp "$root/tests/types.ts" "$root/tests/tsconfig.json" "$root/tests/property.mjs" .
 "$root/node_modules/.bin/tsc" -p tsconfig.json
 ln -s "$root/node_modules/fast-check" node_modules/fast-check

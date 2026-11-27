@@ -133,6 +133,28 @@ These need a yes-or-no or a number worked out by the caller before the case is s
 Event-specific rules require the original event identity. For training or another approval
 that carries across requests, declare `standing` and keep the source’s effective and recorded times.
 
+## Observe who a SQLite rule actually affects
+
+For a release decision, inspect the receiving system at the level that matters. Two rules can both flag a table and still flag different people. If the database exposes the two editions as views, name them directly:
+
+    phaseline observe sqlite archive.db --views issued revised terms.json
+
+To compare two compiled SQL files before deployment, use:
+
+    phaseline observe sqlite archive.db old.sql new.sql terms.json
+
+For example, a new archive rule joins donor consent to a recording. The operator supplies the receipt's identity column, allowed reads and one budget. For the SQL-file form a minimal terms file is:
+
+    {"recipient":"id","grants":{"recordings":{"id":1,"ready":1},"consent":{"id":1,"valid":1}},"budget":4}
+
+The SQLite compiler identifies the actual columns each query requests. The reader pays the stated price for each distinct granted table/column referenced across both editions. A missing grant names the first required table and column. An unrelated grant can be left out. An installed-view read also needs access to SQLite’s catalog (`sqlite_master.type`, `name`, `sql`) and the relevant view columns. SQLite reports an empty column name for a table-only read such as counting rows.
+
+A successful report contains the exact before/after recipient sets, additions, removals, read dependencies, spend, SQLite version and SHA-256 hashes of the editions. The view form reads definitions and recipients in one read-only transaction. Pass those two approved hashes in `editionDigests` to hold if a named definition changes. A hash covers the named definition; the result is what the engine observed with its current dependencies and data. The file form observes the **supplied SQL**.
+
+The database path and grants come from the application. Supply a database visible to the acting principal, including any required row-level restrictions. The result is an observation of that snapshot. An application applying an effect later must recheck its current authority and destination. A sample from `retain --read` answers only for the supplied histories.
+
+This optional reader uses Python 3.11+ with the standard SQLite module. It accepts a single read query per edition, a conservative set of deterministic built-ins, and text or exact integer recipients. A denied or unsupported read, exhausted budget, missing database, work limit, or invalid recipient holds the comparison. No partial recipient set is returned on hold. For JavaScript use `observeSqlite` or `observeSqliteViews` with the same inputs. CLI exit 0 means both reads succeeded (including when the sets differ); 2 means hold.
+
 ## Use it as a library
 
     import {decide, gate, compare} from "@verifyrun/phaseline";

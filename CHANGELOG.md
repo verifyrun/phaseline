@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0-rc.55 (candidate)
+
+Observe exact recipient sets from two native SQLite rules or installed views on one authorized, budgeted snapshot. Recorded-table lookups identify their scope explicitly.
+
 ## 0.5.0-rc.54
 
 Correct the standing-approval example to preserve source timestamps. Test the installed release archive before publication.

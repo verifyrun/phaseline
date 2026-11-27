@@ -61,7 +61,7 @@ function cliRead(table,queries,limits={}) {
 }
 try {
   const [ok,full]=cliRead(twin,[[1,true],[2,false]]);
-  assert.equal(ok,0);assert.equal(full.status,"read");assert.equal(full.recorded,2);
+  assert.equal(ok,0);assert.equal(full.status,"read");assert.equal(full.recorded,2);assert.equal(full.scope,"supplied_histories");
   assert.equal(full.queryWork,8);assert.equal(full.work,full.indexWork+full.queryWork);
   const [held,mixed]=cliRead(twin,[[1,true],[2,true]]);
   assert.equal(held,2);assert.equal(mixed.status,"read_with_holds");

@@ -12,6 +12,8 @@ import {retain, challenge} from "./retention.mjs";
 
 const help = [
   "Start with a question about your evidence or a proposed change.",
+  "phaseline observe sqlite DB --views OLD_VIEW NEW_VIEW TERMS.json   check the two installed SQLite views",
+  "phaseline observe sqlite DB OLD.sql NEW.sql TERMS.json   read both editions on one authorized snapshot and compare recipients",
   "phaseline init DIRECTORY [inquiry|plant|course|plans|retention|carry|knowledge|archive|receiver]   create a new working directory",
   "phaseline compare [--solver z3|diagram|enumerate] OLD.phase NEW.phase    print changed guarantees and witnesses",
   "phaseline compare --machines OLD.json NEW.json   compare two deterministic transition editions from their origins",
@@ -49,7 +51,7 @@ const help = [
 // The everyday commands. phaseline --help all prints every command.
 const common = [
   "Phaseline checks rule changes and decides from records. Start here:",
-  ...help.split("\n").filter(line => /^phaseline (init|compare \[|check|decide|analyze|retain RULES)/.test(line)),
+  ...help.split("\n").filter(line => /^phaseline (init|observe|compare \[|check|decide|analyze|retain RULES)/.test(line)),
   "phaseline --help all   list every command",
   "phaseline --version",
   "Exit codes: 0 done, 2 needs review or cannot release, 1 mistaken command or unreadable input."
@@ -87,6 +89,16 @@ try {
     console.log(help);
   } else if (command === "--help" || command === "-h" || !command) {
     console.log(common);
+  } else if (command === "observe" && args[0] === "sqlite") {
+    const views = args[2] === "--views";
+    if (args.length !== (views ? 6 : 5)) throw usage();
+    const {observeSqlite, observeSqliteViews} = await import("./sqlite-observation.mjs");
+    const [before, after, file] = args.slice(views ? 3 : 2);
+    const terms = readJSON(readFileSync(file, "utf8"));
+    const result = views ? observeSqliteViews(args[1], before, after, terms)
+      : observeSqlite(args[1], readFileSync(before, "utf8"), readFileSync(after, "utf8"), terms);
+    console.log(JSON.stringify(result));
+    if (result.status !== "observed") process.exitCode = 2;
   } else if (command === "serve" && (args.length === 0 || (args.length === 2 && args[0] === "--port"))) {
     const port = args.length ? Number(args[1]) : 8787;
     if (!Number.isInteger(port) || port < 0 || port > 65535) throw usage();

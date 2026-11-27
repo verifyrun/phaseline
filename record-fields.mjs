@@ -175,9 +175,9 @@ export function readRecordBatch(table, queries, terms={}) {
   if (!Array.isArray(queries) || queries.length > 100_000) {
     throw Error("Supply up to 100,000 record queries.");
   }
-  if (queries.length === 0) return {status:"hold",reason:"no_observations",calls:[]};
+  if (queries.length === 0) return {scope:"supplied_histories",status:"hold",reason:"no_observations",calls:[]};
   const reader = recordedReader(table,terms);
-  if (reader.status !== "ready") return {...reader,requested:queries.length,unprocessed:queries.length,calls:[]};
+  if (reader.status !== "ready") return {scope:"supplied_histories",...reader,requested:queries.length,unprocessed:queries.length,calls:[]};
   const calls=[];
   let recorded=0;
   for (const packet of queries) {
@@ -186,7 +186,7 @@ export function readRecordBatch(table, queries, terms={}) {
     if (call.status === "recorded") recorded++;
     if (call.status === "hold") break;
   }
-  return {status:recorded === queries.length?"read":"read_with_holds",basis:reader.basis,
+  return {scope:"supplied_histories",status:recorded === queries.length?"read":"read_with_holds",basis:reader.basis,
     requested:queries.length,recorded,held:queries.length-recorded,unprocessed:queries.length-calls.length,
     indexWork:reader.indexWork,queryWork:reader.work-reader.indexWork,work:reader.work,calls};
 }
