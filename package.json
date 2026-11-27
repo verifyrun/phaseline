@@ -1,6 +1,6 @@
 {
   "name": "@verifyrun/phaseline",
-  "version": "0.5.0-rc.53",
+  "version": "0.5.0-rc.54",
   "publishConfig": {
     "tag": "next",
     "access": "public",

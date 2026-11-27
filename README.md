@@ -128,8 +128,8 @@ These need a yes-or-no or a number worked out by the caller before the case is s
 - Dates and durations other than within (the embargo ends on a date).
 - Arithmetic (a + b) and !=. Write not (n = 3 items).
 - Counting records (two different approvers). Send the count as a number.
-- A record written before the case's event time, or about another event, is not read.
-  Stamp a standing fact such as a completed training with the case's own at.
+Event-specific rules require the original event identity. For training or another approval
+that carries across requests, declare `standing` and keep the source’s effective and recorded times.
 
 ## Use it as a library
 

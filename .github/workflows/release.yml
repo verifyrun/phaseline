@@ -25,25 +25,36 @@ jobs:
       - name: Tag matches package version
         run: test "v$(node -p 'require("./package.json").version')" = "$GITHUB_REF_NAME"
       - run: npm ci --ignore-scripts
-      - run: npm test
-      - run: npm run test:property
-      - name: Pack
-        run: npm pack
+      - name: Pack and test the release archive
+        run: |
+          archive=$(npm pack --silent)
+          sha256sum "$archive"
+          bash scripts/test-package.sh "$archive"
+          echo "ARCHIVE=$archive" >> "$GITHUB_ENV"
       - id: attest
         uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
-          subject-path: verifyrun-phaseline-*.tgz
-      - name: Signed GitHub release with the archive and its provenance
+          subject-path: ${{ env.ARCHIVE }}
+      - name: Publish the verified archive and confirm registry integrity
+        run: |
+          spec="@verifyrun/phaseline@${GITHUB_REF_NAME#v}"
+          integrity="sha512-$(openssl dgst -sha512 -binary "$ARCHIVE" | openssl base64 -A)"
+          current=$(npm view "$spec" dist.integrity --prefer-online 2>/dev/null || true)
+          if [ -n "$current" ] && [ "$current" != "$integrity" ]; then
+            echo "The registry already contains different bytes for $spec" >&2
+            exit 1
+          fi
+          if [ -z "$current" ]; then
+            case "$GITHUB_REF_NAME" in *-*) TAG=next ;; *) TAG=latest ;; esac
+            npx --yes npm@11.21.3 publish "$ARCHIVE" --provenance --access public --tag "$TAG"
+          fi
+          test "$(npm view "$spec" dist.integrity --prefer-online)" = "$integrity"
+      - name: Attach the verified archive and attestation to the GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
           BUNDLE: ${{ steps.attest.outputs.bundle-path }}
         run: |
-          cp "$BUNDLE" "verifyrun-phaseline-${GITHUB_REF_NAME#v}.intoto.jsonl"
+          proof="${ARCHIVE%.tgz}.intoto.jsonl"
+          cp "$BUNDLE" "$proof"
           case "$GITHUB_REF_NAME" in *-*) PRE=--prerelease ;; *) PRE= ;; esac
-          gh release create "$GITHUB_REF_NAME" $PRE --verify-tag --notes-file CHANGELOG.md verifyrun-phaseline-*.tgz verifyrun-phaseline-*.intoto.jsonl
-      - name: Publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          case "$GITHUB_REF_NAME" in *-*) TAG=next ;; *) TAG=latest ;; esac
-          npm publish verifyrun-phaseline-*.tgz --provenance --access public --tag "$TAG"
+          gh release create "$GITHUB_REF_NAME" $PRE --verify-tag --notes-file CHANGELOG.md "$ARCHIVE" "$proof"

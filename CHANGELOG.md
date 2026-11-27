@@ -1,13 +1,17 @@
 # Changelog
 
+## 0.5.0-rc.54
+
+Correct the standing-approval example to preserve source timestamps. Test the installed release archive before publication.
+
 Phaseline follows semantic versioning. Before 1.0, a minor version may change behavior;
 each change that can alter an existing result is marked **Changed behavior**.
 
-## 0.5.0 (release candidates; install with @next)
+## 0.5.0 release candidates
 
 ### Licensing and releases
-- Licensed under Apache-2.0, published from github.com/verifyrun/phaseline with npm
-  provenance and a signed GitHub release. First release from the public repository: rc.53.
+- The standalone candidate includes an Apache-2.0 license and a workflow for npm
+  provenance. Check the registry and the matching attestation for a published version.
 
 ### Changed behavior
 - A malformed record is refused with exit 1 and names the record: a date string or

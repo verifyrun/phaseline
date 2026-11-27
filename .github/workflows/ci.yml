@@ -19,12 +19,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci --ignore-scripts
-      - run: npm test
-      - run: npm run test:property
-      - name: Packaged types compile without @types/node
+      - name: Test the installed archive
         run: |
-          npm pack --pack-destination "$RUNNER_TEMP"
-          mkdir -p "$RUNNER_TEMP/consumer/node_modules/@verifyrun/phaseline"
-          tar -xzf "$RUNNER_TEMP"/verifyrun-phaseline-*.tgz --strip-components=1 -C "$RUNNER_TEMP/consumer/node_modules/@verifyrun/phaseline"
-          cp tests/types.ts tests/tsconfig.json "$RUNNER_TEMP/consumer/"
-          "$GITHUB_WORKSPACE/node_modules/.bin/tsc" -p "$RUNNER_TEMP/consumer/tsconfig.json"
+          archive=$(npm pack --silent)
+          sha256sum "$archive"
+          bash scripts/test-package.sh "$archive"
