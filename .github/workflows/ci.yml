@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci --ignore-scripts
+      - name: Check delayed registry readback
+        if: matrix.node == 22
+        run: bash .github/scripts/test-confirm-published-archive.sh
       - name: Test the installed archive
         run: |
           archive=$(npm pack --silent)
