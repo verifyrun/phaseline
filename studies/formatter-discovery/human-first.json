@@ -1,0 +1,14 @@
+{
+  "1506827f961ac807": null,
+  "37be4079726d1805": "Does this exact file parse if you explicitly set the formatter target to Python 3.10 or later instead of the project target?",
+  "4547405a8af463c7": "What formatted source do you want for the long default string literal itself?",
+  "467247949827def5": null,
+  "48642e0b70a13ef3": "Can you supply the exact original parseable input from Black's generated error log, before Black split the quoted expression?",
+  "524bebb224d1da32": null,
+  "7fb9d35f2be45afd": null,
+  "85f76283f0852b5d": null,
+  "977e4538c0f20c44": null,
+  "9ee63b5234bf3527": "From the editor's reported working directory, does the identical stdin-filename invocation skip the file when you give the resolved real path?",
+  "ab713342dbf20548": null,
+  "d2b4fe0b0d55a150": null
+}
