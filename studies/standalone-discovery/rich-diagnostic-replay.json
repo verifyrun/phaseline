@@ -1,0 +1,66 @@
+{
+  "878": {
+    "question": "repro",
+    "score": "needless_hold"
+  },
+  "882": {
+    "question": null,
+    "score": "ready"
+  },
+  "886": {
+    "question": "repro",
+    "score": "needless_hold"
+  },
+  "890": {
+    "question": "repro",
+    "score": "needless_hold"
+  },
+  "893": {
+    "question": "terminal",
+    "score": "needless_hold"
+  },
+  "903": {
+    "question": null,
+    "score": "ready"
+  },
+  "913": {
+    "question": null,
+    "score": "ready"
+  },
+  "920": {
+    "question": "terminal",
+    "score": "needless_hold"
+  },
+  "948": {
+    "question": null,
+    "score": "ready"
+  },
+  "973": {
+    "question": "import_origin",
+    "score": "correct_question"
+  },
+  "993": {
+    "question": null,
+    "score": "ready"
+  },
+  "1009": {
+    "question": "html",
+    "score": "needless_hold"
+  },
+  "1019": {
+    "question": "observed_width",
+    "score": "correct_question"
+  },
+  "1036": {
+    "question": "list_boundary",
+    "score": "correct_question"
+  },
+  "1051": {
+    "question": "terminal_contract",
+    "score": "correct_question"
+  },
+  "1054": {
+    "question": "terminal",
+    "score": "needless_hold"
+  }
+}
