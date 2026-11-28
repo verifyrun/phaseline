@@ -38,9 +38,10 @@ if __name__=="__main__":
             if not opening:return
             return i["number"],opening,m,f,cs[j+1:]
     dates=sys.argv[2] if len(sys.argv)>2 else "2022-01-01..2023-12-31"
+    qualifier=" commenter:ntotten" if dates=="2019-01-01..2019-12-31" else ""
     groups=[0,0]; briefs={}; key={}; scanned=0
     for page in (1,2):
-        items=gh("-X","GET","search/issues","-f","q=repo:"+repo+" is:issue is:closed comments:>=3 created:"+dates,"-f","sort=created","-f","order=asc","-f","per_page=100","-f","page="+str(page))["items"]
+        items=gh("-X","GET","search/issues","-f","q=repo:"+repo+" is:issue is:closed comments:>=3 created:"+dates+qualifier,"-f","sort=created","-f","order=asc","-f","per_page=100","-f","page="+str(page))["items"]
         for i in range(0,len(items),8):
             if scanned>=120 or min(groups)>=6:break
             batch=items[i:i+min(8,120-scanned)];scanned+=len(batch)
