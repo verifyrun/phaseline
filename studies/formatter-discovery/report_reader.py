@@ -22,6 +22,20 @@ def decide(report,binaries):
         return "Does running python -m black inside the activated environment use the same interpreter as the failing black command?", "two interpreter versions"
     if re.search(r"line length",title,re.I) and not code and len(set(re.findall(r"\b(?:[4-9]\d|1\d\d)\b",body)))>=2:
         return "Can you give the smallest source example whose formatting changes between the two line lengths?", "no input for the proposed width comparison"
+    failure=re.search(r"internal error|crash|cannot format|fails? to (?:parse|format)|memoryerror",title,re.I)
+    version=re.search(r"(?:black(?:.s version|,| version)?[ :`*]+v?)(\d{2}\.\d+\.\d+)",body,re.I)
+    if failure and re.search(r"notebook|jupyter",text,re.I) and not re.search(r'["\']cells["\']\s*:|\.ipynb\)\s*$',body,re.M):
+        return "Can you share a minimal notebook file that reproduces this error?", "missing destination artifact"
+    if failure and not code and not re.search(r"https?://[^\s]+(?:playground|vercel\.app)|\.py[)#]",body,re.I):
+        return "Can you provide the smallest original source file that reproduces the reported error?", "only descriptions or logs available"
+    if failure and code and not version and not re.search(r"current main|nightly|git (?:head|main)",body,re.I):
+        return "Which Black release produced this result on the failing machine?", "no formatter edition bound to the observation"
+    if failure and re.search(r"often|sometimes|intermittent|random",text,re.I) and version:
+        return "Does the failure recur on repeated runs of the same input with that formatter in a clean environment?", "reported result is intermittent"
+    if re.search(r"playground|online formatter",body,re.I) and re.search(r"3\.12\.5",body) and failure:
+        return "Can you reproduce this outside the playground, and which Python interpreter actually runs that local formatter?", "local and hosted runtime need separate observations"
+    if re.search(r"support|option|integrat",title,re.I) and re.search(r"editorconfig",text,re.I):
+        return "Which settings should the formatter read from that configuration, and what behavior do you expect?", "owner must specify which settings govern delivery"
     if not code or len(code)>5000:
         return None,"triage from supplied report"
     blocks = [v for lang,v in blocks if lang.strip().lower() in {"py","python","python3"} and len(v)<=5000]
