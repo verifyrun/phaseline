@@ -2,12 +2,14 @@
 export function suggestPrerequisite(traces) {
   if (!Array.isArray(traces) || traces.length > 100000) throw Error("Supply at most 100,000 traces.");
   const frequencies = new Map(), pairs = new Map();
-  let acted = 0;
+  let acted = 0, pairVisits = 0;
   for (const trace of traces) {
     if (!trace || typeof trace.acted !== "boolean" || !Array.isArray(trace.seen) || trace.seen.length > 32
-        || trace.seen.some(x => typeof x !== "string" || !x.length || x.length > 128)
+        || Array.from(trace.seen).some(x => typeof x !== "string" || !x.length || x.length > 128)
         || new Set(trace.seen).size !== trace.seen.length) throw Error("Each trace needs distinct observed feature names and a Boolean acted label.");
     const seen = [...trace.seen].sort();
+    pairVisits += seen.length * (seen.length - 1) / 2;
+    if (pairVisits > 2_000_000) return {status: "insufficient_evidence", reason: "work_limit"};
     const side = trace.acted ? 1 : 0;
     if (trace.acted) acted++;
     for (let i=0; i<seen.length; i++) {
