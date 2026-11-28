@@ -16,3 +16,4 @@ export function compare(oldRules, newRules) {
   return {status: result.changes.length || bindings.length ? "review" : "preserved", changes: result.changes, bindings};
 }
 export {inquireOutput} from "./output-inquiry.mjs";
+export {traceProducer} from "./producer-trace.mjs";
