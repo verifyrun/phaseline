@@ -6,7 +6,7 @@ The adapter supplies a question, a small set of possible values and the permissi
 
 ## Reproduce
 
-In a new directory with Node 22+, Python 3.10+ and a Python virtual environment active, install the public CLI and save the three Python files in this directory alongside your package.json.
+[Download the example with all three Python files](https://github.com/verifyrun/phaseline/releases/download/v0.5.0-rc.54/phaseline-configuration-example.zip). Extract it, open the extracted directory, and use Node 22+ with an active Python 3.10+ virtual environment. Install the public CLI in that directory.
 
 ```sh
 npm install --save-dev --save-exact @verifyrun/phaseline@0.4.1
