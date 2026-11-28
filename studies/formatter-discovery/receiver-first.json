@@ -1,0 +1,478 @@
+{
+  "24.10.0": {
+    "0191c5e49a25e066": {
+      "candidate": "201db861fc5f8a828915a348d0f0e518773e2fc22c78080ec11e80f72c9eace7",
+      "tree": {
+        "matches": true
+      }
+    },
+    "022259ca597b97a9": {
+      "candidate": "6a92b307539837ff92c8cca50c08e070f2f707b9eeb069b81e1405026b2b8644",
+      "tree": {
+        "ask": "skipMagicTrailingComma",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "051d52b9eea1543e": {
+      "candidate": "8076385f927983eb2d63a9cfb8f989fd294efbc6e18dfba71b524e806906edde",
+      "tree": {
+        "ask": "lineLength80",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "0adde9767a135c12": {
+      "candidate": "ca85640bb145488b82cd16d5b987f538bd01c15e25fd92c6bb6afb97cabd9496",
+      "tree": {
+        "matches": true
+      }
+    },
+    "0b00f1c04b31ea21": {
+      "candidate": "2928be504a9c49b9833662f1e97dee8c62e44faa5ae2b177e5158841f0611e12",
+      "tree": {
+        "ask": "skipStringNormalization",
+        "answers": [
+          {
+            "ask": "lineLength80",
+            "answers": [
+              {
+                "matches": true
+              },
+              {
+                "matches": false
+              }
+            ]
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "0cff313daf79ba4d": {
+      "candidate": "74963aeed742f9cd92d02e8a053be2efbf70379d129b0b64d6aef800589aa2df",
+      "tree": {
+        "matches": true
+      }
+    },
+    "0eb2899022c4d8ca": {
+      "candidate": "ea20dd4fd4ba56fa77f47cd07d300ec76441b3bd3f9696f422b9016fc08aa827",
+      "tree": {
+        "matches": true
+      }
+    },
+    "0ed7f06a01293735": {
+      "candidate": "4609a169fca643c1c2e3c5d2eac06134c3ef0a4093668b2e843148e5f3e52f2a",
+      "tree": {
+        "matches": true
+      }
+    },
+    "0f1d09f2e265029f": {
+      "candidate": "71989a9e1d6854bfec9fceda03454037f9f94f9161c9227258f2cb418dd2f69b",
+      "tree": {
+        "ask": "skipStringNormalization",
+        "answers": [
+          {
+            "ask": "skipMagicTrailingComma",
+            "answers": [
+              {
+                "ask": "lineLength80",
+                "answers": [
+                  {
+                    "matches": true
+                  },
+                  {
+                    "matches": false
+                  }
+                ]
+              },
+              {
+                "matches": false
+              }
+            ]
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "119b08ce363c6d5b": {
+      "candidate": "c4f306b51ce58beb92009b0dc4a0e1a347d323da9247add1065cbe5a7cd1c9f4",
+      "tree": {
+        "matches": true
+      }
+    },
+    "11f66430caed1bdc": {
+      "candidate": "52bd9155e90a1edc3c6e16fbc6b5e21ff6982eec5f85b8ed02c281dddb194f63",
+      "tree": {
+        "ask": "skipStringNormalization",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "1634305146ae115b": {
+      "candidate": "fe47a63ffb771e9b4c037e7055b3f7701e03f34dbc485623d2fb36e986dd0170",
+      "tree": {
+        "matches": true
+      }
+    },
+    "17190991e8fb5e41": {
+      "candidate": "150613bae8bcde1bc3a2d0dd92da96c0250a3343abf7ee41564fe8f1ca37a453",
+      "tree": {
+        "ask": "skipMagicTrailingComma",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "1761c96273fd8d02": {
+      "candidate": "bd1cbdc10061618fdc80cd3eec1238ee0e079cb5d64b50707f31245b25c237d2",
+      "tree": {
+        "matches": true
+      }
+    },
+    "18def66b5fbc60f4": {
+      "candidate": "f7fe82b7e4d44d24e83ee62ce7e419e97b01c29d855bd1ae4b53c5f5f4903c90",
+      "tree": {
+        "ask": "skipMagicTrailingComma",
+        "answers": [
+          {
+            "ask": "lineLength80",
+            "answers": [
+              {
+                "matches": true
+              },
+              {
+                "matches": false
+              }
+            ]
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "19861b1848c4e8e1": {
+      "candidate": "78d4c1dc7b8ba2032d67d0aba76f6f4b8213b0c26e289ecd6fbd96892cbd342c",
+      "tree": {
+        "matches": true
+      }
+    },
+    "1a0c0e1eef470cd7": {
+      "candidate": "0b229aab4300bcfa09d5059341e83e6f4a2bc263af3f8050d783a9e868ab8efc",
+      "tree": {
+        "ask": "skipMagicTrailingComma",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "3a43f5356233d37a": {
+      "candidate": "d4961451de588d2d14b1c977ff6e56346bb0139abce11ccef7c971d86f270f95",
+      "tree": {
+        "ask": "skipStringNormalization",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "3e30da8124cffda5": {
+      "candidate": "4e4eee866af809055d1ae584d21739d6e947b555929ee014a8978a155a8e26bf",
+      "tree": {
+        "ask": "skipStringNormalization",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "5b1fd9414d58253d": {
+      "candidate": "6d373308531713c4ef9f54aa1dc5d1f832bada3361efa9e8c746b6f422b63d7e",
+      "tree": {
+        "ask": "skipMagicTrailingComma",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    }
+  },
+  "25.1.0": {
+    "0191c5e49a25e066": {
+      "candidate": "201db861fc5f8a828915a348d0f0e518773e2fc22c78080ec11e80f72c9eace7",
+      "tree": {
+        "matches": true
+      }
+    },
+    "022259ca597b97a9": {
+      "candidate": "6a92b307539837ff92c8cca50c08e070f2f707b9eeb069b81e1405026b2b8644",
+      "tree": {
+        "ask": "skipMagicTrailingComma",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "051d52b9eea1543e": {
+      "candidate": "8076385f927983eb2d63a9cfb8f989fd294efbc6e18dfba71b524e806906edde",
+      "tree": {
+        "ask": "lineLength80",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "0adde9767a135c12": {
+      "candidate": "ca85640bb145488b82cd16d5b987f538bd01c15e25fd92c6bb6afb97cabd9496",
+      "tree": {
+        "matches": true
+      }
+    },
+    "0b00f1c04b31ea21": {
+      "candidate": "2928be504a9c49b9833662f1e97dee8c62e44faa5ae2b177e5158841f0611e12",
+      "tree": {
+        "ask": "skipStringNormalization",
+        "answers": [
+          {
+            "ask": "lineLength80",
+            "answers": [
+              {
+                "matches": true
+              },
+              {
+                "matches": false
+              }
+            ]
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "0cff313daf79ba4d": {
+      "candidate": "74963aeed742f9cd92d02e8a053be2efbf70379d129b0b64d6aef800589aa2df",
+      "tree": {
+        "matches": true
+      }
+    },
+    "0eb2899022c4d8ca": {
+      "candidate": "ea20dd4fd4ba56fa77f47cd07d300ec76441b3bd3f9696f422b9016fc08aa827",
+      "tree": {
+        "matches": true
+      }
+    },
+    "0ed7f06a01293735": {
+      "candidate": "4609a169fca643c1c2e3c5d2eac06134c3ef0a4093668b2e843148e5f3e52f2a",
+      "tree": {
+        "matches": true
+      }
+    },
+    "0f1d09f2e265029f": {
+      "candidate": "71989a9e1d6854bfec9fceda03454037f9f94f9161c9227258f2cb418dd2f69b",
+      "tree": {
+        "ask": "skipStringNormalization",
+        "answers": [
+          {
+            "ask": "skipMagicTrailingComma",
+            "answers": [
+              {
+                "ask": "lineLength80",
+                "answers": [
+                  {
+                    "matches": true
+                  },
+                  {
+                    "matches": false
+                  }
+                ]
+              },
+              {
+                "matches": false
+              }
+            ]
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "119b08ce363c6d5b": {
+      "candidate": "c4f306b51ce58beb92009b0dc4a0e1a347d323da9247add1065cbe5a7cd1c9f4",
+      "tree": {
+        "matches": true
+      }
+    },
+    "11f66430caed1bdc": {
+      "candidate": "52bd9155e90a1edc3c6e16fbc6b5e21ff6982eec5f85b8ed02c281dddb194f63",
+      "tree": {
+        "ask": "skipStringNormalization",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "1634305146ae115b": {
+      "candidate": "fe47a63ffb771e9b4c037e7055b3f7701e03f34dbc485623d2fb36e986dd0170",
+      "tree": {
+        "matches": true
+      }
+    },
+    "17190991e8fb5e41": {
+      "candidate": "150613bae8bcde1bc3a2d0dd92da96c0250a3343abf7ee41564fe8f1ca37a453",
+      "tree": {
+        "ask": "skipMagicTrailingComma",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "1761c96273fd8d02": {
+      "candidate": "bd1cbdc10061618fdc80cd3eec1238ee0e079cb5d64b50707f31245b25c237d2",
+      "tree": {
+        "matches": true
+      }
+    },
+    "18def66b5fbc60f4": {
+      "candidate": "f7fe82b7e4d44d24e83ee62ce7e419e97b01c29d855bd1ae4b53c5f5f4903c90",
+      "tree": {
+        "ask": "lineLength80",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "19861b1848c4e8e1": {
+      "candidate": "78d4c1dc7b8ba2032d67d0aba76f6f4b8213b0c26e289ecd6fbd96892cbd342c",
+      "tree": {
+        "matches": true
+      }
+    },
+    "1a0c0e1eef470cd7": {
+      "candidate": "0b229aab4300bcfa09d5059341e83e6f4a2bc263af3f8050d783a9e868ab8efc",
+      "tree": {
+        "ask": "skipMagicTrailingComma",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "3a43f5356233d37a": {
+      "candidate": "d4961451de588d2d14b1c977ff6e56346bb0139abce11ccef7c971d86f270f95",
+      "tree": {
+        "ask": "skipStringNormalization",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "3e30da8124cffda5": {
+      "candidate": "4e4eee866af809055d1ae584d21739d6e947b555929ee014a8978a155a8e26bf",
+      "tree": {
+        "ask": "skipStringNormalization",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    },
+    "5b1fd9414d58253d": {
+      "candidate": "6d373308531713c4ef9f54aa1dc5d1f832bada3361efa9e8c746b6f422b63d7e",
+      "tree": {
+        "ask": "skipMagicTrailingComma",
+        "answers": [
+          {
+            "matches": true
+          },
+          {
+            "matches": false
+          }
+        ]
+      }
+    }
+  }
+}

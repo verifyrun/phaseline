@@ -1,0 +1,16 @@
+import assert from "node:assert/strict";
+import {inquireOutput} from "./index.mjs";
+const fields = ["normalize","line wrap"];
+const access = {known:{},readable:fields,budget:2};
+const unchanged = () => "x";
+const revised = s => s["line wrap"] ? "x\n" : "x";
+const run = (measure,rights=access) => inquireOutput(fields,measure,"x",rights);
+assert.deepEqual(run(unchanged),{scope:"declared_boolean_settings",configurations:4,status:"decided",matches:true});
+assert.equal(run(revised).setting,"line wrap");
+assert.equal(run(revised,{...access,known:{"line wrap":true}}).matches,false);
+assert.equal(run(revised,{...access,readable:["normalize"]}).reason,"indistinguishable");
+assert.equal(run(revised,{...access,budget:0}).reason,"over_budget");
+let counter=0;
+assert.throws(()=>run(()=>String(counter++)),/repeatable/);
+assert.throws(()=>run(()=>undefined),/repeatable/);
+assert.throws(()=>run(revised,{...access,known:{"line wrap":"yes"}}),/observed values/);
