@@ -2,7 +2,7 @@
 
 In [Rich issue 1036](https://github.com/Textualize/rich/issues/1036) the reporter supplied a Markdown document whose code block appeared before its list items on the terminal. Our prior text reader considered the report sufficient and did not investigate. The maintainer asked the reporter to insert a blank line. It made no difference. The reporter later confirmed the fix in Rich 9.12.0.
 
-This retrospective replay executes the original fenced Markdown as inert data. Save its first fenced Markdown block as `report.md`. In two separate Python environments install `rich==9.11.0` and `rich==9.12.0` respectively, both using `commonmark==0.9.2`. Run `python render.py report.md > old.json` and `python render.py report.md > new.json` in their respective environments. With either public Phaseline package installed, run:
+This retrospective replay executes the original fenced Markdown as inert data. The included `report.md` preserves the first fenced Markdown block from the opening report. In two separate Python environments install `rich==9.11.0` and `rich==9.12.0` respectively, both using `commonmark==0.9.2`. Run `python render.py report.md > old.json` and `python render.py report.md > new.json` in their respective environments. With either public Phaseline package installed, run:
 
 ```sh
 node check.mjs node_modules/@verifyrun/phaseline/phase.mjs old.json new.json
