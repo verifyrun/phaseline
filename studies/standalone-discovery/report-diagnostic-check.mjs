@@ -19,10 +19,12 @@ try {
   const input=join(dir,"reports.json"),out=join(dir,"answers.json");
   writeFileSync(input,JSON.stringify({
     bug:{title:"Markdown ordering",body:"An indented block changes order after a list.\n```python\nimport rich\n```"},
+    paired:{title:"Links wrap",body:"A long link breaks with `rich.print`. The native `print` works."},
     feature:{title:"[REQUEST] Force ANSI",body:"A team wants an environment variable to force ANSI output."},
   }));
   execFileSync(process.execPath,[fileURLToPath(new URL("./rich-revised.mjs",import.meta.url)),input,out]);
   const result=JSON.parse(readFileSync(out));
   assert.equal(result.bug.field,"list_boundary");
+  assert.equal(result.paired.answer,"advance");
   assert.equal(result.feature.answer,"advance");
 } finally {rmSync(dir,{recursive:true,force:true});}
