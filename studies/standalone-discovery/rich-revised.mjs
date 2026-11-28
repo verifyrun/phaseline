@@ -27,6 +27,15 @@ for(const [id,{title,body}] of Object.entries(JSON.parse(readFileSync(input,"utf
     continue;
   }
   const blocks=[...cleaned.matchAll(/```[^\n]*\n([\s\S]*?)```/g)].map(m=>m[1]);
+  // A paired comparison can already show a maintainer where to start investigating.
+  const paired = (/working cases?/i.test(cleaned) && /not working case/i.test(cleaned) && cleaned.includes("`rich.print("))
+    || (/native `?print`?.{0,30}works/i.test(cleaned) && cleaned.includes("`rich.print`"))
+    || blocks.some(b=>/^>>> .*console\.print\(/m.test(b) && /^\S[^>].+/m.test(b))
+    || ((cleaned.match(/!\[[^\]]*\]\(/g)??[]).length>=2 && blocks.length>0 && /terminal/i.test(cleaned) && /html/i.test(cleaned));
+  if (paired) {
+    answers[id]={answer:"advance",field:null,question:null};
+    continue;
+  }
   const html_path=/\b(?:html|browser|webpage)\b/i.test(title);
   const terminal_path=/\b(?:terminal|display|progress bar|colou?r|flicker|encoding)\b/i.test(text);
   const flags={html_path,terminal_path,

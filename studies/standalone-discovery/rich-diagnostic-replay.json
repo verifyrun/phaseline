@@ -1,15 +1,15 @@
 {
   "878": {
-    "question": "repro",
-    "score": "needless_hold"
+    "question": null,
+    "score": "ready"
   },
   "882": {
     "question": null,
     "score": "ready"
   },
   "886": {
-    "question": "repro",
-    "score": "needless_hold"
+    "question": null,
+    "score": "ready"
   },
   "890": {
     "question": null,
@@ -28,8 +28,8 @@
     "score": "ready"
   },
   "920": {
-    "question": "terminal",
-    "score": "needless_hold"
+    "question": null,
+    "score": "ready"
   },
   "948": {
     "question": null,
@@ -44,8 +44,8 @@
     "score": "ready"
   },
   "1009": {
-    "question": "html",
-    "score": "needless_hold"
+    "question": null,
+    "score": "ready"
   },
   "1019": {
     "question": "observed_width",
