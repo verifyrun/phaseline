@@ -1,6 +1,6 @@
 # Can a stranger discover the missing fact before acting?
 
-The original Rich reader asked the right free-form question on 0/4 required cases and needlessly held 7/12 actionable cases. After inspecting those answers the repaired caller asked all four known questions and held 4/12 actionable reports. Those are regression results. The original blind grade stands. [Rich fix and all 16 outcomes](https://github.com/verifyrun/phaseline/blob/28a8ef3c5961c68d830ca607fe59c295625600c2/studies/standalone-discovery/rich-diagnostic-replay.json)
+The original Rich reader asked the right free-form question on 0/4 required cases and needlessly held 7/12 actionable cases. After inspecting those answers the repaired caller asked all four known questions and held 0/12 actionable reports. Those are regression results. The original blind grade stands. [Rich fix and all 16 outcomes](https://github.com/verifyrun/phaseline/blob/55f177077ca5bb131ed42706f62651638583594a/studies/standalone-discovery/rich-diagnostic-replay.json)
 
 We used a different project, Black. Its maintainers and reporters supplied the archived prompts and later facts. The selector held their later messages separately, and each predictor's first action was committed before the replies were opened. The rounds were run and graded by the same operator. The controls are actionable for triage. No test authorized deploying a fix. [Rules frozen before selection](protocol.md) · [Human receipts and per-case scores](human-grades.json)
 
