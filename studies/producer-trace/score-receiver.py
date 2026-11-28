@@ -49,4 +49,4 @@ for version, edition in [("10.4.0", "v1"), ("11.0.0", "v2")]:
                           after_sha256=hashlib.sha256(case["after"].encode()).hexdigest())
     results[edition] = dict(counts=counts, cases=rows)
     print(edition, counts)
-(study / "receiver-results.json").write_text(json.dumps(results, indent=2) + "\n")
+(work / "receiver-results.json").write_text(json.dumps(results, indent=2) + "\n")

@@ -2,7 +2,8 @@
 # Reproduce two real Format Document runs, isolated from the user's extensions and profile.
 set -euo pipefail
 study=$(cd "$(dirname "$0")" && pwd)
-work=$(mktemp -d)
+# Keep the VS Code IPC socket below the Unix path-length limit.
+work=$(mktemp -d /tmp/ph-editor.XXXXXXXX)
 work=$(cd "$work" && pwd -P)
 printf 'Capture directory %s\n' "$work"
 export PHASELINE_EXAM_HOME="$work"
