@@ -3,7 +3,9 @@ import {readFileSync,writeFileSync} from "node:fs";
 import {decide,suggestPrerequisite} from "@verifyrun/phaseline";
 const read=p=>JSON.parse(readFileSync(p,"utf8"));
 const [schema,train,past,raw,destination,target="Hotels_4",method="ReserveHotel"] = process.argv.slice(2);
-const fields = read(schema).find(s=>s.service_name===target).intents.find(i=>i.name===method).required_slots;
+const model = read(schema).find(s=>s.service_name===target);
+const fields = model.intents.find(i=>i.name===method).required_slots;
+const descriptions = new Map(model.slots.map(s=>[s.name,s.description]));
 const candidate=suggestPrerequisite(read(train));
 const rawStates=read(raw);
 const results={};
@@ -18,7 +20,7 @@ function check(keys,known) {
   const wording={check_in_date:"What date would you like to check in?",stay_length:"How many nights will you stay?",
     place_name:"Which hotel would you like to reserve?",location:"In which city?",
     approval:"Do you approve the reservation details just shown?"};
-  return {ready:result.status==="release",asks,question:wording[asks[0]]??null};
+  return {ready:result.status==="release",asks,question:asks.length ? wording[asks[0]] ?? ("Please specify: " + descriptions.get(asks[0]) + ".") : null};
 }
 for(const [id,r] of Object.entries(read(past))) {
   const known=new Set(Object.keys(r.known).filter(k=>r.known[k].length));
