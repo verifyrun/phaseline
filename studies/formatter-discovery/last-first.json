@@ -1,0 +1,50 @@
+{
+  "02f9d6e296375867": {
+    "question": "Which Black release produced this result on the failing machine?",
+    "reason": "no formatter edition bound to the observation"
+  },
+  "47b6b49f88206f19": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "4eb5604c95b28438": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "6484d8052ac9028a": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "6721d2bd84af28fe": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "6846f487f09be889": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "6d0ab01cc3ca295c": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "73761b0ddd5a604b": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "b83c15bf7f387734": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "c00e4b73f7534f26": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "c7cccc9a40dec996": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "cd4b57a88039ee29": {
+    "question": null,
+    "reason": "triage from supplied report"
+  }
+}
