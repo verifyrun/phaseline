@@ -23,3 +23,10 @@ for first, grades, expected in (
 assert read({"title":"Process CPU high", "body":"Extension active; no log supplied."},"editor")["field"] == "process"
 assert read({"title":"Bundle fallback","body":"Failed to load formatter from the project. Using bundled formatter."},"editor")["action"] == "advance"
 assert read({"title":"AST changed", "body":"--- src\n+++ dst\nIs bug replicable on master?"},"black")["field"] == "revision"
+
+# A link in an opening cannot authorize acquisition from a private repository.
+from unittest.mock import patch
+from manifests import retrieve
+with patch("manifests.gh", return_value={"visibility":"private"}) as api:
+    assert retrieve({"body":"https://github.com/example/hidden"}, "2020-01-01T00:00:00Z") == {}
+    api.assert_called_once_with("repos/example/hidden")

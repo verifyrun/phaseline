@@ -16,6 +16,7 @@ def retrieve(report,opened):
         repo=repo.rstrip(".,)")
         if repo.lower().startswith(("prettier/","microsoft/","facebook/","eslint/")):continue
         try:
+            if gh("repos/"+repo).get("visibility") != "public": continue
             commits=gh("repos/"+repo+"/commits?"+urlencode({"until":opened,"per_page":1}))
             if not commits:continue
             sha=commits[0]["sha"]
