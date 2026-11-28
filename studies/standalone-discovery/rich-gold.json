@@ -1,0 +1,10 @@
+{
+  "13":{"decision":"advance","field":null,"comment":"591074541","basis":"maintainer agreed on behavior, followed by a fix"},
+  "17":{"decision":"advance","field":null,"comment":"596671382","basis":"maintainer had already pushed a possible fix"},
+  "19":{"decision":"advance","field":null,"comment":"597630370","basis":"accepted work and asked for later testing; no missing input before the change"},
+  "21":{"decision":"advance","field":null,"comment":"599228015","basis":"maintainer supplied a release to try"},
+  "2827":{"decision":"ask","field":"terminal","comment":"1445201865","mixed":true,"basis":"tentative encoding diagnosis; explicitly requested the affected terminals; no reporter answer"},
+  "2831":{"decision":"ask","field":"html","comment":"1445200161","mixed":true,"basis":"tentative font diagnosis; explicitly needed the actual HTML to be sure; no reporter answer"},
+  "2837":{"decision":"advance","field":null,"comment":"1454682033","provisional":true,"basis":"offered a context-manager/thread diagnosis with no question; later example challenged that diagnosis"},
+  "2963":{"decision":"ask","field":"repro","comment":"1546839314","basis":"explicit runnable reproducer request; no reporter answer"}
+}
