@@ -1,0 +1,105 @@
+{
+  "878": {
+    "decision": "advance",
+    "maintainer_comment": 754744563,
+    "reporter_reply": 754746641,
+    "specific": null
+  },
+  "882": {
+    "decision": "advance",
+    "maintainer_comment": 755196386,
+    "reporter_reply": 755378340,
+    "specific": null
+  },
+  "886": {
+    "decision": "advance",
+    "maintainer_comment": 756406589,
+    "reporter_reply": 756630652,
+    "specific": null
+  },
+  "890": {
+    "decision": "advance",
+    "maintainer_comment": 756402622,
+    "reporter_reply": 756507065,
+    "specific": null
+  },
+  "893": {
+    "decision": "advance",
+    "maintainer_comment": 757136908,
+    "reporter_reply": 757138018,
+    "specific": null
+  },
+  "903": {
+    "decision": "advance",
+    "maintainer_comment": 757445922,
+    "reporter_reply": 758291138,
+    "specific": null
+  },
+  "913": {
+    "decision": "advance",
+    "maintainer_comment": 759581784,
+    "reporter_reply": 759600235,
+    "specific": null
+  },
+  "920": {
+    "decision": "advance",
+    "maintainer_comment": 759733034,
+    "reporter_reply": 759751009,
+    "specific": null
+  },
+  "948": {
+    "decision": "advance",
+    "maintainer_comment": 763698260,
+    "reporter_reply": 764008849,
+    "specific": null
+  },
+  "973": {
+    "decision": "ask",
+    "effect": "Reporter found a different top-level import replaced the intended module; maintainer closed the loop.",
+    "maintainer_comment": 770089867,
+    "reporter_reply": 770095044,
+    "specific": "local import shadowing"
+  },
+  "993": {
+    "basis": "A proposed solution or design, phrased as a question.",
+    "decision": "advance",
+    "maintainer_comment": 775151786,
+    "reporter_reply": 775613027,
+    "specific": null
+  },
+  "1009": {
+    "decision": "advance",
+    "maintainer_comment": 778752520,
+    "reporter_reply": 778825827,
+    "specific": null
+  },
+  "1019": {
+    "decision": "ask",
+    "effect": "Reporter tested resize, multiple terminal programs and a real TTY; maintainer attributed behavior to the terminal.",
+    "maintainer_comment": 780432055,
+    "reporter_reply": 780656128,
+    "specific": "resize/observed terminal dimensions/COLUMNS"
+  },
+  "1036": {
+    "decision": "ask",
+    "effect": "Reporter added the blank line and showed the same failure; maintainer later supplied a fix.",
+    "maintainer_comment": 782858939,
+    "reporter_reply": 782868820,
+    "specific": "effect of an extra blank line after the list"
+  },
+  "1051": {
+    "decision": "ask",
+    "effect": "Reporter relayed the question to the Debian reporter. The immediate reply did not settle the reason.",
+    "maintainer_comment": 784097262,
+    "mixed": true,
+    "reporter_reply": 787397276,
+    "specific": "purpose or scope of TERM=unknown"
+  },
+  "1054": {
+    "basis": "A proposed solution or design, phrased as a question.",
+    "decision": "advance",
+    "maintainer_comment": 787433856,
+    "reporter_reply": 787745625,
+    "specific": null
+  }
+}
