@@ -425,3 +425,18 @@ to compare two journal modes with native SQLite during rollback and commit.
 
 Apache License 2.0; see LICENSE and NOTICE. Report vulnerabilities privately as
 described in SECURITY.md. Changes are listed in CHANGELOG.md.
+
+### Checking a proposed text output in a consuming application
+
+The review branch adds `inquireOutput` to the JavaScript entry point. A trusted, isolated operation can read Boolean settings by name. The checker tries both values locally, follows conditional reads, and returns the first permitted receiver question that can settle whether the proposed text is correct within the remaining budget. For example, a formatter can ask whether to retain the original quotes only on files where that choice changes the delivered text.
+
+```js
+import {inquireOutput} from "@verifyrun/phaseline";
+
+const render = (_, readBoolean) => readBoolean("retainQuotes") ? "'hello'" : '"hello"';
+const access = {known: {}, readable: ["retainQuotes"], budget: 1};
+const first = inquireOutput([], render, '"hello"', access);
+// first.status === "ask"; first.setting === "retainQuotes"
+```
+
+Pass the observation back through `known` and debit the question from the budget. A new edition must run its own operation. A question costs one receiver read. The fixture may be evaluated repeatedly across at most seven Boolean dimensions. Keep it deterministic, isolated from external effects, and put every material setting through the supplied reader. An untyped read of an undeclared property holds. An unsupported dimension count holds. External state that bypasses the reader lies outside the result. An ordinary bug report can still omit an unidentified fact. [Independent trials and limits](studies/formatter-discovery/README.md)

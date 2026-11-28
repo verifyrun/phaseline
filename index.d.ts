@@ -72,8 +72,9 @@ export interface PhaselineServer {
 export function serve(port?: number): Promise<PhaselineServer>;
 
 /** Check exact destination text across up to seven Boolean settings of a trusted, isolated fixture. */
-export function inquireOutput(settings: string[], measure: (configuration: Readonly<Record<string, boolean>>) => string,
+export function inquireOutput(settings: string[], measure: (configuration: Readonly<Record<string, boolean>>, readBoolean: (name: string) => boolean) => string,
   proposed: string, access: {known: Record<string, boolean>; readable: string[]; budget: number}):
   {scope: "declared_boolean_settings"; configurations: number} & (
     {status: "decided"; matches: boolean} | {status: "ask"; setting: string} |
-    {status: "hold"; reason: "over_budget" | "indistinguishable"});
+    {status: "hold"; reason: "over_budget" | "indistinguishable" | "setting_limit"} |
+    {status: "hold"; reason: "undeclared_setting"; setting: string});

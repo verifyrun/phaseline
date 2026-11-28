@@ -1,6 +1,5 @@
 """Before advancing on a report, look for a specific diagnostic from an earlier project report."""
 from collections import Counter
-from collections.abc import Iterable
 import json
 from math import log, sqrt
 from pathlib import Path

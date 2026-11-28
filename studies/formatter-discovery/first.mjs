@@ -4,8 +4,9 @@ import {createHash} from "node:crypto";
 import {inquireOutput} from "../../index.mjs";
 const fields = ["skipStringNormalization","skipMagicTrailingComma","lineLength80"];
 function tree(rows, known={}) {
-  const read = config => rows[fields.reduce((n,k)=>n*2+Number(config[k]),0)];
-  const result = inquireOutput(fields,read,rows[0],{known,readable:fields,budget:3-Object.keys(known).length});
+  // The consuming operation declares Boolean reads at use; the planner starts without a field list.
+  const read = (_, readBoolean) => rows[fields.reduce((n,k)=>n*2+Number(readBoolean(k)),0)];
+  const result = inquireOutput([],read,rows[0],{known,readable:fields,budget:3-Object.keys(known).length});
   if (result.status==="ask") return {ask:result.setting,answers:[false,true].map(v=>tree(rows,{...known,[result.setting]:v}))};
   return result.status==="decided" ? {matches:result.matches} : {hold:result.reason};
 }
