@@ -1,0 +1,586 @@
+{
+  "fresh": {
+    "cases": {
+      "4398": {
+        "expected": "ask",
+        "fact": "reason the offered indentation fails the intended use",
+        "key": "e40268bcf1af1862",
+        "maintainer": "https://github.com/psf/black/issues/4398#issuecomment-2214748767",
+        "reporter": "https://github.com/psf/black/issues/4398#issuecomment-2216863207",
+        "results": {
+          "second source reader": "premature advance"
+        }
+      },
+      "4400": {
+        "expected": "ask",
+        "fact": "original notebook file",
+        "key": "7d54989e79f76b1d",
+        "maintainer": "https://github.com/psf/black/issues/4400#issuecomment-2217767794",
+        "reporter": "https://github.com/psf/black/issues/4400#issuecomment-2218866589",
+        "results": {
+          "second source reader": "premature advance"
+        }
+      },
+      "4412": {
+        "expected": "advance",
+        "fact": null,
+        "key": "8b5fa73adc260da1",
+        "maintainer": "https://github.com/psf/black/issues/4412#issuecomment-2249262510",
+        "reporter": "https://github.com/psf/black/issues/4412#issuecomment-2249268943",
+        "results": {
+          "second source reader": "ready"
+        }
+      },
+      "4414": {
+        "expected": "ask",
+        "fact": "failing formatter edition and environment",
+        "key": "50e07cd688e64fb9",
+        "maintainer": "https://github.com/psf/black/issues/4414#issuecomment-2257279584",
+        "reporter": "https://github.com/psf/black/issues/4414#issuecomment-2349128684",
+        "results": {
+          "second source reader": "premature advance"
+        }
+      },
+      "4419": {
+        "expected": "advance",
+        "fact": null,
+        "key": "23067ef35c61528e",
+        "maintainer": "https://github.com/psf/black/issues/4419#issuecomment-2258288591",
+        "reporter": "https://github.com/psf/black/issues/4419#issuecomment-2258421591",
+        "results": {
+          "second source reader": "ready"
+        }
+      },
+      "4439": {
+        "expected": "advance",
+        "fact": null,
+        "key": "f51fbd7faf8dc4c0",
+        "maintainer": "https://github.com/psf/black/issues/4439#issuecomment-2299687030",
+        "reporter": "https://github.com/psf/black/issues/4439#issuecomment-2299695054",
+        "results": {
+          "second source reader": "ready"
+        }
+      },
+      "4446": {
+        "expected": "ask",
+        "fact": "repeat in a clean installation on the same machine",
+        "key": "668fa3ff116194dd",
+        "maintainer": "https://github.com/psf/black/issues/4446#issuecomment-2335008032",
+        "reporter": "https://github.com/psf/black/issues/4446#issuecomment-2335174520",
+        "results": {
+          "second source reader": "premature advance"
+        }
+      },
+      "4454": {
+        "expected": "ask",
+        "fact": "minimum original file reproducing the error",
+        "key": "135a417ab091e4f8",
+        "maintainer": "https://github.com/psf/black/issues/4454#issuecomment-2341173585",
+        "reporter": "https://github.com/psf/black/issues/4454#issuecomment-2342881806",
+        "results": {
+          "second source reader": "premature advance"
+        }
+      },
+      "4472": {
+        "expected": "advance",
+        "fact": null,
+        "key": "709c8a267f44d9bf",
+        "maintainer": "https://github.com/psf/black/issues/4472#issuecomment-2401116754",
+        "reporter": "https://github.com/psf/black/issues/4472#issuecomment-2401301449",
+        "results": {
+          "second source reader": "ready"
+        }
+      },
+      "4481": {
+        "expected": "ask",
+        "fact": "local reproduction versus hosted interpreter",
+        "key": "725d38cd3cf1bc9a",
+        "maintainer": "https://github.com/psf/black/issues/4481#issuecomment-2409706767",
+        "reporter": "https://github.com/psf/black/issues/4481#issuecomment-2409823844",
+        "results": {
+          "second source reader": "premature advance"
+        }
+      },
+      "4487": {
+        "expected": "ask",
+        "fact": "intended scope of configuration",
+        "key": "6e4d802c5ae0e16e",
+        "maintainer": "https://github.com/psf/black/issues/4487#issuecomment-2417802170",
+        "reporter": "https://github.com/psf/black/issues/4487#issuecomment-2417875420",
+        "results": {
+          "second source reader": "premature advance"
+        }
+      },
+      "4494": {
+        "expected": "advance",
+        "fact": null,
+        "key": "f429b8a529fa578b",
+        "maintainer": "https://github.com/psf/black/issues/4494#issuecomment-2429227701",
+        "reporter": "https://github.com/psf/black/issues/4494#issuecomment-2429232053",
+        "results": {
+          "second source reader": "ready"
+        }
+      }
+    },
+    "counts": {
+      "second source reader": {
+        "premature advance": 7,
+        "ready": 5
+      }
+    }
+  },
+  "initial": {
+    "cases": {
+      "4143": {
+        "expected": "ask",
+        "fact": "which formatter installation actually ran",
+        "key": "85f76283f0852b5d",
+        "maintainer": "https://github.com/psf/black/issues/4143#issuecomment-1875567624",
+        "reporter": "https://github.com/psf/black/issues/4143#issuecomment-1875784656",
+        "results": {
+          "agent": "premature advance",
+          "fitted": "correct question",
+          "prior reader": "premature advance",
+          "retrieval": "premature advance"
+        }
+      },
+      "4150": {
+        "expected": "ask",
+        "fact": "isolated reproduction of the claimed failure",
+        "key": "4547405a8af463c7",
+        "maintainer": "https://github.com/psf/black/issues/4150#issuecomment-1888362911",
+        "reporter": "https://github.com/psf/black/issues/4150#issuecomment-1888373863",
+        "results": {
+          "agent": "wrong question",
+          "fitted": "correct question",
+          "prior reader": "premature advance",
+          "retrieval": "premature advance"
+        }
+      },
+      "4151": {
+        "expected": "advance",
+        "fact": null,
+        "key": "48642e0b70a13ef3",
+        "maintainer": "https://github.com/psf/black/issues/4151#issuecomment-1888710500",
+        "reporter": "https://github.com/psf/black/issues/4151#issuecomment-1888932734",
+        "results": {
+          "agent": "needless hold",
+          "fitted": "ready",
+          "prior reader": "needless hold",
+          "retrieval": "ready"
+        }
+      },
+      "4163": {
+        "expected": "advance",
+        "fact": null,
+        "key": "467247949827def5",
+        "maintainer": "https://github.com/psf/black/issues/4163#issuecomment-1904373164",
+        "reporter": "https://github.com/psf/black/issues/4163#issuecomment-2104656964",
+        "results": {
+          "agent": "ready",
+          "fitted": "ready",
+          "prior reader": "ready",
+          "retrieval": "ready"
+        }
+      },
+      "4173": {
+        "expected": "advance",
+        "fact": null,
+        "key": "d2b4fe0b0d55a150",
+        "maintainer": "https://github.com/psf/black/issues/4173#issuecomment-1912101992",
+        "reporter": "https://github.com/psf/black/issues/4173#issuecomment-1912184991",
+        "results": {
+          "agent": "ready",
+          "fitted": "ready",
+          "prior reader": "needless hold",
+          "retrieval": "ready"
+        }
+      },
+      "4174": {
+        "expected": "advance",
+        "fact": null,
+        "key": "1506827f961ac807",
+        "maintainer": "https://github.com/psf/black/issues/4174#issuecomment-1912126128",
+        "reporter": "https://github.com/psf/black/issues/4174#issuecomment-1912127474",
+        "results": {
+          "agent": "ready",
+          "fitted": "needless hold",
+          "prior reader": "ready",
+          "retrieval": "ready"
+        }
+      },
+      "4175": {
+        "expected": "advance",
+        "fact": null,
+        "key": "977e4538c0f20c44",
+        "maintainer": "https://github.com/psf/black/issues/4175#issuecomment-1912243764",
+        "reporter": "https://github.com/psf/black/issues/4175#issuecomment-1912500860",
+        "results": {
+          "agent": "ready",
+          "fitted": "ready",
+          "prior reader": "ready",
+          "retrieval": "ready"
+        }
+      },
+      "4205": {
+        "expected": "ambiguous",
+        "fact": null,
+        "key": "7fb9d35f2be45afd",
+        "maintainer": "https://github.com/psf/black/issues/4205#issuecomment-1937367889",
+        "reporter": "https://github.com/psf/black/issues/4205#issuecomment-1937488761",
+        "results": {
+          "agent": "ambiguous",
+          "fitted": "ambiguous",
+          "prior reader": "ambiguous",
+          "retrieval": "ambiguous"
+        }
+      },
+      "4227": {
+        "expected": "advance",
+        "fact": null,
+        "key": "524bebb224d1da32",
+        "maintainer": "https://github.com/psf/black/issues/4227#issuecomment-1946921905",
+        "reporter": "https://github.com/psf/black/issues/4227#issuecomment-1948099057",
+        "results": {
+          "agent": "ready",
+          "fitted": "ready",
+          "prior reader": "ready",
+          "retrieval": "ready"
+        }
+      },
+      "4233": {
+        "expected": "advance",
+        "fact": null,
+        "key": "37be4079726d1805",
+        "maintainer": "https://github.com/psf/black/issues/4233#issuecomment-1944529552",
+        "reporter": "https://github.com/psf/black/issues/4233#issuecomment-1944564994",
+        "results": {
+          "agent": "needless hold",
+          "fitted": "needless hold",
+          "prior reader": "ready",
+          "retrieval": "ready"
+        }
+      },
+      "4234": {
+        "expected": "ask",
+        "fact": "the link path and its target",
+        "key": "9ee63b5234bf3527",
+        "maintainer": "https://github.com/psf/black/issues/4234#issuecomment-1946994703",
+        "reporter": "https://github.com/psf/black/issues/4234#issuecomment-1947296628",
+        "results": {
+          "agent": "wrong question",
+          "fitted": "correct question",
+          "prior reader": "wrong question",
+          "retrieval": "premature advance"
+        }
+      },
+      "4235": {
+        "expected": "ask",
+        "fact": "the downstream reason displayed width is insufficient",
+        "key": "ab713342dbf20548",
+        "maintainer": "https://github.com/psf/black/issues/4235#issuecomment-1946649209",
+        "reporter": "https://github.com/psf/black/issues/4235#issuecomment-1946690462",
+        "results": {
+          "agent": "premature advance",
+          "fitted": "correct question",
+          "prior reader": "premature advance",
+          "retrieval": "premature advance"
+        }
+      }
+    },
+    "counts": {
+      "agent": {
+        "ambiguous": 1,
+        "needless hold": 2,
+        "premature advance": 2,
+        "ready": 5,
+        "wrong question": 2
+      },
+      "fitted": {
+        "ambiguous": 1,
+        "correct question": 4,
+        "needless hold": 2,
+        "ready": 5
+      },
+      "prior reader": {
+        "ambiguous": 1,
+        "needless hold": 2,
+        "premature advance": 3,
+        "ready": 5,
+        "wrong question": 1
+      },
+      "retrieval": {
+        "ambiguous": 1,
+        "premature advance": 4,
+        "ready": 7
+      }
+    }
+  },
+  "last": {
+    "cases": {
+      "1910": {
+        "expected": "advance",
+        "fact": null,
+        "key": "6d0ab01cc3ca295c",
+        "maintainer": "https://github.com/psf/black/issues/1910#issuecomment-756387518",
+        "reporter": "https://github.com/psf/black/issues/1910#issuecomment-756831134",
+        "results": {
+          "final source reader": "ready"
+        }
+      },
+      "1917": {
+        "expected": "ask",
+        "fact": "where the stale configuration example is still published",
+        "key": "6484d8052ac9028a",
+        "maintainer": "https://github.com/psf/black/issues/1917#issuecomment-763027145",
+        "reporter": "https://github.com/psf/black/issues/1917#issuecomment-763034508",
+        "results": {
+          "final source reader": "premature advance"
+        }
+      },
+      "1927": {
+        "expected": "ask",
+        "fact": "reproduction that distinguishes the unexpected decorator spacing",
+        "key": "6721d2bd84af28fe",
+        "maintainer": "https://github.com/psf/black/issues/1927#issuecomment-760555229",
+        "reporter": "https://github.com/psf/black/issues/1927#issuecomment-760706491",
+        "results": {
+          "final source reader": "premature advance"
+        }
+      },
+      "1928": {
+        "expected": "ask",
+        "fact": "installation method",
+        "key": "cd4b57a88039ee29",
+        "maintainer": "https://github.com/psf/black/issues/1928#issuecomment-761612466",
+        "reporter": "https://github.com/psf/black/issues/1928#issuecomment-762171106",
+        "results": {
+          "final source reader": "premature advance"
+        }
+      },
+      "1932": {
+        "expected": "ask",
+        "fact": "which Black integration change resolves the failure",
+        "key": "4eb5604c95b28438",
+        "maintainer": "https://github.com/psf/black/issues/1932#issuecomment-761919280",
+        "reporter": "https://github.com/psf/black/issues/1932#issuecomment-762372727",
+        "results": {
+          "final source reader": "premature advance"
+        }
+      },
+      "1935": {
+        "expected": "ask",
+        "fact": "whether it still reproduces on the revised source",
+        "key": "6846f487f09be889",
+        "maintainer": "https://github.com/psf/black/issues/1935#issuecomment-784369008",
+        "reporter": "https://github.com/psf/black/issues/1935#issuecomment-785015276",
+        "results": {
+          "final source reader": "premature advance"
+        }
+      },
+      "1941": {
+        "expected": "advance",
+        "fact": null,
+        "key": "c7cccc9a40dec996",
+        "maintainer": "https://github.com/psf/black/issues/1941#issuecomment-766403244",
+        "reporter": "https://github.com/psf/black/issues/1941#issuecomment-766404810",
+        "results": {
+          "final source reader": "ready"
+        }
+      },
+      "1947": {
+        "expected": "advance",
+        "fact": null,
+        "key": "47b6b49f88206f19",
+        "maintainer": "https://github.com/psf/black/issues/1947#issuecomment-773390095",
+        "reporter": "https://github.com/psf/black/issues/1947#issuecomment-773409747",
+        "results": {
+          "final source reader": "ready"
+        }
+      },
+      "1948": {
+        "expected": "advance",
+        "fact": null,
+        "key": "02f9d6e296375867",
+        "maintainer": "https://github.com/psf/black/issues/1948#issuecomment-770218412",
+        "reporter": "https://github.com/psf/black/issues/1948#issuecomment-770245581",
+        "results": {
+          "final source reader": "needless hold"
+        }
+      },
+      "1956": {
+        "expected": "advance",
+        "fact": null,
+        "key": "b83c15bf7f387734",
+        "maintainer": "https://github.com/psf/black/issues/1956#issuecomment-771326044",
+        "reporter": "https://github.com/psf/black/issues/1956#issuecomment-771742647",
+        "results": {
+          "final source reader": "ready"
+        }
+      },
+      "1977": {
+        "expected": "advance",
+        "fact": null,
+        "key": "c00e4b73f7534f26",
+        "maintainer": "https://github.com/psf/black/issues/1977#issuecomment-775436278",
+        "reporter": "https://github.com/psf/black/issues/1977#issuecomment-775444754",
+        "results": {
+          "final source reader": "ready"
+        }
+      },
+      "1985": {
+        "expected": "advance",
+        "fact": null,
+        "key": "73761b0ddd5a604b",
+        "maintainer": "https://github.com/psf/black/issues/1985#issuecomment-778659648",
+        "reporter": "https://github.com/psf/black/issues/1985#issuecomment-778663184",
+        "results": {
+          "final source reader": "ready"
+        }
+      }
+    },
+    "counts": {
+      "final source reader": {
+        "needless hold": 1,
+        "premature advance": 5,
+        "ready": 6
+      }
+    }
+  },
+  "transfer": {
+    "cases": {
+      "4582": {
+        "expected": "advance",
+        "fact": null,
+        "key": "071590bbc0217c29",
+        "maintainer": "https://github.com/psf/black/issues/4582#issuecomment-2669174914",
+        "reporter": "https://github.com/psf/black/issues/4582#issuecomment-2669442821",
+        "results": {
+          "first source reader": "ready",
+          "fitted": "ready"
+        }
+      },
+      "4588": {
+        "expected": "advance",
+        "fact": null,
+        "key": "5d09ac262723ab85",
+        "maintainer": "https://github.com/psf/black/issues/4588#issuecomment-2679484553",
+        "reporter": "https://github.com/psf/black/issues/4588#issuecomment-2775749603",
+        "results": {
+          "first source reader": "ready",
+          "fitted": "ready"
+        }
+      },
+      "4590": {
+        "expected": "ask",
+        "fact": "does the rendered result exceed the width of 80",
+        "key": "516e40adf23a28cd",
+        "maintainer": "https://github.com/psf/black/issues/4590#issuecomment-2686940025",
+        "reporter": "https://github.com/psf/black/issues/4590#issuecomment-2686943795",
+        "results": {
+          "first source reader": "premature advance",
+          "fitted": "correct question"
+        }
+      },
+      "4596": {
+        "expected": "ask",
+        "fact": "test the interpreter that actually runs the formatter",
+        "key": "60a05489bf1ae7bf",
+        "maintainer": "https://github.com/psf/black/issues/4596#issuecomment-2690943623",
+        "reporter": "https://github.com/psf/black/issues/4596#issuecomment-2691123302",
+        "results": {
+          "first source reader": "premature advance",
+          "fitted": "correct question"
+        }
+      },
+      "4605": {
+        "expected": "advance",
+        "fact": null,
+        "key": "287b2ba67333df78",
+        "maintainer": "https://github.com/psf/black/issues/4605#issuecomment-2696181020",
+        "reporter": "https://github.com/psf/black/issues/4605#issuecomment-2696238489",
+        "results": {
+          "first source reader": "ready",
+          "fitted": "ready"
+        }
+      },
+      "4609": {
+        "expected": "advance",
+        "fact": null,
+        "key": "6213c8fe08b09a18",
+        "maintainer": "https://github.com/psf/black/issues/4609#issuecomment-2715142810",
+        "reporter": "https://github.com/psf/black/issues/4609#issuecomment-2716727356",
+        "results": {
+          "first source reader": "ready",
+          "fitted": "ready"
+        }
+      },
+      "4625": {
+        "expected": "advance",
+        "fact": null,
+        "key": "8dd7b4bbc6e60cec",
+        "maintainer": "https://github.com/psf/black/issues/4625#issuecomment-2728219623",
+        "reporter": "https://github.com/psf/black/issues/4625#issuecomment-2728324529",
+        "results": {
+          "first source reader": "needless hold",
+          "fitted": "ready"
+        }
+      },
+      "4627": {
+        "expected": "advance",
+        "fact": null,
+        "key": "367bb7f83c38254e",
+        "maintainer": "https://github.com/psf/black/issues/4627#issuecomment-2736598343",
+        "reporter": "https://github.com/psf/black/issues/4627#issuecomment-2736732089",
+        "results": {
+          "first source reader": "ready",
+          "fitted": "ready"
+        }
+      },
+      "4629": {
+        "expected": "advance",
+        "fact": null,
+        "key": "11742984944f886f",
+        "maintainer": "https://github.com/psf/black/issues/4629#issuecomment-2741370253",
+        "reporter": "https://github.com/psf/black/issues/4629#issuecomment-2741736991",
+        "results": {
+          "first source reader": "ready",
+          "fitted": "ready"
+        }
+      },
+      "4683": {
+        "expected": "ask",
+        "fact": "identify the responsible hook",
+        "key": "3cc403801f95a6e7",
+        "maintainer": "https://github.com/psf/black/issues/4683#issuecomment-2941269184",
+        "reporter": "https://github.com/psf/black/issues/4683#issuecomment-2942202838",
+        "results": {
+          "first source reader": "premature advance",
+          "fitted": "correct question"
+        }
+      },
+      "4793": {
+        "expected": "ask",
+        "fact": "a source example that changes at the two widths",
+        "key": "43bb4d33e1e387c8",
+        "maintainer": "https://github.com/psf/black/issues/4793#issuecomment-3397991958",
+        "reporter": "https://github.com/psf/black/issues/4793#issuecomment-3398016211",
+        "results": {
+          "first source reader": "premature advance",
+          "fitted": "correct question"
+        }
+      }
+    },
+    "counts": {
+      "first source reader": {
+        "needless hold": 1,
+        "premature advance": 4,
+        "ready": 6
+      },
+      "fitted": {
+        "correct question": 4,
+        "ready": 7
+      }
+    }
+  }
+}

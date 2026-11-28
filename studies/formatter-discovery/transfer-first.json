@@ -1,0 +1,46 @@
+{
+  "071590bbc0217c29": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "11742984944f886f": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "287b2ba67333df78": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "367bb7f83c38254e": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "3cc403801f95a6e7": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "43bb4d33e1e387c8": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "516e40adf23a28cd": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "5d09ac262723ab85": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "60a05489bf1ae7bf": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "6213c8fe08b09a18": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "8dd7b4bbc6e60cec": {
+    "question": "Can you reproduce the failure with this exact input in an isolated formatter and share the failing reproduction?",
+    "reason": "native formatters accepted input"
+  }
+}

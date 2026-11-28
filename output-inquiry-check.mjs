@@ -1,0 +1,33 @@
+import assert from "node:assert/strict";
+import {inquireOutput} from "./index.mjs";
+const fields = ["normalize","line wrap"];
+const access = {known:{},readable:fields,budget:2};
+const unchanged = () => "x";
+const revised = s => s["line wrap"] ? "x\n" : "x";
+const run = (measure,rights=access) => inquireOutput(fields,measure,"x",rights);
+assert.deepEqual(run(unchanged),{scope:"declared_boolean_settings",configurations:4,status:"decided",matches:true});
+assert.equal(run(revised).setting,"line wrap");
+assert.equal(run(revised,{...access,known:{"line wrap":true}}).matches,false);
+assert.equal(run(revised,{...access,readable:["normalize"]}).reason,"indistinguishable");
+assert.equal(run(revised,{...access,budget:0}).reason,"over_budget");
+let counter=0;
+assert.throws(()=>run(()=>String(counter++)),/repeatable/);
+assert.throws(()=>run(()=>undefined),/repeatable/);
+assert.throws(()=>run(revised,{...access,known:{"line wrap":"yes"}}),/observed values/);
+for (const probe of [s=>s.retainQuotes, s=>"retainQuotes" in s, s=>Object.hasOwn(s,"retainQuotes")]) {
+  const stopped=run(s=>probe(s) ? "quoted" : "x");
+  assert.equal(stopped.reason,"undeclared_setting");
+  assert.equal(stopped.setting,"retainQuotes");
+}
+assert.equal(inquireOutput(["retainQuotes"],s=>s.retainQuotes?"quoted":"x","x",{known:{},readable:["retainQuotes"],budget:1}).setting,"retainQuotes");
+assert.equal(inquireOutput(["retainQuotes"],s=>{void s.retainQuotes;return "x";},"x",{known:{},readable:["retainQuotes"],budget:1}).matches,true);
+assert.equal(run(s=>{try {void s.hidden;} catch {} return "x";}).reason,"undeclared_setting");
+const learn=(fixture,access)=>inquireOutput([],fixture,"x",access);
+const conditional=(_,read)=>read("outer") && read("inner") ? "y" : "x";
+const discoverAccess={known:{},readable:["outer","inner"],budget:2};
+assert.equal(learn(conditional,discoverAccess).status,"ask");
+assert.equal(learn(conditional,{...discoverAccess,known:{outer:false}}).matches,true);
+assert.equal(learn(conditional,{...discoverAccess,known:{outer:true}}).setting,"inner");
+assert.equal(learn(conditional,{...discoverAccess,known:{outer:true},readable:[]}).reason,"indistinguishable");
+assert.equal(learn((_,read)=>{read("unused");return "x";},{...discoverAccess,readable:[]}).matches,true);
+assert.equal(learn((_,read)=>{for(let n=0;n<8;n++) read("key"+n);return "x";},discoverAccess).reason,"setting_limit");
