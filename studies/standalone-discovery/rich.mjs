@@ -11,7 +11,7 @@ const prompts={repro:"What is the smallest runnable example or command that repr
   platform:"Which operating system are you using?", terminal:"In which terminal or notebook does it happen?"};
 const rows={};
 for(const [id,{title,body}] of Object.entries(JSON.parse(readFileSync(input,"utf8")))) {
-  const text=(title+"\n"+body).replace(/<!--[\s\S]*?-->/g,"").replace(/Provide a minimal code example[^\n]*|What platform \(Win\/Linux\/Mac\)[^\n]*|If you're using Rich in a terminal[^\n]*|If you're using Rich in a Jupyter Notebook[^\n]*/gi,"");
+  const text=(title+"\n"+body).replace(/<!--[\s\S]*?-->/g," ").replace(/Provide a minimal code example[^\n]*|What platform \(Win\/Linux\/Mac\)[^\n]*|If you're using Rich in a terminal[^\n]*|If you're using Rich in a Jupyter Notebook[^\n]*/gi,"");
   const flags={repro:/\b(from rich[.\s]|import rich\b|python(?:3)?\s+-c\s|console\.print\s*\(|Traceback \(most recent call last\))/i.test(text),
     platform:/\b(windows(?: 10| 11)?|ubuntu|debian|macos|os x|linux|darwin|arch linux)\b/i.test(text),
     visual:/\b(colou?r|render(?:s|ed|ing)?|display|width|wrap(?:ped|ping)?|align(?:ment)?|glyph|flicker|terminal)\b/i.test(text),

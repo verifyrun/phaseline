@@ -11,7 +11,7 @@ const rules=[
 ].join("\n");
 const answers={};
 for(const [id,{title,body}] of Object.entries(JSON.parse(readFileSync(input,"utf8")))) {
-  const cleaned=body.replace(/<!--[\s\S]*?-->/g,"").split(/I may ask you to copy and paste the output of the following commands/i)[0]
+  const cleaned=body.replace(/<!--[\s\S]*?-->/g," ").split(/I may ask you to copy and paste the output of the following commands/i)[0]
     .replace(/^(?:Provide a minimal code example|Please ensure that your example|If the issue is visual|What platform \(Win\/Linux\/Mac\)|- \[.{0,1}\] I['’](?:ve|m) checked).*$/gim,"");
   const text=title+"\n"+cleaned;
   const blocks=[...cleaned.matchAll(/```[^\n]*\n([\s\S]*?)```/g)].map(m=>m[1]);
