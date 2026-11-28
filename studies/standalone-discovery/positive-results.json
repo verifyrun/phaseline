@@ -1,0 +1,277 @@
+{
+  "positive-old.json": {
+    "counts": {
+      "needless_hold": 11,
+      "wrong_question": 3,
+      "premature": 1,
+      "ready": 1
+    },
+    "cases": {
+      "903": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "882": {
+        "prediction": {
+          "answer": "ask",
+          "field": "terminal",
+          "question": "In which terminal or notebook does it happen?"
+        },
+        "score": "needless_hold"
+      },
+      "1009": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "878": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "1036": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "wrong_question"
+      },
+      "886": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "1054": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "948": {
+        "prediction": {
+          "answer": "ask",
+          "field": "terminal",
+          "question": "In which terminal or notebook does it happen?"
+        },
+        "score": "needless_hold"
+      },
+      "893": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "890": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "993": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "973": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "premature"
+      },
+      "913": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "920": {
+        "prediction": {
+          "answer": "ask",
+          "field": "platform",
+          "question": "Which operating system are you using?"
+        },
+        "score": "needless_hold"
+      },
+      "1019": {
+        "prediction": {
+          "answer": "ask",
+          "field": "terminal",
+          "question": "In which terminal or notebook does it happen?"
+        },
+        "score": "wrong_question"
+      },
+      "1051": {
+        "prediction": {
+          "answer": "ask",
+          "field": "terminal",
+          "question": "In which terminal or notebook does it happen?"
+        },
+        "score": "wrong_question"
+      }
+    }
+  },
+  "positive-new.json": {
+    "counts": {
+      "ready": 5,
+      "needless_hold": 7,
+      "premature": 4
+    },
+    "cases": {
+      "903": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "882": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "1009": {
+        "prediction": {
+          "answer": "ask",
+          "field": "html",
+          "question": "Can you share the generated HTML that displays incorrectly?"
+        },
+        "score": "needless_hold"
+      },
+      "878": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "1036": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "premature"
+      },
+      "886": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "1054": {
+        "prediction": {
+          "answer": "ask",
+          "field": "terminal",
+          "question": "Which terminal or notebook shows the problem?"
+        },
+        "score": "needless_hold"
+      },
+      "948": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "893": {
+        "prediction": {
+          "answer": "ask",
+          "field": "terminal",
+          "question": "Which terminal or notebook shows the problem?"
+        },
+        "score": "needless_hold"
+      },
+      "890": {
+        "prediction": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "993": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "973": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "premature"
+      },
+      "913": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "920": {
+        "prediction": {
+          "answer": "ask",
+          "field": "terminal",
+          "question": "Which terminal or notebook shows the problem?"
+        },
+        "score": "needless_hold"
+      },
+      "1019": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "premature"
+      },
+      "1051": {
+        "prediction": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "premature"
+      }
+    }
+  }
+}
