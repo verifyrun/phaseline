@@ -5,7 +5,8 @@ import {mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync} from "node:
 import {tmpdir} from "node:os";
 import {join} from "node:path";
 
-const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8").replaceAll("\r\n", "\n");
+const shell = process.platform === "win32" ? join(process.env.ProgramFiles, "Git", "bin", "bash.exe") : "bash";
 const instructions = [...readme.matchAll(/<!-- public-install: (\w+) -->\s*```sh\n([\s\S]*?)\n```/g)];
 assert.deepEqual(instructions.map(match => match[1]), ["cli", "library"]);
 const root = mkdtempSync(join(tmpdir(),"phaseline-public-"));
@@ -18,12 +19,12 @@ Object.assign(env, {npm_config_userconfig:empty,npm_config_globalconfig:join(roo
   npm_config_audit:"false",npm_config_fund:"false",npm_config_ignore_scripts:"true"});
 writeFileSync(env.npm_config_globalconfig,"");
 try {
-  const who = spawnSync("bash", ["-c","npm whoami"], {cwd:root,env,encoding:"utf8"});
+  const who = spawnSync(shell, ["-c","npm whoami"], {cwd:root,env,encoding:"utf8"});
   assert.ok(who.status !== 0 && /ENEEDAUTH/.test(who.stderr), "Registry must confirm anonymous access");
   for (const [,surface,commands] of instructions) {
     const cwd = join(root,surface);
     mkdirSync(cwd);
-    const output = execFileSync("bash",["-e","-c",commands], {cwd,env,encoding:"utf8"});
+    const output = execFileSync(shell,["-e","-c",commands], {cwd,env,encoding:"utf8"});
     const manifest = JSON.parse(readFileSync(join(cwd,"package.json")));
     const cli = join(cwd,"node_modules","@verifyrun","phaseline","phase.mjs");
     const version = execFileSync(process.execPath,[cli,"--version"],{cwd,env,encoding:"utf8"}).trim();
@@ -38,7 +39,7 @@ try {
     assert.equal(answers.retain_record.status,"release");
     if (surface === "library") {
       assert.equal(output.trim().split(/\r?\n/).at(-1),"false");
-      execFileSync("bash",["-e","-c","npm ci --omit=dev"],{cwd,env});
+      execFileSync(shell,["-e","-c","npm ci --omit=dev"],{cwd,env});
       assert.equal(decide("--gate","rely",...files).status,2);
       assert.equal(decide("--gate","retain_record",...files).status,0);
       // Fresh process, installed rules, original clocks. Later training cannot authorize an earlier event.
