@@ -4,7 +4,8 @@ import json
 from pathlib import Path
 import sys
 
-root, out = map(Path, sys.argv[1:])
+root, out = map(Path, sys.argv[1:3])
+limit = int(sys.argv[3]) if len(sys.argv)==4 else 16
 allowed = {"": [False]*3, "--skip-string-normalization": [True,False,False],
            "--skip-magic-trailing-comma": [False,True,False], "--line-length 80": [False,False,True]}
 counts = dict.fromkeys(allowed,0)
@@ -12,7 +13,7 @@ briefs, gold = {}, {}
 for path in sorted((root/"tests/data/cases").glob("*.py"), key=lambda p: hashlib.sha256(p.name.encode()).digest()):
     lines = path.read_text().splitlines(keepends=True)
     flags = lines.pop(0)[len("# flags: "):].strip() if lines and lines[0].startswith("# flags: ") else ""
-    if flags not in allowed or counts[flags]>=16: continue
+    if flags not in allowed or counts[flags]>=limit: continue
     lines = [line.replace("# EMPTY LINE WITH WHITESPACE (this comment will be removed)", "") for line in lines]
     split = next((i for i,line in enumerate(lines) if line.rstrip()=="# output"), len(lines))
     src = "".join(lines[:split]).strip()+"\n"
