@@ -1,0 +1,58 @@
+{
+  "02f9d6e296375867": {
+    "action": "advance",
+    "evidence": "The maintainer can investigate the supplied report; this does not authorize a release."
+  },
+  "47b6b49f88206f19": {
+    "action": "advance",
+    "evidence": "The maintainer can investigate the supplied report; this does not authorize a release."
+  },
+  "4eb5604c95b28438": {
+    "action": "ask",
+    "evidence": "The report already identifies different editor and install interpreters and confirms a working repair.",
+    "field": "owner",
+    "question": "Which part of the editor integration should locate or install the package for its own interpreter?"
+  },
+  "6484d8052ac9028a": {
+    "action": "ask",
+    "evidence": "The opening already contains the corrected configuration; its remaining source is the question.",
+    "field": "document",
+    "question": "Which exact documentation page or example still supplies the failing configuration?"
+  },
+  "6721d2bd84af28fe": {
+    "action": "ask",
+    "evidence": "An aggregate or intermittent result does not identify the transformation on an individual file.",
+    "field": "reproduction",
+    "question": "Can you show one exact source example and the invocation in which the tool introduces the reported change?"
+  },
+  "6846f487f09be889": {
+    "action": "advance",
+    "evidence": "The maintainer can investigate the supplied report; this does not authorize a release."
+  },
+  "6d0ab01cc3ca295c": {
+    "action": "advance",
+    "evidence": "The maintainer can investigate the supplied report; this does not authorize a release."
+  },
+  "73761b0ddd5a604b": {
+    "action": "advance",
+    "evidence": "The maintainer can investigate the supplied report; this does not authorize a release."
+  },
+  "b83c15bf7f387734": {
+    "action": "advance",
+    "evidence": "The maintainer can investigate the supplied report; this does not authorize a release."
+  },
+  "c00e4b73f7534f26": {
+    "action": "advance",
+    "evidence": "The maintainer can investigate the supplied report; this does not authorize a release."
+  },
+  "c7cccc9a40dec996": {
+    "action": "advance",
+    "evidence": "The maintainer can investigate the supplied report; this does not authorize a release."
+  },
+  "cd4b57a88039ee29": {
+    "action": "ask",
+    "evidence": "A launcher and import traceback identify the runtime. They do not establish the installation procedure.",
+    "field": "installer",
+    "question": "Which install command populated the environment whose executable appears in this failing run?"
+  }
+}

@@ -9,7 +9,7 @@ def read(report, project):
     body=re.sub(r"<!--.*?-->", "",report["body"],flags=re.S)
     text=title+"\n"+body
     def ask(field,question,evidence):
-        return {"action":"ask',"field":field,"question":question,"evidence":evidence}
+        return {"action":"ask","field":field,"question":question,"evidence":evidence}
     def advance(reason):
         return {"action":"advance","evidence":reason}
     if re.search(r'\b(?:feature request|suggestion|proposal)\b|^\s*(?:please )?(?:add|support|allow)\b',title,re.I):

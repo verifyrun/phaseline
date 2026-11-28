@@ -1,0 +1,96 @@
+{
+  "0a8f43ccb4d3d5df": {
+    "action": "ask",
+    "evidence": "A partial extension log does not identify a runnable case. Historical project manifest or settings recovered.",
+    "field": "reproduction",
+    "question": "Which minimal project and steps reproduce the behavior in the editor?"
+  },
+  "0e065b213ef2d6c4": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "141f2148cb3fb689": {
+    "action": "ask",
+    "evidence": "A partial extension log does not identify a runnable case.",
+    "field": "reproduction",
+    "question": "Which minimal project and steps reproduce the behavior in the editor?"
+  },
+  "2bc563c1f590665d": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "2c0d723f3a2311e7": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "6cbc4ee021d39c64": {
+    "action": "ask",
+    "evidence": "The two entry points can resolve different modules.",
+    "field": "install",
+    "question": "Which Prettier module path and version did VS Code actually load for that file, compared with the CLI installation?"
+  },
+  "85b99faf3d525357": {
+    "action": "ask",
+    "evidence": "The two entry points can resolve different modules.",
+    "field": "install",
+    "question": "Which Prettier module path and version did VS Code actually load for that file, compared with the CLI installation?"
+  },
+  "8abb2ffbfe462782": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "953a244a83319270": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "bc186827c0e1604e": {
+    "action": "ask",
+    "evidence": "A partial extension log does not identify a runnable case.",
+    "field": "reproduction",
+    "question": "Which minimal project and steps reproduce the behavior in the editor?"
+  },
+  "c5b179c03902259b": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "d263f48ad03bbbed": {
+    "action": "advance",
+    "evidence": "An owner can evaluate the proposed feature from this opening."
+  },
+  "da4b7805f5f7c9ed": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "e05c5b7a1fd6358a": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "e939e890aae5fced": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "ff597ce7394e0a2a": {
+    "action": "ask",
+    "evidence": "The two entry points can resolve different modules. Historical project manifest or settings recovered.",
+    "field": "install",
+    "question": "Which Prettier module path and version did VS Code actually load for that file, compared with the CLI installation?"
+  }
+}
