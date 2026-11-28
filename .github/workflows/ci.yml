@@ -24,3 +24,5 @@ jobs:
           archive=$(npm pack --silent)
           sha256sum "$archive"
           bash scripts/test-package.sh "$archive"
+      - name: Check report triage before advancing
+        run: node studies/standalone-discovery/report-diagnostic-check.mjs
