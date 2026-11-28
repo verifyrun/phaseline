@@ -12,12 +12,12 @@
     "score": "needless_hold"
   },
   "890": {
-    "question": "repro",
-    "score": "needless_hold"
+    "question": null,
+    "score": "ready"
   },
   "893": {
-    "question": "terminal",
-    "score": "needless_hold"
+    "question": null,
+    "score": "ready"
   },
   "903": {
     "question": null,
@@ -60,7 +60,7 @@
     "score": "correct_question"
   },
   "1054": {
-    "question": "terminal",
-    "score": "needless_hold"
+    "question": null,
+    "score": "ready"
   }
 }

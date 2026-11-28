@@ -21,6 +21,11 @@ for(const [id,{title,body}] of Object.entries(JSON.parse(readFileSync(input,"utf
     answers[id]={answer:"ask",field,question};
     continue;
   }
+  // A feature proposal can go to triage with a stated goal. Defect reproduction is a different action.
+  if (/^\[request\]/i.test(title) && cleaned.trim().length>20) {
+    answers[id]={answer:"advance",field:null,question:null};
+    continue;
+  }
   const blocks=[...cleaned.matchAll(/```[^\n]*\n([\s\S]*?)```/g)].map(m=>m[1]);
   const html_path=/\b(?:html|browser|webpage)\b/i.test(title);
   const terminal_path=/\b(?:terminal|display|progress bar|colou?r|flicker|encoding)\b/i.test(text);
