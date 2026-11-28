@@ -1,0 +1,66 @@
+{
+  "878": {
+    "question": null,
+    "score": "ready"
+  },
+  "882": {
+    "question": null,
+    "score": "ready"
+  },
+  "886": {
+    "question": null,
+    "score": "ready"
+  },
+  "890": {
+    "question": null,
+    "score": "ready"
+  },
+  "893": {
+    "question": null,
+    "score": "ready"
+  },
+  "903": {
+    "question": null,
+    "score": "ready"
+  },
+  "913": {
+    "question": null,
+    "score": "ready"
+  },
+  "920": {
+    "question": null,
+    "score": "ready"
+  },
+  "948": {
+    "question": null,
+    "score": "ready"
+  },
+  "973": {
+    "question": "import_origin",
+    "score": "correct_question"
+  },
+  "993": {
+    "question": null,
+    "score": "ready"
+  },
+  "1009": {
+    "question": null,
+    "score": "ready"
+  },
+  "1019": {
+    "question": "observed_width",
+    "score": "correct_question"
+  },
+  "1036": {
+    "question": "list_boundary",
+    "score": "correct_question"
+  },
+  "1051": {
+    "question": "terminal_contract",
+    "score": "correct_question"
+  },
+  "1054": {
+    "question": null,
+    "score": "ready"
+  }
+}

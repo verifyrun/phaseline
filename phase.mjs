@@ -12,6 +12,7 @@ import {retain, challenge} from "./retention.mjs";
 
 const help = [
   "Start with a question about your evidence or a proposed change.",
+  "phaseline suggest prerequisite TRACES.json   find a candidate prerequisite in labeled examples",
   "phaseline check recipients POLICY.json PROPOSAL.json   compare proposed identities against receiver-pinned installed rules",
   "phaseline observe sqlite DB --views OLD_VIEW NEW_VIEW TERMS.json   check the two installed SQLite views",
   "phaseline observe sqlite DB OLD.sql NEW.sql TERMS.json   read both editions on one authorized snapshot and compare recipients",
@@ -90,6 +91,12 @@ try {
     console.log(help);
   } else if (command === "--help" || command === "-h" || !command) {
     console.log(common);
+  } else if (command === "suggest" && args[0] === "prerequisite") {
+    if (args.length !== 2) throw usage();
+    const {suggestPrerequisite} = await import("./trace-prerequisite.mjs");
+    const result = suggestPrerequisite(readJSON(readFileSync(args[1], "utf8")));
+    console.log(JSON.stringify(result));
+    if (result.status !== "candidate") process.exitCode = 2;
   } else if (command === "check" && args[0] === "recipients") {
     if (args.length !== 3) throw usage();
     const {checkSqliteRecipients} = await import("./sqlite-observation.mjs");
