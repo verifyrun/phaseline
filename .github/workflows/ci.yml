@@ -28,3 +28,30 @@ jobs:
           tar -xzf "$RUNNER_TEMP"/verifyrun-phaseline-*.tgz --strip-components=1 -C "$RUNNER_TEMP/consumer/node_modules/@verifyrun/phaseline"
           cp tests/types.ts tests/tsconfig.json "$RUNNER_TEMP/consumer/"
           "$GITHUB_WORKSPACE/node_modules/.bin/tsc" -p "$RUNNER_TEMP/consumer/tsconfig.json"
+  public-install:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 22
+      - name: Follow the published CLI and library instructions anonymously
+        run: node tests/public-install.mjs
+      - name: Probe a real change in a consuming project
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          dest=$(mktemp -d)
+          cp examples/configuration/*.py "$dest/"
+          cd "$dest"
+          npm install --ignore-scripts --no-audit --no-fund --save-exact @verifyrun/phaseline@0.4.1
+          python3 -m venv .venv
+          for version in 1.1.1 1.2.0; do
+            .venv/bin/python -m pip install --quiet --only-binary=:all: "python-dotenv==$version"
+            .venv/bin/python check.py node node_modules/@verifyrun/phaseline/phase.mjs
+          done
