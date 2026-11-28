@@ -4,32 +4,39 @@ Phaseline checks what a product promises as its rules, observers and delivery sy
 
 ## Install on Node.js 22 or later
 
-The released package is on npm. From the project that will use it, run:
+Anyone can install Phaseline from the public npm registry and run it locally. For a new application, the Apache-2.0 release with both the CLI and JavaScript library is **0.5.0-rc.54**. Stable 0.4.1 is an earlier CLI package whose npm metadata lists no license. Use a new project directory for either example.
 
-    npm install --save-dev @verifyrun/phaseline
-    npx --no-install phaseline --version
+**Stable command line (0.4.1).** Create a case and see which decision can proceed and which still needs evidence.
 
-For an unpublished candidate, install its local .tgz file. After publication under the next tag, use npm install --save-dev @verifyrun/phaseline@next. For a reproducible installation, pin the exact version. The checker runs locally. To explore the archive without installing it, extract it and run from the package directory:
+<!-- public-install: cli -->
+```sh
+npm init -y
+npm install --save-dev --save-exact @verifyrun/phaseline@0.4.1
+npx --no-install phaseline init inquiry
+npx --no-install phaseline decide inquiry/proposed.phase inquiry/records.json
+```
 
-  node phase.mjs init inquiry
-  node phase.mjs analyze inquiry/proposed.phase inquiry/observer.phase inquiry/histories.json
-  node inquiry-check.mjs
-  node phase.mjs compare draft-issued.phase draft-proposed.phase
-  node phase.mjs decide course-proposed.phase course-records.json
-  node phase.mjs compare plans-issued.phase plans-proposed.phase
-  node phase.mjs decide plans-proposed.phase plans-records.json
-  node phase.mjs check plans-issued.phase plans-proposed.phase
-  node phase.mjs init records retention
-  node phase.mjs retain records/issued.phase records/regime.json records/proposed.phase
-  node phase.mjs challenge records/proposed.phase records/regime.json records/trace.json
-  node retention-check.mjs
-  node contract-check.mjs
+Look for `rely.status` equal to `hold` with `reviewer` named as the owner, and `retain_record.status` equal to `release`. The command completed successfully in both cases. Read the named decision before acting. For a changed rule, `phaseline check inquiry/issued.phase inquiry/proposed.phase` returns exit code 2 and a distinguishing example.
+
+**JavaScript, TypeScript, or a runtime decision gate (public 0.5.0-rc.54 prerelease).** Install this as an application dependency if you call it in production. This is the version for the library, dated approvals and the `--gate` examples below. An unversioned npm install currently selects the 0.4.1 CLI.
+
+<!-- public-install: library -->
+```sh
+npm init -y
+npm install --save-exact @verifyrun/phaseline@0.5.0-rc.54
+npx --no-install phaseline init inquiry
+node --input-type=module -e "import {gate} from '@verifyrun/phaseline'; import {readFileSync as read} from 'node:fs'; console.log(gate(read('inquiry/proposed.phase','utf8'), JSON.parse(read('inquiry/records.json','utf8')), 'rely'))"
+```
+
+The library prints `false` for the missing review. Commit the lockfile and use `npm ci` to reproduce the install. The same case passed to `phaseline decide --gate rely inquiry/proposed.phase inquiry/records.json` exits 2. [Published release and archive](https://github.com/verifyrun/phaseline/releases/tag/v0.5.0-rc.54).
+
+For a worked example in another project's code, [discover a setting the receiver actually reads](examples/configuration/README.md). The example exercises both public versions and checks the effect at the destination.
 
 ## A first decision
 
 Save a rule as ship.phase:
 
-    fact approved from hr.approval owner hr
+    fact approved from hr.approval owner hr missing hold_dependents
     guarantee ship when approved
 
 Save a case as case.json. Times are whole numbers on any clock you choose, such as
@@ -128,8 +135,7 @@ These need a yes-or-no or a number worked out by the caller before the case is s
 - Dates and durations other than within (the embargo ends on a date).
 - Arithmetic (a + b) and !=. Write not (n = 3 items).
 - Counting records (two different approvers). Send the count as a number.
-- A record written before the case's event time, or about another event, is not read.
-  Stamp a standing fact such as a completed training with the case's own at.
+- Keep the original effective and recorded times. For an approval that spans requests, the published 0.5 prerelease supports `standing` and `standing at event` as described above. Stable 0.4.1 supports event-specific evidence. Changing timestamps changes which decisions the evidence can justify.
 
 ## Use it as a library
 
