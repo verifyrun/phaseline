@@ -440,3 +440,19 @@ const first = inquireOutput([], render, '"hello"', access);
 ```
 
 Pass the observation back through `known` and debit the question from the budget. A new edition must run its own operation. A question costs one receiver read. The fixture may be evaluated repeatedly across at most seven Boolean dimensions. Keep it deterministic, isolated from external effects, and put every material setting through the supplied reader. An untyped read of an undeclared property holds. An unsupported dimension count holds. External state that bypasses the reader lies outside the result. An ordinary bug report can still omit an unidentified fact. [Independent trials and limits](studies/formatter-discovery/README.md)
+
+### Which installation introduced this change?
+
+A host that observes a particular file before and after a run can call `traceProducer` with the ordered stages and their records. The library follows the symptom back to the last stage that introduced it and identifies the installation observed at that stage. For example, a save command may load either the formatter bundled with an editor extension or a workspace copy at the same version.
+
+```js
+import {traceProducer} from "@verifyrun/phaseline";
+
+const run = {run: "save-104", release: "v2", subject: "invoice.js"};
+const event = {...run, steps: 1, before: "const n=1;", after: "const n = 1;"};
+const receipt = {...run, step: 1, tool: "formatter"};
+traceProducer(event, [receipt], text => text === "const n = 1;");
+// {status: "ask", step: 1, field: "installation", tool: "formatter"}
+```
+
+Give each execution its own run ID. Supply the receipt from the provider that actually handled the operation, including its resolved installation when available. The host supplies a deterministic symptom test and a complete sequence of relevant stages. Missing intermediate output prompts a question. Conflicting observations hold the result. A diagnosis made from a bug report alone has a separate test. [Two-release experiment and blind report scores](studies/producer-trace/README.md)

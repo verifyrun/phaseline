@@ -1,0 +1,114 @@
+{
+  "687": {
+    "first": "install",
+    "grade": "mixed",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/687#issuecomment-451907982",
+    "reason": "Administrative transfer disputed by the reporter.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/687#issuecomment-451909108"
+  },
+  "725": {
+    "first": "provider",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/725#issuecomment-463662458",
+    "reason": "Identified the registration lifecycle directly.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/725#issuecomment-463677811"
+  },
+  "760": {
+    "first": "log",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/760#issuecomment-474783585",
+    "reason": "Needed actual output to distinguish deletion from movement.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/760#issuecomment-474797480"
+  },
+  "886": {
+    "first": "log",
+    "grade": "mixed",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/886#issuecomment-518946538",
+    "reason": "Project maintenance and contributor capacity discussion.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/886#issuecomment-518985710"
+  },
+  "892": {
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/892#issuecomment-517844665",
+    "reason": "Maintainer offered a configuration solution; reporter clarified a different desired scope.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/892#issuecomment-517848130"
+  },
+  "956": {
+    "first": "log",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/956#issuecomment-531117266",
+    "reason": "Run with an updated editor or report the bundled Node version.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/956#issuecomment-531123274"
+  },
+  "958": {
+    "first": "install",
+    "grade": "mixed",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/958#issuecomment-531309975",
+    "reason": "Multi-party product-design discussion of deprecation.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/958#issuecomment-532344682"
+  },
+  "1037": {
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/1037#issuecomment-552941987",
+    "reason": "Maintainer supplied configuration lookup advice.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/1037#issuecomment-553038804"
+  },
+  "1039": {
+    "first": "advance",
+    "grade": "ready",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/1039#issuecomment-552931467",
+    "reason": "An owner could evaluate the proposed config-cleaning option.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/1039#issuecomment-552940335"
+  },
+  "1052": {
+    "first": "provider",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/1052#issuecomment-553523384",
+    "reason": "Needed identities of removed and replacement extensions.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/1052#issuecomment-553564943"
+  },
+  "1055": {
+    "first": "log",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/1055#issuecomment-554102005",
+    "reason": "Test installation of the PHP plugin and formatter in the project and restart.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/1055#issuecomment-554135877"
+  },
+  "1211": {
+    "first": "reproduction",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/1211#issuecomment-576339259",
+    "reason": "Maintainer supplied the correct playground tab width.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/1211#issuecomment-576342040"
+  },
+  "2429": {
+    "first": "install",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/2429#issuecomment-1169827359",
+    "reason": "Maintainer asked to check the dependency lock for multiple copies; editor versus CLI installation does not establish that.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/2429#issuecomment-1170017441"
+  },
+  "2722": {
+    "first": "reproduction",
+    "grade": "mixed",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/2722#issuecomment-1254015241",
+    "reason": "Issue transferred; reporter could no longer reproduce it.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/2722#issuecomment-1257859727"
+  },
+  "3066": {
+    "first": "reproduction",
+    "grade": "mixed",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/3066#issuecomment-2252908723",
+    "reason": "Architecture question addressed to a maintainer; reporter replied to a stale bot.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/3066#issuecomment-2888820751"
+  },
+  "3068": {
+    "first": "log",
+    "grade": "right question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/3068#issuecomment-1627609088",
+    "reason": "Maintainer requested the detailed extension log.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/3068#issuecomment-1637325477"
+  }
+}

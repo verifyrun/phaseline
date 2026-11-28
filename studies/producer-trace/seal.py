@@ -7,12 +7,12 @@ from manifests import retrieve
 used=set()
 for other in root.glob('*/openings.json'):
     if other.parent.name not in sys.argv[3:]: used.update(json.loads(other.read_text()))
-used.update(json.loads((root/'openings.json').read_text()))
+if (root/'openings.json').exists(): used.update(json.loads((root/'openings.json').read_text()))
 first={}
 for group in sys.argv[3:]:
     d=root/group
     data=json.loads((d/'openings.json').read_text())
-    dates={k:v['opening_at'] for k,v in json.loads((d/'sealed-human.json').read_text()).items()}
+    dates=json.loads((d/'opening-dates.json').read_text())
     assert set(dates)==set(data)
     for k,v in data.items():
         assert k not in first and k not in used

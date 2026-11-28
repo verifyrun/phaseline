@@ -1,0 +1,194 @@
+{
+  "33": {
+    "expected": "advance",
+    "first": "provider",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/33#issuecomment-275916614",
+    "reason": "A design/usage answer about version precedence was available directly.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/33#issuecomment-275945181"
+  },
+  "35": {
+    "expected": "advance",
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/35#issuecomment-277507071",
+    "reason": "Maintainer linked the upstream behavior change.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/35#issuecomment-277716005"
+  },
+  "42": {
+    "expected": "ask:runtime_or_isolation",
+    "first": "provider",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/42#issuecomment-281932681",
+    "reason": "Not reproducible. File language, exact runtime, disabling other writers or specific developer-console evidence narrows competing causes. Reporter isolated Add New Line to Files.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/42#issuecomment-281934783"
+  },
+  "509": {
+    "expected": "mixed",
+    "first": "provider",
+    "grade": "mixed",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/509#issuecomment-403057139",
+    "reason": "Maintainer suspected an old version; reporter credited someone else's already supplied ESLint configuration fix.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/509#issuecomment-409888199"
+  },
+  "51": {
+    "expected": "advance",
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/51#issuecomment-287212848",
+    "reason": "Maintainer supplied the command and key binding; reporter confirmed.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/51#issuecomment-287214039"
+  },
+  "510": {
+    "expected": "mixed",
+    "first": "log",
+    "grade": "mixed",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/510#issuecomment-403057512",
+    "reason": "Maintainer suspected a different writer. The reporter disputed the named writer; the pair does not establish who formatted the file.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/510#issuecomment-403059651"
+  },
+  "512": {
+    "expected": "advance",
+    "first": "provider",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/512#issuecomment-403058111",
+    "reason": "Maintainer identified the save timeout directly; reporter acknowledged.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/512#issuecomment-403158477"
+  },
+  "517": {
+    "expected": "mixed",
+    "first": "provider",
+    "grade": "mixed",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/517#issuecomment-410634604",
+    "reason": "Maintainer requested a parse error, which the reporter declined, citing a runnable reproduction and source fix already supplied. The pair disputes necessity.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/517#issuecomment-410673815"
+  },
+  "519": {
+    "expected": "mixed",
+    "first": "provider",
+    "grade": "mixed",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/519#issuecomment-410632063",
+    "reason": "Maintainer suggested tab width. Reporter corrected the question to tabs versus spaces. No supported diagnostic/request or successful action.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/519#issuecomment-412834387"
+  },
+  "524": {
+    "expected": "advance",
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/524#issuecomment-410637833",
+    "reason": "Maintainer identified workspace-only registration and planned a change.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/524#issuecomment-410821281"
+  },
+  "531": {
+    "expected": "ask:trigger",
+    "first": "provider",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/531#issuecomment-410646813",
+    "reason": "Confirm whether the symptom concerns format-on-save versus the Format Document command; reporter confirmed save.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/531#issuecomment-412889528"
+  },
+  "537": {
+    "expected": "ask:installer",
+    "first": "log",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/537#issuecomment-410649550",
+    "reason": "Did the package manager actually install the dependency? Reporter confirmed that doing so fixed it.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/537#issuecomment-411159961"
+  },
+  "54": {
+    "expected": "advance",
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/54#issuecomment-288068351",
+    "reason": "Maintainer answered resolver precedence. The question to the original reporter was a preference; validation error concerned another person.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/54#issuecomment-288544066"
+  },
+  "540": {
+    "expected": "ask:reinstall",
+    "first": "provider",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/540#issuecomment-411046624",
+    "reason": "Try removing and reinstalling the extension, including the installed files; manual removal fixed it.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/540#issuecomment-411276710"
+  },
+  "543": {
+    "expected": "advance",
+    "first": "provider",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/543#issuecomment-411729273",
+    "reason": "Maintainer was fixing the reported ESLint bug. The request to clarify TSLint was addressed to a different participant.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/543#issuecomment-411820136"
+  },
+  "548": {
+    "expected": "advance",
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/548#issuecomment-412911763",
+    "reason": "Maintainer explained the product's API versus CLI behavior.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/548#issuecomment-412923082"
+  },
+  "56": {
+    "expected": "advance",
+    "first": "provider",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/56#issuecomment-290219715",
+    "reason": "Registration site and specific language binding already identified.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/56#issuecomment-294492742"
+  },
+  "563": {
+    "expected": "ask:reproduction",
+    "first": "install",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/563#issuecomment-415717046",
+    "reason": "Ask for the affected project settings, actual output or reproduction. Reporter isolated the project-specific configuration.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/563#issuecomment-472895415"
+  },
+  "57": {
+    "expected": "advance",
+    "first": "provider",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/57#issuecomment-290647750",
+    "reason": "Feature decision and existing ignore workaround could be given directly.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/57#issuecomment-290658749"
+  },
+  "58": {
+    "expected": "ask:output",
+    "first": "log",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/58#issuecomment-291415038",
+    "reason": "Ask what changed in the TSX output; reporter clarified the observed behavior.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/58#issuecomment-291420584"
+  },
+  "59": {
+    "expected": "ask:install_or_error",
+    "first": "provider",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/59#issuecomment-291416399",
+    "reason": "Check the locally installed Prettier version or capture the full hidden validation error from the developer console.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/59#issuecomment-291548002"
+  },
+  "60": {
+    "expected": "ask:install_or_isolation",
+    "first": "log",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/60#issuecomment-291483693",
+    "reason": "Check for a project/ancestor Prettier or disable the other extensions and reproduce.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/60#issuecomment-291494055"
+  },
+  "64": {
+    "expected": "advance",
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/64#issuecomment-292511592",
+    "reason": "Maintainer supplied the editor settings namespace.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/64#issuecomment-292680992"
+  },
+  "65": {
+    "expected": "ask:install",
+    "first": "install",
+    "grade": "right question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/65#issuecomment-292557031",
+    "reason": "Identify project/ancestor Prettier versus extension/CLI. Reporter had local 0.0.5.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/65#issuecomment-292563055"
+  }
+}

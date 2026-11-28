@@ -21,6 +21,8 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm test
       - run: npm run test:property
+      - name: Check the sealed report study and reader regressions
+        run: python3 studies/producer-trace/check.py
       - name: Packaged types compile without @types/node
         run: |
           npm pack --pack-destination "$RUNNER_TEMP"

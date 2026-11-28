@@ -57,6 +57,7 @@ if __name__=="__main__":
                 key[ident]={"issue":n,"opening_at":date,"maintainer":m,"reporter":f,"later":later}
         if scanned>=120 or min(groups)>=6:break
     out=Path(sys.argv[1])
+    (out/"opening-dates.json").write_text(json.dumps({k:v["opening_at"] for k,v in key.items()}))
     (out/"openings.json").write_text(json.dumps(briefs,sort_keys=True))
     (out/"sealed-human.json").write_text(json.dumps(key,sort_keys=True))
     print("Openings selected:",len(briefs),"from",scanned)

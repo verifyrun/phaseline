@@ -1,0 +1,119 @@
+{
+  "321": {
+    "expected": "advance",
+    "fact": "",
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/321#issuecomment-356171110",
+    "reason": "The maintainer could answer the project-wide formatting question immediately.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/321#issuecomment-356171190"
+  },
+  "323": {
+    "expected": "ask",
+    "fact": "provider",
+    "first": "provider",
+    "grade": "right question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/323#issuecomment-356247987",
+    "reason": "The maintainer ruled out the extension for Handlebars; the reporter identified the standard formatter. Scored as needing the actual provider for attribution. Direct remediation could alternatively be scored actionable.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/323#issuecomment-356250573"
+  },
+  "327": {
+    "expected": "advance",
+    "fact": "",
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/327#issuecomment-356934832",
+    "reason": "The change was agreed; asking who will open the PR adds no diagnostic prerequisite.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/327#issuecomment-356949887"
+  },
+  "330": {
+    "expected": "ask",
+    "fact": "language_or_isolation",
+    "first": "provider",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/330#issuecomment-357894490",
+    "reason": "Check the file language, disable ESLint to isolate the change, or inspect active formatter/linter configuration.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/330#issuecomment-357896227"
+  },
+  "331": {
+    "expected": "ask",
+    "fact": "installed_files",
+    "first": "log",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/331#issuecomment-357978959",
+    "reason": "Check whether the extension still exists in the Insiders extension directory; the reinstall experiment resolved it.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/331#issuecomment-357981141"
+  },
+  "334": {
+    "expected": "advance",
+    "fact": "",
+    "first": "advance",
+    "grade": "ready",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/334#issuecomment-358279584",
+    "reason": "A supported configuration spelling settled the question directly.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/334#issuecomment-358284198"
+  },
+  "336": {
+    "expected": "advance",
+    "fact": "",
+    "first": "provider",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/336#issuecomment-358601484",
+    "reason": "The maintainer answered the installation question; the reporter then introduced a new symptom.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/336#issuecomment-361875347"
+  },
+  "340": {
+    "expected": "advance",
+    "fact": "",
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/340#issuecomment-359177018",
+    "reason": "Maintainer corrected the setting name directly; reporter confirmed.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/340#issuecomment-359186337"
+  },
+  "341": {
+    "expected": "advance",
+    "fact": "",
+    "first": "log",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/341#issuecomment-359392028",
+    "reason": "The maintainer named the source line and proposed the resolver fix.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/341#issuecomment-359393134"
+  },
+  "358": {
+    "expected": "ask",
+    "fact": "option_owner",
+    "first": "log",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/358#issuecomment-361908888",
+    "reason": "Which extension defines the reported setting? The reporter identified prettier-now.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/358#issuecomment-361915283"
+  },
+  "3623": {
+    "expected": "advance",
+    "fact": "",
+    "first": "install",
+    "grade": "needless hold",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/3623#issuecomment-2658681988",
+    "reason": "The maintainer proposed a change to the runtime; the reporter corrected the target. No further reporter evidence was requested.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/3623#issuecomment-2695573587"
+  },
+  "389": {
+    "expected": "ask",
+    "fact": "process_or_trigger",
+    "first": "log",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/389#issuecomment-371485116",
+    "reason": "Identify the busy process or isolate extension activation versus formatting.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/389#issuecomment-371771911"
+  },
+  "391": {
+    "expected": "ask",
+    "fact": "workspace_dependency",
+    "first": "provider",
+    "grade": "wrong question",
+    "maintainer": "https://github.com/prettier/prettier-vscode/issues/391#issuecomment-373910782",
+    "reason": "Determine whether ESLint was actually installed in the project and how.",
+    "reporter": "https://github.com/prettier/prettier-vscode/issues/391#issuecomment-374521812"
+  }
+}

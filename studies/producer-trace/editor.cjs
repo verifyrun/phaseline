@@ -11,6 +11,19 @@ exports.run = async function () {
   await extensions.getExtension("vscode.typescript-language-features").activate();
   const result={};
   for (const folder of workspace.workspaceFolders) {
+    // The extension registers some providers asynchronously per workspace folder.
+    // Exercise a distinct file so a readiness event cannot be mistaken for the measured save.
+    const probe=vscode.Uri.joinPath(folder.uri,"ready.js");
+    fs.writeFileSync(probe.fsPath,"const ready=1;\n");
+    const probeDoc=await workspace.openTextDocument(probe);
+    await window.showTextDocument(probeDoc);
+    const deadline=Date.now()+10000;
+    while (probeDoc.getText()!=="const ready = 1;\n" && Date.now()<deadline) {
+      await commands.executeCommand("editor.action.formatDocument");
+      if (probeDoc.getText()!=="const ready = 1;\n") await new Promise(resolve=>setTimeout(resolve,100));
+    }
+    assert.equal(probeDoc.getText(),"const ready = 1;\n","provider did not handle readiness probe");
+    await probeDoc.save();
     const file=vscode.Uri.joinPath(folder.uri,"sample.js");
     const doc=await workspace.openTextDocument(file);
     await window.showTextDocument(doc);
