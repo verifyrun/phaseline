@@ -1,0 +1,486 @@
+{
+  "rich-predictions": {
+    "counts": {
+      "correct": 1,
+      "needless_hold": 4,
+      "ready": 1,
+      "wrong_question": 2
+    },
+    "cases": {
+      "2963": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "correct"
+      },
+      "2837": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "13": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "2827": {
+        "proposed": {
+          "answer": "ask",
+          "field": "platform",
+          "question": "Which operating system are you using?"
+        },
+        "score": "wrong_question"
+      },
+      "17": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "2831": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "wrong_question"
+      },
+      "19": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "21": {
+        "proposed": {
+          "answer": "ask",
+          "field": "platform",
+          "question": "Which operating system are you using?"
+        },
+        "score": "needless_hold"
+      }
+    }
+  },
+  "rich-revised-first": {
+    "counts": {
+      "correct": 3,
+      "ready": 5
+    },
+    "cases": {
+      "2963": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "correct"
+      },
+      "2837": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "13": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "2827": {
+        "proposed": {
+          "answer": "ask",
+          "field": "terminal",
+          "question": "Which terminal or notebook shows the problem?"
+        },
+        "score": "correct"
+      },
+      "17": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "2831": {
+        "proposed": {
+          "answer": "ask",
+          "field": "html",
+          "question": "Can you share the generated HTML that displays incorrectly?"
+        },
+        "score": "correct"
+      },
+      "19": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "21": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      }
+    }
+  },
+  "transfer-old": {
+    "counts": {
+      "unscored": 9,
+      "needless_hold": 3,
+      "ready": 8
+    },
+    "cases": {
+      "3361": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3304": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "3327": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "unscored"
+      },
+      "3254": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "3299": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "unscored"
+      },
+      "3306": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3252": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3416": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "needless_hold"
+      },
+      "3422": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3269": {
+        "proposed": {
+          "answer": "ask",
+          "field": "terminal",
+          "question": "In which terminal or notebook does it happen?"
+        },
+        "score": "unscored"
+      },
+      "3354": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3388": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3349": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3400": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3334": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3374": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3275": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3352": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3368": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "unscored"
+      },
+      "3244": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      }
+    }
+  },
+  "transfer-new": {
+    "counts": {
+      "unscored": 9,
+      "ready": 10,
+      "needless_hold": 1
+    },
+    "cases": {
+      "3361": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "unscored"
+      },
+      "3304": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3327": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3254": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3299": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3306": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3252": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3416": {
+        "proposed": {
+          "answer": "ask",
+          "field": "terminal",
+          "question": "Which terminal or notebook shows the problem?"
+        },
+        "score": "needless_hold"
+      },
+      "3422": {
+        "proposed": {
+          "answer": "ask",
+          "field": "repro",
+          "question": "What is the smallest runnable example or command that reproduces this?"
+        },
+        "score": "unscored"
+      },
+      "3269": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3354": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3388": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3349": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3400": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3334": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3374": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      },
+      "3275": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3352": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3368": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "unscored"
+      },
+      "3244": {
+        "proposed": {
+          "answer": "advance",
+          "field": null,
+          "question": null
+        },
+        "score": "ready"
+      }
+    }
+  }
+}

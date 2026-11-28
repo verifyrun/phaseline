@@ -17,3 +17,18 @@ assert.equal(suggestPrerequisite([{seen:["a","b"],acted:true},{seen:[],acted:fal
 assert.throws(()=>suggestPrerequisite([{seen:["dup","dup"],acted:false}]),/distinct/);
 console.log("Trace proposals distinguish a conjunction, counterexamples, equivalent candidates and insufficient evidence.");
 assert.throws(()=>suggestPrerequisite([{seen:Array(1),acted:false}]),/distinct/);
+
+import {readFileSync} from "node:fs";
+import {decide} from "./index.mjs";
+const contract = readFileSync(new URL("./consent-before-action.phase", import.meta.url), "utf8");
+const evidence = (subject, source, by, value) => ({subject, at: 1, recorded: 1, source, by, value});
+function review(subject, answers) {
+  const records = [evidence(subject,"intake.complete","intake",true),evidence(subject,"receiver.offered","receiver",true),...answers];
+  return decide(contract,{subject,at:1,asOf:1,records}).submit;
+}
+const yes = evidence("recipient-A/offer-v1","customer.accepted","customer",true);
+assert.equal(review(yes.subject,[yes]).status,"release");
+assert.deepEqual(review("recipient-A/offer-v2",[yes]).needs.map(n=>n.fact),["accepted"]);
+assert.equal(review("recipient-B/offer-v1",[yes]).status,"hold");
+assert.equal(review(yes.subject,[{...yes,value:false}]).status,"withhold");
+assert.equal(review(yes.subject,[{...yes,by:"assistant"}]).status,"hold");

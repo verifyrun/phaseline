@@ -1,0 +1,261 @@
+{
+  "fields": {
+    "always_hold": {
+      "call_cases": 169,
+      "needless_hold": 169,
+      "ready": 0,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 0,
+      "any_right": 0,
+      "wrong_first": 0,
+      "bare_hold": 149,
+      "premature": 0
+    },
+    "always_advance": {
+      "call_cases": 169,
+      "needless_hold": 0,
+      "ready": 169,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 0,
+      "any_right": 0,
+      "wrong_first": 0,
+      "bare_hold": 0,
+      "premature": 149
+    },
+    "caller": {
+      "call_cases": 169,
+      "needless_hold": 0,
+      "ready": 169,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 126,
+      "any_right": 149,
+      "wrong_first": 23,
+      "bare_hold": 0,
+      "premature": 0
+    },
+    "raw_caller": {
+      "call_cases": 169,
+      "needless_hold": 3,
+      "ready": 166,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 69,
+      "any_right": 86,
+      "wrong_first": 26,
+      "bare_hold": 0,
+      "premature": 54
+    },
+    "full": {
+      "call_cases": 169,
+      "needless_hold": 0,
+      "ready": 169,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 126,
+      "any_right": 149,
+      "wrong_first": 23,
+      "bare_hold": 0,
+      "premature": 0
+    },
+    "raw_full": {
+      "call_cases": 169,
+      "needless_hold": 3,
+      "ready": 166,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 69,
+      "any_right": 86,
+      "wrong_first": 26,
+      "bare_hold": 0,
+      "premature": 54
+    },
+    "no_receiver_policy": {
+      "call_cases": 169,
+      "needless_hold": 169,
+      "ready": 0,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 0,
+      "any_right": 0,
+      "wrong_first": 0,
+      "bare_hold": 149,
+      "premature": 0
+    },
+    "inputs": {
+      "call_cases": 169,
+      "needless_hold": 0,
+      "ready": 169,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 126,
+      "any_right": 149,
+      "wrong_first": 23,
+      "bare_hold": 0,
+      "premature": 0
+    },
+    "raw_inputs": {
+      "call_cases": 169,
+      "needless_hold": 0,
+      "ready": 169,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 36,
+      "any_right": 39,
+      "wrong_first": 8,
+      "bare_hold": 0,
+      "premature": 105
+    },
+    "association": {
+      "call_cases": 169,
+      "needless_hold": 0,
+      "ready": 169,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 126,
+      "any_right": 149,
+      "wrong_first": 23,
+      "bare_hold": 0,
+      "premature": 0
+    },
+    "receiver": {
+      "call_cases": 169,
+      "needless_hold": 0,
+      "ready": 169,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 126,
+      "any_right": 149,
+      "wrong_first": 23,
+      "bare_hold": 0,
+      "premature": 0
+    },
+    "raw_association": {
+      "call_cases": 169,
+      "needless_hold": 27,
+      "ready": 142,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 36,
+      "any_right": 39,
+      "wrong_first": 113,
+      "bare_hold": 0,
+      "premature": 0
+    },
+    "raw_receiver": {
+      "call_cases": 169,
+      "needless_hold": 27,
+      "ready": 142,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 36,
+      "any_right": 39,
+      "wrong_first": 113,
+      "bare_hold": 0,
+      "premature": 0
+    },
+    "python": {
+      "call_cases": 169,
+      "needless_hold": 0,
+      "ready": 169,
+      "all_call_values_in_prior_state": 0,
+      "ask_cases": 149,
+      "optional_only": 0,
+      "first_right": 126,
+      "any_right": 149,
+      "wrong_first": 23,
+      "bare_hold": 0,
+      "premature": 0
+    }
+  },
+  "consent": {
+    "no_receiver_policy": {
+      "confirm": 191,
+      "correct_confirm": 0,
+      "wrong_question": 0,
+      "premature": 0,
+      "bare_hold": 191,
+      "call": 169,
+      "ready": 0,
+      "needless_hold": 169
+    },
+    "inputs": {
+      "confirm": 191,
+      "correct_confirm": 0,
+      "wrong_question": 0,
+      "premature": 191,
+      "bare_hold": 0,
+      "call": 169,
+      "ready": 169,
+      "needless_hold": 0
+    },
+    "raw_inputs": {
+      "confirm": 191,
+      "correct_confirm": 0,
+      "wrong_question": 2,
+      "premature": 189,
+      "bare_hold": 0,
+      "call": 169,
+      "ready": 169,
+      "needless_hold": 0
+    },
+    "association": {
+      "confirm": 191,
+      "correct_confirm": 183,
+      "wrong_question": 0,
+      "premature": 8,
+      "bare_hold": 0,
+      "call": 169,
+      "ready": 169,
+      "needless_hold": 0
+    },
+    "receiver": {
+      "confirm": 191,
+      "correct_confirm": 191,
+      "wrong_question": 0,
+      "premature": 0,
+      "bare_hold": 0,
+      "call": 169,
+      "ready": 169,
+      "needless_hold": 0
+    },
+    "raw_association": {
+      "confirm": 191,
+      "correct_confirm": 182,
+      "wrong_question": 2,
+      "premature": 7,
+      "bare_hold": 0,
+      "call": 169,
+      "ready": 142,
+      "needless_hold": 27
+    },
+    "raw_receiver": {
+      "confirm": 191,
+      "correct_confirm": 183,
+      "wrong_question": 2,
+      "premature": 6,
+      "bare_hold": 0,
+      "call": 169,
+      "ready": 142,
+      "needless_hold": 27
+    }
+  },
+  "excluded_from_original": {
+    "other": 377
+  }
+}

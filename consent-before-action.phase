@@ -1,0 +1,4 @@
+fact complete from intake.complete owner intake
+fact offered from receiver.offered owner receiver
+fact accepted from customer.accepted owner customer
+guarantee submit when complete and offered and accepted

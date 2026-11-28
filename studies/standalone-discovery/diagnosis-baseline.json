@@ -1,0 +1,93 @@
+{
+  "always_hold": {
+    "call_cases": 85,
+    "needless_hold": 85,
+    "ready": 0,
+    "all_call_values_in_prior_state": 0,
+    "ask_cases": 87,
+    "optional_only": 0,
+    "first_right": 0,
+    "any_right": 0,
+    "wrong_first": 0,
+    "bare_hold": 87,
+    "premature": 0
+  },
+  "always_advance": {
+    "call_cases": 85,
+    "needless_hold": 0,
+    "ready": 85,
+    "all_call_values_in_prior_state": 0,
+    "ask_cases": 87,
+    "optional_only": 0,
+    "first_right": 0,
+    "any_right": 0,
+    "wrong_first": 0,
+    "bare_hold": 0,
+    "premature": 87
+  },
+  "caller": {
+    "call_cases": 85,
+    "needless_hold": 0,
+    "ready": 85,
+    "all_call_values_in_prior_state": 0,
+    "ask_cases": 87,
+    "optional_only": 0,
+    "first_right": 79,
+    "any_right": 87,
+    "wrong_first": 8,
+    "bare_hold": 0,
+    "premature": 0
+  },
+  "raw_caller": {
+    "call_cases": 85,
+    "needless_hold": 5,
+    "ready": 80,
+    "all_call_values_in_prior_state": 0,
+    "ask_cases": 87,
+    "optional_only": 0,
+    "first_right": 36,
+    "any_right": 50,
+    "wrong_first": 22,
+    "bare_hold": 0,
+    "premature": 29
+  },
+  "full": {
+    "call_cases": 85,
+    "needless_hold": 0,
+    "ready": 85,
+    "all_call_values_in_prior_state": 0,
+    "ask_cases": 87,
+    "optional_only": 0,
+    "first_right": 79,
+    "any_right": 87,
+    "wrong_first": 8,
+    "bare_hold": 0,
+    "premature": 0
+  },
+  "raw_full": {
+    "call_cases": 85,
+    "needless_hold": 5,
+    "ready": 80,
+    "all_call_values_in_prior_state": 0,
+    "ask_cases": 87,
+    "optional_only": 0,
+    "first_right": 36,
+    "any_right": 50,
+    "wrong_first": 22,
+    "bare_hold": 0,
+    "premature": 29
+  },
+  "python": {
+    "call_cases": 85,
+    "needless_hold": 0,
+    "ready": 85,
+    "all_call_values_in_prior_state": 0,
+    "ask_cases": 87,
+    "optional_only": 0,
+    "first_right": 79,
+    "any_right": 87,
+    "wrong_first": 8,
+    "bare_hold": 0,
+    "premature": 0
+  }
+}

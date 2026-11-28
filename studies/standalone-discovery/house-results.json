@@ -1,0 +1,46 @@
+{
+  "inputs": {
+    "confirm": 148,
+    "premature": 148,
+    "correct_consent": 0,
+    "wrong_question": 0,
+    "call": 117,
+    "needless_hold": 0,
+    "field_cases": 130,
+    "first_field_right": 106,
+    "field_premature": 0
+  },
+  "receiver": {
+    "confirm": 148,
+    "premature": 0,
+    "correct_consent": 148,
+    "wrong_question": 0,
+    "call": 117,
+    "needless_hold": 0,
+    "field_cases": 130,
+    "first_field_right": 106,
+    "field_premature": 0
+  },
+  "raw_receiver": {
+    "confirm": 148,
+    "premature": 4,
+    "correct_consent": 133,
+    "wrong_question": 11,
+    "call": 117,
+    "needless_hold": 18,
+    "field_cases": 130,
+    "first_field_right": 41,
+    "field_premature": 1
+  },
+  "raw_quoted": {
+    "confirm": 148,
+    "premature": 0,
+    "correct_consent": 137,
+    "wrong_question": 11,
+    "call": 117,
+    "needless_hold": 52,
+    "field_cases": 130,
+    "first_field_right": 41,
+    "field_premature": 1
+  }
+}
