@@ -1,0 +1,50 @@
+{
+  "135a417ab091e4f8": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "23067ef35c61528e": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "50e07cd688e64fb9": {
+    "question": null,
+    "reason": "the reported failure depends on storage, syntax target or a cited equivalence check outside this reproduction"
+  },
+  "668fa3ff116194dd": {
+    "question": null,
+    "reason": "the reported failure depends on storage, syntax target or a cited equivalence check outside this reproduction"
+  },
+  "6e4d802c5ae0e16e": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "709c8a267f44d9bf": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "725d38cd3cf1bc9a": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "7d54989e79f76b1d": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "8b5fa73adc260da1": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "e40268bcf1af1862": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "f429b8a529fa578b": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "f51fbd7faf8dc4c0": {
+    "question": null,
+    "reason": "triage from supplied report"
+  }
+}

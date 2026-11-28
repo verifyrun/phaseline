@@ -1,0 +1,46 @@
+{
+  "071590bbc0217c29": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "11742984944f886f": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "287b2ba67333df78": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "367bb7f83c38254e": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "3cc403801f95a6e7": {
+    "question": "Which hook first removes the exception alias when the hooks run one at a time?",
+    "reason": "formatter alone preserves the reported alias"
+  },
+  "43bb4d33e1e387c8": {
+    "question": "Can you give the smallest source example whose formatting changes between the two line lengths?",
+    "reason": "no input for the proposed width comparison"
+  },
+  "516e40adf23a28cd": {
+    "question": "Is the failure specifically that the formatted result still exceeds the requested line length?",
+    "reason": "successful rendering still violates stated width"
+  },
+  "5d09ac262723ab85": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "60a05489bf1ae7bf": {
+    "question": "Does running python -m black inside the activated environment use the same interpreter as the failing black command?",
+    "reason": "two interpreter versions"
+  },
+  "6213c8fe08b09a18": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "8dd7b4bbc6e60cec": {
+    "question": null,
+    "reason": "the reported failure depends on storage, syntax target or a cited equivalence check outside this reproduction"
+  }
+}
