@@ -2,8 +2,8 @@
 import {readFileSync,writeFileSync} from "node:fs";
 import {decide,suggestPrerequisite} from "@verifyrun/phaseline";
 const read=p=>JSON.parse(readFileSync(p,"utf8"));
-const [schema,train,past,raw,destination] = process.argv.slice(2);
-const fields = read(schema).find(s=>s.service_name==="Hotels_4").intents.find(i=>i.name==="ReserveHotel").required_slots;
+const [schema,train,past,raw,destination,target="Hotels_4",method="ReserveHotel"] = process.argv.slice(2);
+const fields = read(schema).find(s=>s.service_name===target).intents.find(i=>i.name===method).required_slots;
 const candidate=suggestPrerequisite(read(train));
 const rawStates=read(raw);
 const results={};
@@ -32,6 +32,14 @@ for(const [id,r] of Object.entries(read(past))) {
     row[name+"association"]=check([...fields,"approval"],new Set([...have,...(suggested?["approval"]:[])]));
     row[name+"receiver"]=check([...fields,"approval"],new Set([...have,...(scoped?["approval"]:[])]));
   }
+  // A statistical dialogue-act estimate alone can accept an unrelated "yes".
+  const priorText = r.text.at(-2)?.[1] ?? "", userText = r.text.at(-1)?.[1] ?? "";
+  const offered = /\b(confirm|confirmation|correct|is that right|sound right|sound good|is that okay)\b/i.test(priorText);
+  const assent = /\b(yes|yep|yeah|correct|right|confirm|perfect|absolutely|please do|go ahead|sounds good|sounds great|sounds fine|sounds (?:quite )?alright|book it|that works)\b/i.test(userText);
+  const changed = /\b(no|nope|actually|instead|change|different|except|rather|wrong|wait|cancel)\b/i.test(userText);
+  const scopedRaw = rawEvidence.has("previous.CONFIRM") && rawEvidence.has("user.AFFIRM") &&
+    !rawEvidence.has("user.NEGATE") && !rawEvidence.has("user.INFORM");
+  row.raw_quoted=check([...fields,"approval"],new Set([...rawKnown,...(scopedRaw && offered && assent && !changed?["approval"]:[])]));
   results[id]=row;
 }
 writeFileSync(destination,JSON.stringify({candidate,results}));

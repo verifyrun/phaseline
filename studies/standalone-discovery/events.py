@@ -17,7 +17,7 @@ def events(previous, user):
     return sorted(["previous." + v for v in actions(previous)] + ["user." + v for v in actions(user)])
 
 
-def run(directory, schema, output, learn):
+def run(directory, schema, output, learn, target=("Hotels_4","ReserveHotel")):
     transactional = {(s["service_name"], intent["name"]) for s in schema for intent in s["intents"]
                      if intent["is_transactional"]}
     training, visible, oracle, domains = [], {}, {}, Counter()
@@ -41,7 +41,7 @@ def run(directory, schema, output, learn):
                             training.append({"seen":features,"acted":called})
                             domains[service]+=1
                         continue
-                    if (service,intent)!=("Hotels_4","ReserveHotel"):continue
+                    if (service,intent)!=target:continue
                     key=str(d["dialogue_id"])+"/"+str(j)
                     # Visible current state and previous actual proposal, never the next turn.
                     visible[key]={"seen":features, "known":f["state"]["slot_values"],
@@ -57,4 +57,5 @@ def run(directory, schema, output, learn):
         print(len(training),len(domains),dict(domains))
 
 if __name__=="__main__":
-    run(Path(sys.argv[1]),json.loads(Path(sys.argv[2]).read_text()),Path(sys.argv[3]),len(sys.argv)>4)
+    run(Path(sys.argv[1]),json.loads(Path(sys.argv[2]).read_text()),Path(sys.argv[3]),"train" in sys.argv[4:],
+        ("Hotels_2","BookHouse") if "house" in sys.argv[4:] else ("Hotels_4","ReserveHotel"))

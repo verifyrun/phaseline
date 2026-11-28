@@ -5,7 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 
-def run(directory, out):
+def run(directory, out, service="Hotels_4", intent="ReserveHotel"):
     evidence, gold, stats = [], {}, Counter()
     for path in sorted(directory.glob("dialogues_*.json")):
         for dialog in json.loads(path.read_text()):
@@ -13,10 +13,10 @@ def run(directory, out):
             prefix = []
             for i, turn in enumerate(turns[:-1]):
                 prefix.append([turn["speaker"], turn["utterance"]])
-                user = next((f for f in turn["frames"] if f["service"] == "Hotels_4"), None)
-                if turn["speaker"] != "USER" or not user or user["state"]["active_intent"] != "ReserveHotel":
+                user = next((f for f in turn["frames"] if f["service"] == service), None)
+                if turn["speaker"] != "USER" or not user or user["state"]["active_intent"] != intent:
                     continue
-                system = next((f for f in turns[i+1]["frames"] if f["service"] == "Hotels_4"), {})
+                system = next((f for f in turns[i+1]["frames"] if f["service"] == service), {})
                 asks = sorted({a["slot"] for a in system.get("actions", []) if a["act"] == "REQUEST" and a["slot"]})
                 call = system.get("service_call", {})
                 called = call.get("method") == "ReserveHotel"
@@ -36,5 +36,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("directory", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--house", action="store_true")
     args = parser.parse_args()
-    run(args.directory, args.output)
+    run(args.directory, args.output, *(("Hotels_2","BookHouse") if args.house else ("Hotels_4","ReserveHotel")))
