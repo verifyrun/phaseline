@@ -1,0 +1,134 @@
+{
+  "part-00": {
+    "original_changed": false,
+    "different_saved_bytes": false,
+    "original_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_sha256": "941b383a3179337cda3e0f256385897a468dff3cadf10d43109adc628113e7cc"
+  },
+  "part-01": {
+    "original_changed": true,
+    "different_saved_bytes": true,
+    "original_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_sha256": "8492dbe56fd7e1ee5c2e19da6f4d03265f92e7d06f704d8e1de174ef900a6ef6"
+  },
+  "part-02": {
+    "original_changed": true,
+    "different_saved_bytes": true,
+    "original_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_sha256": "9d52d409c05cf634b77c61eb6cea6dc0ffe6f2a75682fb515fbc66c61db890f5"
+  },
+  "part-03": {
+    "original_changed": false,
+    "different_saved_bytes": false,
+    "original_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_sha256": "941b383a3179337cda3e0f256385897a468dff3cadf10d43109adc628113e7cc"
+  },
+  "part-04": {
+    "original_changed": true,
+    "different_saved_bytes": true,
+    "original_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_sha256": "8492dbe56fd7e1ee5c2e19da6f4d03265f92e7d06f704d8e1de174ef900a6ef6"
+  },
+  "part-05": {
+    "original_changed": true,
+    "different_saved_bytes": true,
+    "original_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_sha256": "9d52d409c05cf634b77c61eb6cea6dc0ffe6f2a75682fb515fbc66c61db890f5"
+  },
+  "part-06": {
+    "original_changed": false,
+    "different_saved_bytes": false,
+    "original_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_sha256": "941b383a3179337cda3e0f256385897a468dff3cadf10d43109adc628113e7cc"
+  },
+  "part-07": {
+    "original_changed": true,
+    "different_saved_bytes": true,
+    "original_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_sha256": "8492dbe56fd7e1ee5c2e19da6f4d03265f92e7d06f704d8e1de174ef900a6ef6"
+  },
+  "part-08": {
+    "original_changed": true,
+    "different_saved_bytes": true,
+    "original_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_sha256": "929677c973ed8dc212d955f05227ea35df878ea5c7919bc94dd7129aedc524aa"
+  },
+  "part-09": {
+    "original_changed": false,
+    "different_saved_bytes": false,
+    "original_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_sha256": "941b383a3179337cda3e0f256385897a468dff3cadf10d43109adc628113e7cc"
+  },
+  "part-10": {
+    "original_changed": true,
+    "different_saved_bytes": true,
+    "original_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_sha256": "823971f77ddec7b9a869afd88dc4514de94fb2eca19faf183bcec6908b13dee6"
+  },
+  "part-11": {
+    "original_changed": true,
+    "different_saved_bytes": true,
+    "original_observed": [
+      "esbenp.prettier-vscode"
+    ],
+    "alternate_observed": [
+      "vscode.typescript-language-features"
+    ],
+    "alternate_sha256": "b42adb82b729ee3cdc71d23576c1f19b3a7e8b7816d820a73a13d57d9573600e"
+  }
+}

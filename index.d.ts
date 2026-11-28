@@ -78,3 +78,15 @@ export function inquireOutput(settings: string[], measure: (configuration: Reado
     {status: "decided"; matches: boolean} | {status: "ask"; setting: string} |
     {status: "hold"; reason: "over_budget" | "indistinguishable" | "setting_limit"} |
     {status: "hold"; reason: "undeclared_setting"; setting: string});
+
+export interface RunBinding { run: string; release: string; subject: string }
+export interface ProducerReceipt extends RunBinding {
+  step: number; output?: string; tool?: string; installation?: string;
+}
+/** Attribute a surviving symptom to the stage and installation observed on this exact run. */
+export function traceProducer(event: RunBinding & {before: string; after: string; steps: number},
+  receipts: ProducerReceipt[], hasSymptom: (text: string) => boolean):
+  {status: "absent" | "preexisting"} |
+  {status: "ask"; step: number; field: "output" | "tool" | "installation"; tool?: string} |
+  {status: "hold"; reason: "conflicting_receipts"; step: number; field: string} |
+  {status: "traced"; step: number; tool: string; installation: string};

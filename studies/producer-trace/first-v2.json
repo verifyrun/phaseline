@@ -1,0 +1,198 @@
+{
+  "part-00": {
+    "logs": {
+      "status": "preexisting"
+    },
+    "tool_only": {
+      "status": "preexisting"
+    },
+    "no_current_log": {
+      "status": "preexisting"
+    }
+  },
+  "part-01": {
+    "logs": {
+      "status": "traced",
+      "step": 1,
+      "tool": "esbenp.prettier-vscode",
+      "installation": "engine-2.8.8/node_modules/prettier@2.8.8"
+    },
+    "tool_only": {
+      "status": "ask",
+      "step": 1,
+      "field": "installation",
+      "tool": "esbenp.prettier-vscode"
+    },
+    "no_current_log": {
+      "status": "ask",
+      "step": 1,
+      "field": "tool"
+    }
+  },
+  "part-02": {
+    "logs": {
+      "status": "traced",
+      "step": 1,
+      "tool": "vscode.typescript-language-features",
+      "installation": "vscode/bundled-tsserver@6.0.3"
+    },
+    "tool_only": {
+      "status": "ask",
+      "step": 1,
+      "field": "installation",
+      "tool": "vscode.typescript-language-features"
+    },
+    "no_current_log": {
+      "status": "ask",
+      "step": 1,
+      "field": "tool"
+    }
+  },
+  "part-03": {
+    "logs": {
+      "status": "preexisting"
+    },
+    "tool_only": {
+      "status": "preexisting"
+    },
+    "no_current_log": {
+      "status": "preexisting"
+    }
+  },
+  "part-04": {
+    "logs": {
+      "status": "traced",
+      "step": 1,
+      "tool": "esbenp.prettier-vscode",
+      "installation": "engine-2.8.8/node_modules/prettier@2.8.8"
+    },
+    "tool_only": {
+      "status": "ask",
+      "step": 1,
+      "field": "installation",
+      "tool": "esbenp.prettier-vscode"
+    },
+    "no_current_log": {
+      "status": "ask",
+      "step": 1,
+      "field": "tool"
+    }
+  },
+  "part-05": {
+    "logs": {
+      "status": "traced",
+      "step": 1,
+      "tool": "vscode.typescript-language-features",
+      "installation": "vscode/bundled-tsserver@6.0.3"
+    },
+    "tool_only": {
+      "status": "ask",
+      "step": 1,
+      "field": "installation",
+      "tool": "vscode.typescript-language-features"
+    },
+    "no_current_log": {
+      "status": "ask",
+      "step": 1,
+      "field": "tool"
+    }
+  },
+  "part-06": {
+    "logs": {
+      "status": "preexisting"
+    },
+    "tool_only": {
+      "status": "preexisting"
+    },
+    "no_current_log": {
+      "status": "preexisting"
+    }
+  },
+  "part-07": {
+    "logs": {
+      "status": "traced",
+      "step": 1,
+      "tool": "esbenp.prettier-vscode",
+      "installation": "engine-3.3.3/node_modules/prettier@3.3.3"
+    },
+    "tool_only": {
+      "status": "ask",
+      "step": 1,
+      "field": "installation",
+      "tool": "esbenp.prettier-vscode"
+    },
+    "no_current_log": {
+      "status": "ask",
+      "step": 1,
+      "field": "tool"
+    }
+  },
+  "part-08": {
+    "logs": {
+      "status": "traced",
+      "step": 1,
+      "tool": "esbenp.prettier-vscode",
+      "installation": "engine-3.3.3/node_modules/prettier@3.3.3"
+    },
+    "tool_only": {
+      "status": "ask",
+      "step": 1,
+      "field": "installation",
+      "tool": "esbenp.prettier-vscode"
+    },
+    "no_current_log": {
+      "status": "ask",
+      "step": 1,
+      "field": "tool"
+    }
+  },
+  "part-09": {
+    "logs": {
+      "status": "preexisting"
+    },
+    "tool_only": {
+      "status": "preexisting"
+    },
+    "no_current_log": {
+      "status": "preexisting"
+    }
+  },
+  "part-10": {
+    "logs": {
+      "status": "traced",
+      "step": 1,
+      "tool": "vscode.typescript-language-features",
+      "installation": "vscode/bundled-tsserver@6.0.3"
+    },
+    "tool_only": {
+      "status": "ask",
+      "step": 1,
+      "field": "installation",
+      "tool": "vscode.typescript-language-features"
+    },
+    "no_current_log": {
+      "status": "ask",
+      "step": 1,
+      "field": "tool"
+    }
+  },
+  "part-11": {
+    "logs": {
+      "status": "traced",
+      "step": 1,
+      "tool": "esbenp.prettier-vscode",
+      "installation": "engine-3.3.3/node_modules/prettier@3.3.3"
+    },
+    "tool_only": {
+      "status": "ask",
+      "step": 1,
+      "field": "installation",
+      "tool": "esbenp.prettier-vscode"
+    },
+    "no_current_log": {
+      "status": "ask",
+      "step": 1,
+      "field": "tool"
+    }
+  }
+}

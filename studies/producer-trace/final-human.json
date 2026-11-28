@@ -1,0 +1,146 @@
+{
+  "099bbf723723e2de": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "0bd787ca23f72dc3": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "174404b92015799f": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "3f179e18a15b7990": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "4f96eeb5091f4b9c": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "50680400257b4bfe": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "594e11f038101ae7": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "61ce774d3a47446d": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "7a9e9cd7e18e8f8d": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "80cd02ada26e9676": {
+    "action": "ask",
+    "evidence": "The two entry points can resolve different modules.",
+    "field": "install",
+    "question": "Which Prettier module path and version did VS Code actually load for that file, compared with the CLI installation?"
+  },
+  "96727ba696e0e46b": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "984adc3c9069a68e": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "9d856d3516e89d1a": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "b137760c589d709a": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "b574361f8b558537": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "ba1c540185017694": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "be668f46f904f43f": {
+    "action": "ask",
+    "evidence": "The two entry points can resolve different modules.",
+    "field": "install",
+    "question": "Which Prettier module path and version did VS Code actually load for that file, compared with the CLI installation?"
+  },
+  "c86ae6a85bf0c7f8": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "cef257337d554ad7": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "d908401f20b39b1d": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "e102e018de358d88": {
+    "action": "ask",
+    "evidence": "The receiver has several providers and a setting alone does not establish which ran.",
+    "field": "provider",
+    "question": "Which formatter handled that save? Can you show the formatter output for the affected file from that invocation?"
+  },
+  "ed0e1d65b87a4fca": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "fc147499caa6b18b": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection. Historical project manifest or settings recovered.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  },
+  "fc6dd8cf135c5bf9": {
+    "action": "ask",
+    "evidence": "The extension's own report form identifies its event log as the source for formatter selection.",
+    "field": "log",
+    "question": "Can you share the Prettier output log for one affected file while reproducing the issue?"
+  }
+}
