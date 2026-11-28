@@ -26,8 +26,10 @@
     "question": "Can you show one exact source example and the invocation in which the tool introduces the reported change?"
   },
   "6846f487f09be889": {
-    "action": "advance",
-    "evidence": "The maintainer can investigate the supplied report; this does not authorize a release."
+    "action": "ask",
+    "evidence": "A moving branch name does not identify the revised installation.",
+    "field": "revision",
+    "question": "Does the same input still fail on the current revised build, and which exact revision did you run?"
   },
   "6d0ab01cc3ca295c": {
     "action": "advance",

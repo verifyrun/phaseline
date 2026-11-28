@@ -6,7 +6,7 @@ from pathlib import Path
 
 def read(report, project):
     title=report["title"]
-    body=re.sub(r"<!--.*?-->", "",report["body"],flags=re.S)
+    body=re.sub(r"<!--.*?-->", "",report["body"],flags=re.S).replace("\r\n","\n")
     text=title+"\n"+body
     def ask(field,question,evidence):
         return {"action":"ask","field":field,"question":question,"evidence":evidence}
@@ -23,7 +23,7 @@ def read(report, project):
         return ask("document","Which exact documentation page or example still supplies the failing configuration?","The opening already contains the corrected configuration; its remaining source is the question.")
     if re.search(r'inconsistent|sometimes|intermittent',text,re.I) and re.search(r'different (?:users|commit)|same directory|same file',body,re.I):
         return ask("reproduction","Can you show one exact source example and the invocation in which the tool introduces the reported change?","An aggregate or intermittent result does not identify the transformation on an individual file.")
-    if re.search(r'not equivalent|invalid code|internal error',body,re.I) and re.search(r'(?:replicable|reproducible|repro).{0,35}(?:master|main)',body,re.I):
+    if (re.search(r'not equivalent|invalid code|internal error',body,re.I) or ('--- src' in body and '+++ dst' in body)) and re.search(r'(?:replicable|reproducible|repro).{0,35}(?:master|main)',body,re.I):
         return ask("revision","Does the same input still fail on the current revised build, and which exact revision did you run?","A moving branch name does not identify the revised installation.")
 
     log=bool(re.search(r'\[(?:["\']?)(?:INFO|DEBUG|ERROR|WARN)(?:["\']?)\s*[-\]]',body,re.I))
@@ -35,7 +35,26 @@ def read(report, project):
     else:
         context=""
     if project=="editor":
-        # Every branch names the missing observation that distinguishes the two plausible sources.
+        # Find the operation at issue before asking for a trace of the formatting operation.
+        if re.search(r'\bcpu\b|high memory|memory leak',title,re.I):
+            return ask("process","Which process consumes the resource when the symptom appears?","An extension log cannot identify which process is consuming CPU or memory.")
+        if re.search(r'uninstalled|disappeared|missing extension',title,re.I):
+            return ask("installed_files","Is the extension present in the affected editor profile’s extension directory after restart?","Installed files distinguish removal from activation failure.")
+        dep=re.search(r'(?:trouble getting|cannot find module|failed to load module)\s+[\x22\x27`]?([\w@./-]+)',body,re.I)
+        if dep and re.search(r'installed globally|global(?:ly)? install',body,re.I):
+            return ask("workspace_dependency","Is "+dep[1]+" installed in this workspace, and where does the project resolve it?","A global installation does not establish workspace resolution.")
+        if re.search(r'not (?:there|listed|a recognized (?:setting|option))|unrecognized (?:setting|option)',body,re.I) and re.search(r'option|setting',title,re.I):
+            return ask("option_owner","Which installed extension or tool defines that option in its settings schema?","An unrecognized option can belong to a different extension.")
+        if re.search(r'using bundled',body,re.I) and re.search(r'failed to load|resolved?|hoist',body,re.I):
+            return advance("The report supplies the failed lookup and bundled fallback. Reproduce that resolver path.")
+        if re.search(r'unknown file extension|unexpected token',body,re.I) and re.search(r'(?:extension|VS Code) Version',body,re.I) and re.search(r'config|activation',title,re.I):
+            return advance("The loader names the unsupported syntax or file type and the report identifies an edition to reproduce.")
+        if re.search(r'^update.*(?:readme|docs)|possible to|how (?:do|can|to)|^support\b',title,re.I) or re.search(r'should I (?:use npm to )?install|way I can set it up',body,re.I):
+            return advance("The owner can answer this usage or documentation question from the project's published behavior.")
+        if re.search(r'\.prettierrc',body,re.I) and re.search(r'"prettier\.\w+"',body) and re.search(r'settings|setting|width',title,re.I):
+            return advance("Check the supplied configuration keys against the file's schema and the editor's settings schema.")
+        if re.search(r'\beslint\b',body,re.I) and re.search(r'before .*?prettier|before .*?format|after .*?prettier',body,re.I):
+            return ask("isolation","Does this input still change the same way with ESLint disabled and the formatter run alone?","The report contains a before/after example with more than one possible writer.")
         phrases=("Extension is disabled. No formatters will be registered","File is ignored, skipping",
                  "Your project is configured to use an outdated version of prettier","This workspace is not trusted. Using the bundled version")
         if log and any(p.lower() in body.lower() for p in phrases):
