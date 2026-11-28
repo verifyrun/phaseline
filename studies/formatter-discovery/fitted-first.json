@@ -1,0 +1,50 @@
+{
+  "1506827f961ac807": {
+    "question": "Can you reproduce the failure with this exact input in an isolated formatter and share the failing reproduction?",
+    "reason": "native formatters accepted input"
+  },
+  "37be4079726d1805": {
+    "question": "Can you reproduce the failure with this exact input in an isolated formatter and share the failing reproduction?",
+    "reason": "native formatters accepted input"
+  },
+  "4547405a8af463c7": {
+    "question": "Can you reproduce the failure with this exact input in an isolated formatter and share the failing reproduction?",
+    "reason": "native formatters accepted input"
+  },
+  "467247949827def5": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "48642e0b70a13ef3": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "524bebb224d1da32": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "7fb9d35f2be45afd": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "85f76283f0852b5d": {
+    "question": "Which formatter binary and version actually ran on the failing file in that environment?",
+    "reason": "reported change versus native output"
+  },
+  "977e4538c0f20c44": {
+    "question": null,
+    "reason": "triage from supplied report"
+  },
+  "9ee63b5234bf3527": {
+    "question": "Which exact path is the link, and where does it point?",
+    "reason": "missing path mapping"
+  },
+  "ab713342dbf20548": {
+    "question": "Which downstream tool or display rejects the resulting line, and how does it measure its width?",
+    "reason": "receiver width convention"
+  },
+  "d2b4fe0b0d55a150": {
+    "question": null,
+    "reason": "triage from supplied report"
+  }
+}
