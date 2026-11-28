@@ -27,6 +27,10 @@ For an unpublished candidate, install its local .tgz file. After publication und
   node retention-check.mjs
   node contract-check.mjs
 
+## Find a question a local rule might have missed
+
+Run `phaseline suggest prerequisite traces.json` or call `suggestPrerequisite(traces)`. Each example records the features observable **before** a decision in `seen` and the independently labeled outcome in `acted`. A feature can be any named observation the reader was allowed to make. Include both outcomes and exclude future events. The command compares individual features and pairs by balanced accuracy, prefers the shorter equally scoring candidate, and reports ties and false positives and negatives. It returns a candidate from the supplied traces, including counterexample counts. A receiver must decide whether the association expresses a real requirement and bind its own evidence before allowing any action. Hidden features, alternatives outside positive singletons and pairs, biased logs and spurious correlations limit what can be learned.
+
 ## A first decision
 
 Save a rule as ship.phase:

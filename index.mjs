@@ -16,3 +16,5 @@ export function compare(oldRules, newRules) {
   const {result, bindings} = compareContracts(oldRules, newRules);
   return {status: result.changes.length || bindings.length ? "review" : "preserved", changes: result.changes, bindings};
 }
+
+export {suggestPrerequisite} from "./trace-prerequisite.mjs";

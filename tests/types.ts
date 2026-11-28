@@ -15,3 +15,7 @@ if (views.status === "hold") String(views.need?.column);
 import {checkSqliteRecipients} from "@verifyrun/phaseline";
 const preflight = checkSqliteRecipients(null, ["A"]);
 if (preflight.status === "hold") String(preflight.reason);
+
+import {suggestPrerequisite} from "@verifyrun/phaseline";
+const suggested = suggestPrerequisite([{seen:["approved"],acted:true}]);
+if (suggested.status === "candidate") String(suggested.features[0]);
