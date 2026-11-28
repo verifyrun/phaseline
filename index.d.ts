@@ -99,5 +99,6 @@ export function checkSqliteRecipients(policy: SqliteRecipientPolicy | null, prop
 /** Find a one- or two-feature positive association in labeled traces. A candidate grants no authority. */
 export function suggestPrerequisite(traces: {seen: string[]; acted: boolean}[]):
   | {status: "candidate"; scope: "supplied_traces"; features: string[]; truePositive: number;
-     falsePositive: number; falseNegative: number; trueNegative: number; equalBest: number}
+     falsePositive: number; falseNegative: number; trueNegative: number; equalBest: number;
+     counterexamples: {presentButWaited: number | null; absentButActed: number | null}}
   | {status: "insufficient_evidence"; reason: string};

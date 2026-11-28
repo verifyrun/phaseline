@@ -37,6 +37,14 @@ export function suggestPrerequisite(traces) {
   }
   for (const name of [...frequencies.keys()].sort()) consider([name],frequencies.get(name));
   for (const key of [...pairs.keys()].sort()) consider(JSON.parse(key),pairs.get(key));
-  return winner ? {status:"candidate",scope:"supplied_traces",...winner,equalBest:alternatives}
-    : {status:"insufficient_evidence",reason:"no_predictive_positive_feature"};
+  if (!winner) return {status:"insufficient_evidence",reason:"no_predictive_positive_feature"};
+  const counterexamples = {presentButWaited: null, absentButActed: null};
+  for (const [index, trace] of traces.entries()) {
+    const present = winner.features.every(name => trace.seen.includes(name));
+    if (present && !trace.acted && counterexamples.presentButWaited === null)
+      counterexamples.presentButWaited = index;
+    if (!present && trace.acted && counterexamples.absentButActed === null)
+      counterexamples.absentButActed = index;
+  }
+  return {status:"candidate",scope:"supplied_traces",...winner,equalBest:alternatives,counterexamples};
 }
