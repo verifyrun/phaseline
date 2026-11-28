@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import sys
 
 REPO="psf/black"
 def api(path,*args):
@@ -25,7 +26,8 @@ def select(item):
 if __name__=="__main__":
     skip=set()
     group_counts=[0,0]; briefs={}; gold={}; scanned=0
-    query="repo:psf/black is:issue is:closed comments:>=3 created:2024-01-01..2025-12-31"
+    dates = sys.argv[1] if len(sys.argv)>1 else "2024-01-01..2025-12-31"
+    query="repo:psf/black is:issue is:closed comments:>=3 created:"+dates
     for page in (1,2):
         items=api('search/issues','-f','q='+query,'-f','sort=created','-f','order=asc','-f','per_page=100','-f','page='+str(page))['items']
         for chunk in range(0,len(items),8):
