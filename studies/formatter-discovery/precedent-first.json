@@ -1,0 +1,62 @@
+{
+  "1506827f961ac807": {
+    "precedent": 3535,
+    "question": null,
+    "similarity": 0.135
+  },
+  "37be4079726d1805": {
+    "precedent": 3441,
+    "question": null,
+    "similarity": 0.201
+  },
+  "4547405a8af463c7": {
+    "precedent": 3660,
+    "question": null,
+    "similarity": 0.175
+  },
+  "467247949827def5": {
+    "precedent": 3447,
+    "question": null,
+    "similarity": 0.152
+  },
+  "48642e0b70a13ef3": {
+    "precedent": 4033,
+    "question": null,
+    "similarity": 0.172
+  },
+  "524bebb224d1da32": {
+    "precedent": 4033,
+    "question": null,
+    "similarity": 0.119
+  },
+  "7fb9d35f2be45afd": {
+    "precedent": 4111,
+    "question": null,
+    "similarity": 0.096
+  },
+  "85f76283f0852b5d": {
+    "precedent": 3450,
+    "question": null,
+    "similarity": 0.146
+  },
+  "977e4538c0f20c44": {
+    "precedent": 3540,
+    "question": null,
+    "similarity": 0.09
+  },
+  "9ee63b5234bf3527": {
+    "precedent": 3785,
+    "question": null,
+    "similarity": 0.106
+  },
+  "ab713342dbf20548": {
+    "precedent": 3716,
+    "question": null,
+    "similarity": 0.112
+  },
+  "d2b4fe0b0d55a150": {
+    "precedent": 3687,
+    "question": null,
+    "similarity": 0.13
+  }
+}
